@@ -44,6 +44,9 @@ const isActive = (href: string) =>
         <li class="site-nav__cta">
           <a href="/contact/" class="btn btn--primary">Book a Free Consultation</a>
         </li>
+        <li class="site-nav__phone">
+          <a href={SITE.phoneHref}>Or call {SITE.phone}</a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -148,6 +151,11 @@ const isActive = (href: string) =>
     font-size: 0.95rem;
   }
 
+  /* Tap-to-call is a mobile affordance; hide it in the desktop bar. */
+  .site-nav__phone {
+    display: none;
+  }
+
   .nav-toggle {
     display: none;
     align-items: center;
@@ -226,6 +234,22 @@ const isActive = (href: string) =>
 
     .site-nav__cta {
       margin-top: 1.25rem;
+    }
+
+    .site-nav__phone {
+      display: block;
+      text-align: center;
+      margin-top: 0.9rem;
+    }
+
+    .site-nav__phone a {
+      display: inline-block;
+      padding: 0.4rem 0.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--clay-deep);
+      text-decoration: none;
+      border-bottom: none;
     }
 
     .site-nav .btn {

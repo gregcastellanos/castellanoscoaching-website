@@ -66,7 +66,7 @@ export const SERVICES: ServiceEntry[] = [
 
 export const NAV = [
   { href: '/services/', label: 'Services' },
-  { href: '/castellanos-compass/', label: 'The Compass' },
+  { href: '/castellanos-compass/', label: 'How It Works' },
   { href: '/about/', label: 'About Greg' },
   { href: '/resources/', label: 'Resources' },
   { href: '/faq/', label: 'FAQ' },

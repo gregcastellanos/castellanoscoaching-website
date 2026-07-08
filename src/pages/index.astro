@@ -9,7 +9,7 @@ import { SERVICES, SITE } from '../data/site';
 import { businessSchema } from '../data/schema';
 
 const metaTitle =
-  'Executive Function & Life Skills Coaching for Neurodivergent Teens and Adults | Castellanos Coaching — Sonoma County & Bay Area';
+  'Executive Function Coach in Sonoma County & the Bay Area | Castellanos Coaching';
 const metaDescription =
   'Executive function, academic, social skills, and independence coaching for neurodivergent teens, young adults, and adults. In person in Sebastopol, Santa Rosa, Sonoma County, Marin, and the Bay Area — remote nationwide. Book a free consultation.';
 
@@ -608,8 +608,8 @@ const faqPreview = [
       grid-template-columns: 1fr;
     }
 
-    .hero__visual { order: -1; }
-    .hero__compass { width: min(60%, 16rem); }
+    /* Headline leads on small screens; the compass is decoration. */
+    .hero__visual { display: none; }
     .compass-section__visual { display: none; }
     .testimonial { position: static; }
   }

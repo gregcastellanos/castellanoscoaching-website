@@ -159,6 +159,10 @@ strong { color: var(--ink); font-weight: 620; }
   color: var(--cream);
 }
 
+.section--ink .lede {
+  color: rgba(250, 247, 241, 0.82);
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
