@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CompassMark from '../components/CompassMark.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema, personSchema } from '../data/schema';
+
+const metaTitle =
+  'About Greg Castellanos — Executive Function & Life Skills Coach | Sebastopol, CA';
+const metaDescription = `Greg Castellanos is an educator and executive function coach with 15+ years supporting neurodivergent learners — teaching, STEAM education, and one-on-one mentoring. Based in Sebastopol, serving Sonoma County, Marin, the Bay Area, and remote clients.`;
+
+const jsonLd = [
+  { '@context': 'https://schema.org', ...personSchema },
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'About Greg', path: '/about/' },
+  ]),
+];
+
+const values = [
+  {
+    title: 'Respect is the method',
+    body: `Nothing works with a client who feels like a problem being managed. Greg starts from genuine curiosity about who someone is and what they care about — and clients can tell the difference immediately.`,
+  },
+  {
+    title: 'Concrete beats clever',
+    body: `A decent system that actually gets used beats an elegant one that doesn't. Sessions end with something real in place, and the next step small enough to actually happen.`,
+  },
+  {
+    title: 'Honest, kindly delivered',
+    body: `Families get straight answers — about progress, about setbacks, and about whether coaching is helping. Teens especially respond to an adult who levels with them.`,
+  },
+  {
+    title: 'Independence is the goal',
+    body: `Success is measured by what clients run without Greg. Every engagement is designed, from day one, to make itself unnecessary.`,
+  },
+];
+---
+
+<BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
+  <section class="about-hero">
+    <div class="wrap about-hero__inner">
+      <div>
+        <p class="eyebrow">About Greg</p>
+        <h1>An educator who never stopped asking why school wasn't working for some kids</h1>
+        <p class="lede">
+          Greg Castellanos has spent more than fifteen years teaching,
+          mentoring, and coaching neurodivergent learners — in classrooms,
+          STEAM programs, and one-on-one — and holds a Master's degree in
+          Education.
+        </p>
+      </div>
+      <div class="about-hero__portrait" aria-hidden="true">
+        <!-- Replace with a real photo: /public/greg.jpg, then swap this block
+             for <img src="/greg.jpg" alt="Greg Castellanos" width="480" height="560" loading="eager" /> -->
+        <div class="portrait-placeholder">
+          <CompassMark size={64} />
+          <span>Photo of Greg</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap about-story">
+      <div class="prose">
+        <h2>The through-line</h2>
+        <p>
+          Greg's career has run through classrooms, STEAM and
+          maker education, curriculum design, AV and creative technology, and
+          academic coaching. The settings changed; the students who stayed
+          with him didn't. In every one of those rooms there were bright,
+          interesting kids — usually with ADHD, autism, or a learning
+          difference — working harder than everyone else and getting less
+          back.
+        </p>
+        <p>
+          What they needed almost never turned out to be more content
+          instruction. It was the layer underneath: how to plan, how to
+          start, how to talk to the teacher, how to recover from a bad week,
+          how to trust themselves again. Schools rarely have time to teach
+          that layer. Castellanos Coaching exists because someone should.
+        </p>
+        <h2>Why coaching, and why this kind</h2>
+        <p>
+          The coaching Greg practices is closer to skilled mentoring than to
+          either tutoring or therapy. It's hands-on and it happens in the
+          middle of real life: a real calendar, a real job application, a
+          real kitchen, a real conversation the client has been dreading.
+          Project-based teaching taught him that people learn by building
+          things that matter to them — so that's how coaching runs, too.
+        </p>
+        <p>
+          His technology background matters more than it might seem. Many of
+          his clients live half their lives in games, code, music software,
+          or online communities — and Greg can meet them there authentically,
+          then use those interests as the engine of the work rather than
+          treating them as the distraction.
+        </p>
+        <h2>Beyond the work</h2>
+        <p>
+          Greg lives in Sebastopol, in Sonoma County's West County, and works
+          with families across the North Bay — Santa Rosa, Bodega,
+          Occidental, Marin — as well as remote clients nationwide. He's a
+          maker and tinkerer by disposition, which is exactly the energy he
+          brings to a stuck routine or a chaotic backpack: take it apart,
+          figure out how it actually works, build something better.
+        </p>
+      </div>
+
+      <aside class="about-facts card" aria-label="Quick facts">
+        <h2>At a glance</h2>
+        <ul>
+          <li><strong>15+ years</strong> with neurodivergent learners</li>
+          <li><strong>M.Ed.</strong> — Master's degree in Education</li>
+          <li>Classroom teaching, STEAM & maker education</li>
+          <li>Curriculum design & project-based learning</li>
+          <li>Executive function & academic coaching</li>
+          <li>Life skills & independence mentoring</li>
+          <li>Based in <strong>Sebastopol, CA</strong></li>
+          <li>In person: Sonoma County, Marin, Bay Area</li>
+          <li>Remote: nationwide</li>
+        </ul>
+        <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--sand" aria-labelledby="values-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How Greg works</p>
+        <h2 id="values-title">Four commitments, every client</h2>
+      </div>
+      <div class="values-grid">
+        {
+          values.map((v) => (
+            <div class="card value-card">
+              <h3>{v.title}</h3>
+              <p>{v.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Come meet Greg."
+    body="The free consultation is a real conversation, not a sales call. Bring your questions — and bring your skepticism, too."
+  />
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background:
+      radial-gradient(48rem 24rem at 90% -20%, rgba(63, 110, 126, 0.14), transparent 70%),
+      var(--sand);
+    border-bottom: 1px solid var(--line);
+    padding-block: clamp(3.5rem, 3rem + 3vw, 6rem);
+  }
+
+  .about-hero__inner {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+    align-items: center;
+  }
+
+  .about-hero h1 {
+    font-size: var(--text-3xl);
+  }
+
+  .portrait-placeholder {
+    aspect-ratio: 4 / 5;
+    max-width: 22rem;
+    margin-inline: auto;
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(20rem 20rem at 30% 20%, rgba(201, 163, 92, 0.25), transparent 70%),
+      var(--sand-deep);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    font-weight: 560;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .portrait-placeholder :global(svg) {
+    color: var(--clay);
+    opacity: 0.7;
+  }
+
+  .about-story {
+    display: grid;
+    grid-template-columns: 1.4fr 0.85fr;
+    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+    align-items: start;
+  }
+
+  .about-story .prose h2 {
+    font-size: var(--text-xl);
+  }
+
+  .about-facts {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .about-facts h2 {
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 680;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: 1rem;
+  }
+
+  .about-facts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: grid;
+    gap: 0.65rem;
+    font-size: 0.98rem;
+  }
+
+  .about-facts li {
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+  }
+
+  .value-card h3 {
+    font-size: var(--text-lg);
+    margin-bottom: 0.5rem;
+  }
+
+  .value-card p {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 860px) {
+    .about-hero__inner,
+    .about-story,
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-facts {
+      position: static;
+    }
+  }
+</style>

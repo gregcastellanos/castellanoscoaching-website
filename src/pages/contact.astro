@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema, businessSchema } from '../data/schema';
+
+const metaTitle =
+  'Contact Greg — Book a Free Coaching Consultation | Castellanos Coaching, Sebastopol CA';
+const metaDescription = `Book a free 20-minute consultation with Greg Castellanos — executive function and life skills coaching for neurodivergent teens and adults. Call (707) 395-7554, email, or schedule online. Sonoma County, Marin, Bay Area & remote.`;
+
+const jsonLd = [
+  businessSchema,
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Contact', path: '/contact/' },
+  ]),
+];
+
+const emailSubject = encodeURIComponent('Coaching consultation inquiry');
+const emailBody = encodeURIComponent(
+  `Hi Greg,
+
+I'm interested in a free consultation.
+
+A little about our situation:
+- Who the coaching would be for (age, and anything relevant like ADHD/autism/learning differences):
+- What's feeling hardest right now (school, work, independence, social, home):
+- Location (city, or "remote"):
+- Best way and time to reach me:
+
+Thanks!`
+);
+---
+
+<BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
+  <PageHero
+    eyebrow="Contact"
+    title="Start with a conversation"
+    lede="The first step is a free 20-minute consultation — an honest talk about what's going on and whether coaching fits. No intake forms, no obligation, no hard sell."
+  />
+
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div class="contact-options">
+        <div class="card contact-card contact-card--primary">
+          <h2>Book online</h2>
+          <p>
+            Pick a time that works and it's on the calendar — the fastest way
+            to get started.
+          </p>
+          <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+        </div>
+
+        <div class="card contact-card">
+          <h2>Call or text</h2>
+          <p>
+            Reach Greg directly. If he's in a session, leave a message and
+            he'll get back to you within one business day.
+          </p>
+          <a href={SITE.phoneHref} class="btn btn--outline">{SITE.phone}</a>
+        </div>
+
+        <div class="card contact-card">
+          <h2>Email</h2>
+          <p>
+            Prefer to write it out first? This link starts an email with a few
+            helpful prompts — answer whatever feels relevant.
+          </p>
+          <a
+            href={`mailto:${SITE.email}?subject=${emailSubject}&body=${emailBody}`}
+            class="btn btn--outline">Email Greg</a
+          >
+          <p class="contact-card__addr">{SITE.email}</p>
+        </div>
+      </div>
+
+      <aside class="contact-aside">
+        <div class="contact-expect card">
+          <h2>What happens next</h2>
+          <ol>
+            <li>
+              <strong>You reach out.</strong> Online, phone, or email — a
+              sentence or two is plenty.
+            </li>
+            <li>
+              <strong>We talk for ~20 minutes.</strong> What's going on, what
+              you've tried, what you're hoping changes.
+            </li>
+            <li>
+              <strong>You get an honest read.</strong> Whether coaching fits,
+              what Greg would suggest, and what it costs. If it's not a fit,
+              he'll say so and point you somewhere useful.
+            </li>
+          </ol>
+        </div>
+
+        <div class="contact-area">
+          <h2>Service area</h2>
+          <p>
+            <strong>In person:</strong> Sebastopol, Santa Rosa, Bodega,
+            Occidental, and greater Sonoma County; Marin County and the Bay
+            Area by arrangement.
+          </p>
+          <p><strong>Remote:</strong> video coaching nationwide.</p>
+          <p class="contact-area__note">
+            A note for teens and young adults: it's completely fine — normal,
+            even — if a parent makes first contact. It's also completely fine
+            if you'd rather reach out yourself.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 1.5rem + 2vw, 4rem);
+    align-items: start;
+  }
+
+  .contact-options {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .contact-card {
+    display: grid;
+    gap: 0.9rem;
+    justify-items: start;
+  }
+
+  .contact-card--primary {
+    background: var(--ink);
+    border-color: transparent;
+    color: rgba(250, 247, 241, 0.85);
+  }
+
+  .contact-card--primary h2 {
+    color: var(--cream);
+  }
+
+  .contact-card h2 {
+    font-size: var(--text-lg);
+  }
+
+  .contact-card__addr {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .contact-expect ol {
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.9rem;
+    margin: 0;
+  }
+
+  .contact-expect h2,
+  .contact-area h2 {
+    font-size: var(--text-lg);
+    margin-bottom: 1rem;
+  }
+
+  .contact-expect {
+    margin-bottom: 1.75rem;
+    background: var(--sage-tint);
+    border-color: transparent;
+  }
+
+  .contact-area p + p {
+    margin-top: 0.6rem;
+  }
+
+  .contact-area__note {
+    margin-top: 1.25rem !important;
+    padding: 1rem 1.25rem;
+    background: var(--clay-tint);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

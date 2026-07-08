@@ -1,0 +1,218 @@
+---
+// Shared structure for the five service pages. Copy lives in each page file;
+// this layout handles the section flow, cross-links, CTA, and Service schema.
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SERVICES, SITE } from '../data/site';
+import { breadcrumbSchema, serviceSchema } from '../data/schema';
+
+export interface ServiceCopy {
+  slug: string;
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  h1: string;
+  lede: string;
+  /** Empathy section: recognizable day-to-day struggles. */
+  signs: { title: string; intro: string; items: string[] };
+  /** What coaching actually covers. */
+  focus: { title: string; intro: string; items: { title: string; body: string }[] };
+  /** Grounded description of what tends to change. */
+  outcomes: { title: string; intro: string; items: string[] };
+  /** Who this service fits. */
+  who: { title: string; paragraphs: string[] };
+  ctaTitle: string;
+  ctaBody: string;
+}
+
+interface Props {
+  copy: ServiceCopy;
+}
+
+const { copy } = Astro.props;
+const path = `/services/${copy.slug}/`;
+const related = SERVICES.filter((s) => s.slug !== copy.slug);
+
+const jsonLd = [
+  serviceSchema({
+    name: SERVICES.find((s) => s.slug === copy.slug)?.title ?? copy.h1,
+    description: copy.metaDescription,
+    path,
+  }),
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services/' },
+    { name: copy.h1, path },
+  ]),
+];
+---
+
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} jsonLd={jsonLd}>
+  <PageHero eyebrow={copy.eyebrow} title={copy.h1} lede={copy.lede}>
+    <div class="btn-row hero-buttons">
+      <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+      <a href="/castellanos-compass/" class="btn btn--outline">How Coaching Works</a>
+    </div>
+  </PageHero>
+
+  <section class="section" aria-labelledby="signs-title">
+    <div class="wrap service-grid">
+      <div>
+        <p class="eyebrow">Sound familiar?</p>
+        <h2 id="signs-title">{copy.signs.title}</h2>
+        <p class="lede">{copy.signs.intro}</p>
+      </div>
+      <ul class="check-list">
+        {copy.signs.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--sand" aria-labelledby="focus-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we work on</p>
+        <h2 id="focus-title">{copy.focus.title}</h2>
+        <p class="lede">{copy.focus.intro}</p>
+      </div>
+      <div class="focus-grid">
+        {
+          copy.focus.items.map((item) => (
+            <div class="card focus-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="outcomes-title">
+    <div class="wrap service-grid">
+      <div>
+        <p class="eyebrow">What changes</p>
+        <h2 id="outcomes-title">{copy.outcomes.title}</h2>
+        <p class="lede">{copy.outcomes.intro}</p>
+      </div>
+      <ul class="check-list">
+        {copy.outcomes.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--sm who-band" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="who-inner card">
+        <h2 id="who-title">{copy.who.title}</h2>
+        {copy.who.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="who-note">
+          Not sure this is the right fit? That's exactly what the free
+          consultation is for — <a href="/contact/">reach out</a> and we'll
+          figure it out together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sm" aria-labelledby="related-title">
+    <div class="wrap">
+      <h2 id="related-title" class="related-title">Related coaching</h2>
+      <ul class="related-list">
+        {
+          related.map((s) => (
+            <li>
+              <a href={`/services/${s.slug}/`}>{s.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title={copy.ctaTitle} body={copy.ctaBody} />
+</BaseLayout>
+
+<style>
+  .hero-buttons {
+    margin-top: 2rem;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+    align-items: start;
+  }
+
+  .service-grid .check-list {
+    margin-top: 0.5rem;
+  }
+
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1.4rem;
+  }
+
+  .focus-card h3 {
+    font-size: var(--text-lg);
+    margin-bottom: 0.6rem;
+  }
+
+  .focus-card p {
+    font-size: 1rem;
+  }
+
+  .who-band .who-inner {
+    background: var(--teal-tint);
+    border-color: transparent;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .who-band h2 {
+    font-size: var(--text-xl);
+  }
+
+  .who-note {
+    font-size: 0.98rem;
+  }
+
+  .related-title {
+    font-size: var(--text-lg);
+    margin-bottom: 1rem;
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .related-list a {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fffdf9;
+    font-size: 0.95rem;
+    font-weight: 560;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .related-list a:hover {
+    border-color: var(--clay);
+    color: var(--clay-deep);
+  }
+
+  @media (max-width: 800px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

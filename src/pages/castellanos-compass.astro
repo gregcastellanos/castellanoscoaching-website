@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CompassDiagram from '../components/CompassDiagram.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { breadcrumbSchema } from '../data/schema';
+
+const metaTitle =
+  'The Castellanos Compass — A Practical Coaching Framework for Neurodivergent Minds';
+const metaDescription = `The Castellanos Compass is the four-point framework behind every coaching engagement: Clarity, Alignment, Foundation, and Expansion — a clear path from stuck to self-directed for neurodivergent teens and adults.`;
+
+const points = [
+  {
+    dir: 'North',
+    name: 'Clarity',
+    tagline: 'Know the terrain before choosing the route.',
+    body: [
+      `Every engagement starts with understanding — not testing, not labeling. What are this person's genuine strengths and interests? Where exactly does daily life break down, and what has already been tried? What do they want, in their own words, not just what the adults around them want?`,
+      `Clarity work looks like honest conversation, observing real routines and real environments, and mapping the gap between capability and current reality. It produces something concrete: a shared picture of what's going on and a short list of what matters most right now.`,
+    ],
+    looks: [
+      'A strengths and challenges map in plain language',
+      'Goals the client actually said yes to',
+      'Two or three priorities — not twenty',
+    ],
+  },
+  {
+    dir: 'East',
+    name: 'Alignment',
+    tagline: 'No trust, no traction.',
+    body: [
+      `Most neurodivergent teens and young adults have been managed, corrected, and lectured for years. Another adult with another program earns exactly as much effort as it earns trust — which is why alignment is its own phase, not an afterthought.`,
+      `This is where coaching becomes collaboration: building rapport around genuine interests, agreeing on how we'll work together, and making sure the goals belong to the client. For families, it also means getting parents and coach pulling in the same direction, with clear roles.`,
+    ],
+    looks: [
+      'A client who shows up willingly (sometimes a first)',
+      'Working agreements — how sessions run, what stays private',
+      'Parents and coach on the same page, with the client at the center',
+    ],
+  },
+  {
+    dir: 'South',
+    name: 'Foundation',
+    tagline: 'Systems that survive bad days.',
+    body: [
+      `With clarity and buy-in in place, we build: planning routines, capture systems, morning scaffolding, study methods, money basics, conversation practice — whatever the priorities call for. Everything is built in the client's real environment, around their real energy patterns, and tested against actual weeks, not ideal ones.`,
+      `Foundation work is iterative on purpose. Version one of any system usually half-works; the skill we're really teaching is noticing, adjusting, and rebuilding without shame. That's the difference between a tool and a habit.`,
+    ],
+    looks: [
+      'A small number of systems, actually used',
+      'Routines that recover after a bad day instead of collapsing',
+      'Visible wins: things planned, started, finished',
+    ],
+  },
+  {
+    dir: 'West',
+    name: 'Expansion',
+    tagline: 'Independence is the exit strategy.',
+    body: [
+      `As foundations hold, the work widens: harder goals, new domains, more independence. The student who built homework systems starts managing a college application. The young adult with a stable weekly routine starts a job search. The client who practiced conversations joins the club, takes the trip, makes the call.`,
+      `Expansion also means the coach deliberately stepping back. Check-ins spread out, ownership transfers, and success gets measured the only way that counts: what the client can now run without us.`,
+    ],
+    looks: [
+      'Skills transferring to new situations without re-teaching',
+      'The client setting their own next goals',
+      'Coaching tapering because it worked',
+    ],
+  },
+];
+
+const jsonLd = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'The Castellanos Compass', path: '/castellanos-compass/' },
+]);
+---
+
+<BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
+  <PageHero
+    eyebrow="The Method"
+    title="The Castellanos Compass"
+    lede="Four points that keep coaching honest and heading somewhere. Not a rigid curriculum — a navigation tool that adapts to each client while making sure nothing essential gets skipped."
+  />
+
+  <section class="section">
+    <div class="wrap compass-intro">
+      <div class="compass-intro__visual">
+        <CompassDiagram />
+      </div>
+      <div class="prose">
+        <p class="lede">
+          Plenty of coaching is well-meaning and shapeless: pleasant
+          conversations that never become change. The Compass exists to
+          prevent that.
+        </p>
+        <p>
+          It's the distillation of 15+ years of teaching and coaching
+          neurodivergent learners into a simple truth: <strong>lasting
+          independence is built in a particular order.</strong> Understanding
+          before strategy. Trust before systems. Systems before stretch. Skip
+          a step and the work falls apart — usually in week six, usually
+          blamed on the client.
+        </p>
+        <p>
+          Every engagement moves through all four points. How long each takes
+          depends entirely on the person — and circling back is a feature,
+          not a failure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand" aria-label="The four points of the Compass">
+    <div class="wrap">
+      <div class="points">
+        {
+          points.map((p, i) => (
+            <article class="point card">
+              <header class="point__header">
+                <span class="point__dir" aria-hidden="true">{p.dir}</span>
+                <h2>
+                  <span class="point__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  {p.name}
+                </h2>
+                <p class="point__tagline">{p.tagline}</p>
+              </header>
+              <div class="point__body prose">
+                {p.body.map((para) => (
+                  <p>{para}</p>
+                ))}
+              </div>
+              <div class="point__looks">
+                <h3>What it looks like</h3>
+                <ul class="check-list">
+                  {p.looks.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="See where the Compass points for you."
+    body="In a free consultation, Greg will give you an honest read on where things stand — and what Clarity would look like for your situation."
+  />
+</BaseLayout>
+
+<style>
+  .compass-intro {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+    align-items: center;
+  }
+
+  .compass-intro__visual {
+    display: grid;
+    place-items: center;
+  }
+
+  .compass-intro__visual :global(svg) {
+    width: min(100%, 24rem);
+  }
+
+  .points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .point {
+    display: grid;
+    gap: 1.25rem;
+    align-content: start;
+  }
+
+  .point__dir {
+    font-size: 0.78rem;
+    font-weight: 680;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+  }
+
+  .point h2 {
+    font-size: var(--text-xl);
+    margin-top: 0.35rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .point__num {
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .point__tagline {
+    margin-top: 0.4rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-md);
+    color: var(--ink-soft);
+  }
+
+  .point__body p {
+    font-size: 1rem;
+  }
+
+  .point__looks h3 {
+    font-size: 0.85rem;
+    font-weight: 680;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    color: var(--sage-deep);
+    margin-bottom: 0.75rem;
+  }
+
+  .point__looks .check-list {
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 860px) {
+    .compass-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .compass-intro__visual {
+      order: -1;
+    }
+
+    .compass-intro__visual :global(svg) {
+      width: min(70%, 18rem);
+    }
+
+    .points {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

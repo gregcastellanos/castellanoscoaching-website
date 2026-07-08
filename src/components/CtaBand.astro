@@ -1,0 +1,74 @@
+---
+import CompassMark from './CompassMark.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title?: string;
+  body?: string;
+}
+
+const {
+  title = 'Start with a conversation.',
+  body = `The first step is a free 20-minute consultation — no pressure, no intake forms, just an honest talk about what's going on and whether coaching is the right fit.`,
+} = Astro.props;
+---
+
+<section class="cta-band" aria-labelledby="cta-band-title">
+  <div class="wrap cta-band__inner">
+    <CompassMark size={56} class="cta-band__mark" />
+    <h2 id="cta-band-title">{title}</h2>
+    <p>{body}</p>
+    <div class="btn-row cta-band__buttons">
+      <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+      <a href={SITE.phoneHref} class="btn btn--outline-light">Call {SITE.phone}</a>
+    </div>
+    <p class="cta-band__alt">
+      Prefer email? <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background:
+      radial-gradient(40rem 26rem at 15% 120%, rgba(201, 163, 92, 0.18), transparent 65%),
+      radial-gradient(36rem 22rem at 90% -30%, rgba(63, 110, 126, 0.28), transparent 70%),
+      var(--ink);
+    color: rgba(250, 247, 241, 0.85);
+    text-align: center;
+    padding-block: clamp(4rem, 3rem + 4vw, 6.5rem);
+  }
+
+  .cta-band__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+  }
+
+  .cta-band__mark { color: var(--gold); }
+
+  .cta-band h2 {
+    color: var(--cream);
+    font-size: var(--text-2xl);
+  }
+
+  .cta-band p {
+    max-width: 38rem;
+    font-size: var(--text-md);
+  }
+
+  .cta-band__buttons {
+    justify-content: center;
+    margin-top: 0.75rem;
+  }
+
+  .cta-band__alt {
+    font-size: 0.95rem;
+    color: rgba(250, 247, 241, 0.6);
+  }
+
+  .cta-band__alt a {
+    color: var(--gold-soft);
+  }
+</style>
