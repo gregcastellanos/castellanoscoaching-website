@@ -1,7 +1,14 @@
 <script>
+ // Progressive enhancement: content is fully visible by default (see CSS below).
+ // We only opt into the fade-in AFTER confirming JS + IntersectionObserver are
+ // available, so crawlers, social-preview renderers, reader modes, and no-JS
+ // users always see the content. The `motion-ready` flag on <html> gates the
+ // hidden state so there is no flash of hidden content.
  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
  if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('motion-ready');
+
   const targets = document.querySelectorAll<HTMLElement>(
    'main > section, .card, .point, .service-row, .faq-group'
   );
@@ -24,11 +31,18 @@
   );
 
   targets.forEach((element) => observer.observe(element));
+
+  // Safety net: if anything is still hidden shortly after load (observer never
+  // fired, e.g. during a headless snapshot), reveal everything.
+  window.setTimeout(() => {
+   targets.forEach((el) => el.classList.add('reveal-visible'));
+  }, 1200);
  }
 </script>
 
 <style is:global>
- .reveal-ready {
+ /* Hidden state applies ONLY once JS has flagged the document as motion-ready. */
+ .motion-ready .reveal-ready {
   opacity: 0;
   transform: translateY(12px);
   transition:
@@ -37,7 +51,7 @@
   will-change: opacity, transform;
  }
 
- .reveal-ready.reveal-visible {
+ .motion-ready .reveal-ready.reveal-visible {
   opacity: 1;
   transform: translateY(0);
  }

@@ -3,7 +3,6 @@
 export const SITE = {
  name: 'Castellanos Coaching',
  url: 'https://www.castellanoscoaching.com',
- // TODO: Confirm before launch.
  phone: '(707) 395-7554',
  phoneHref: 'tel:+17073957554',
  email: 'gregcastellanoswork@gmail.com',

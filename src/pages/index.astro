@@ -8,7 +8,7 @@ import { SERVICES, SITE } from '../data/site';
 import { businessSchema } from '../data/schema';
 
 const metaTitle =
- 'Executive Function Coaching for Neurodivergent Clients | Marin & Sonoma County | Castellanos Coaching';
+ 'Executive Function Coaching in Marin & the Bay Area | Castellanos';
 const metaDescription =
  'Practical coaching for neurodivergent children, teens, adults, and families in Marin and Sonoma counties. Free consultation.';
 
@@ -118,19 +118,21 @@ const faqPreview = [
     </ul>
    </div>
    <figure class="hero__portrait">
-    <img
-     src="/greg-hero.png"
-     alt="Gregory Castellanos, educator and executive function coach"
-     width="1672"
-     height="941"
-     loading="eager"
-     fetchpriority="high"
-    />
+    <picture>
+     <source srcset="/greg-hero.webp" type="image/webp" />
+     <img
+      src="/greg-hero.jpg"
+      alt="Gregory Castellanos, educator and executive function coach"
+      width="1200"
+      height="675"
+      loading="eager"
+      fetchpriority="high"
+     />
+    </picture>
    </figure>
   </div>
  </section>
 
- <!-- TODO: Confirm consultation length before launch. -->
  <section class="how-strip" aria-label="How coaching works">
   <div class="wrap how-strip__grid">
    <div><strong>Free 20–30 minute call</strong><span>Start here and take what works, even if we never meet.</span></div>
