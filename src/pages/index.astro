@@ -9,43 +9,43 @@ import { SERVICES, SITE } from '../data/site';
 import { businessSchema } from '../data/schema';
 
 const metaTitle =
-  'Executive Function Coach in Sonoma County & the Bay Area | Castellanos Coaching';
+  'Executive Function Coach in Marin County & the Bay Area | Castellanos Coaching';
 const metaDescription =
-  'Executive function, academic, social skills, and independence coaching for neurodivergent teens, young adults, and adults. In person in Sebastopol, Santa Rosa, Sonoma County, Marin, and the Bay Area — remote nationwide. Book a free consultation.';
+  'Executive function, academic, social skills, and independence coaching for neurodivergent teens and adults. Based in Marin County, serving the North Bay, Sonoma County, Silicon Valley, and the Bay Area. Remote nationwide. Book a free consultation.';
 
 const compassSteps = [
   {
     name: 'Clarity',
-    body: 'We start by understanding how you actually work — strengths, sticking points, goals, and what a good life looks like to you. No assumptions, no one-size-fits-all program.',
+    body: 'We start by understanding how you actually work: strengths, sticking points, and goals in your own words. No one-size-fits-all program.',
   },
   {
     name: 'Alignment',
-    body: 'Nothing works without trust and buy-in. We build a working relationship where coaching feels like collaboration, not another adult telling you what to do.',
+    body: 'Nothing works without trust and buy-in. Coaching feels like collaboration, not another adult telling you what to do.',
   },
   {
     name: 'Foundation',
-    body: 'Together we build the practical layer: routines, systems, tools, and habits that fit your brain — and that survive contact with real life.',
+    body: 'Together we build the practical layer: routines, systems, and habits that fit your brain and survive contact with real life.',
   },
   {
     name: 'Expansion',
-    body: 'As the foundation holds, we widen the circle: more independence, more confidence, stronger relationships, and momentum you can steer yourself.',
+    body: 'As the foundation holds, we widen the circle: more independence, more confidence, and momentum you can steer yourself.',
   },
 ];
 
 const audiences = [
   {
     title: 'For parents',
-    body: `You've watched a bright, capable kid struggle with school, motivation, or launching into adulthood — and you're tired of being the planner, the alarm clock, and the enforcer. Coaching gives your teen or young adult a skilled mentor in their corner, and gives you your relationship back.`,
+    body: `You've watched a bright, capable kid struggle with school, motivation, or launching into adulthood. You're tired of being the planner, the alarm clock, and the enforcer. Coaching gives your teen a skilled mentor in their corner, and gives you your relationship back.`,
     link: { href: '/services/parent-family-coaching/', label: 'Parent & family coaching' },
   },
   {
     title: 'For teens & students',
-    body: `You're not lazy and you're not broken — the systems you've been handed just weren't built for your brain. Coaching is a judgment-free space to figure out what actually works for you, from schoolwork to friendships to getting out the door on time.`,
+    body: `You're not lazy and you're not broken. The systems you've been handed just weren't built for your brain. Coaching is a judgment-free space to figure out what actually works for you, from schoolwork to friendships to getting out the door on time.`,
     link: { href: '/services/academic-coaching/', label: 'Academic coaching' },
   },
   {
     title: 'For adults',
-    body: `You're managing work, bills, relationships, and a brain that doesn't run on autopilot. Coaching offers practical structure and a thinking partner — no pathologizing, no lectures, just systems that hold up on your hardest days.`,
+    body: `You're managing work, bills, relationships, and a brain that doesn't run on autopilot. Coaching offers practical structure and a thinking partner. No pathologizing and no lectures, just systems that hold up on your hardest days.`,
     link: { href: '/services/independence-life-skills-coaching/', label: 'Independence coaching' },
   },
 ];
@@ -66,15 +66,15 @@ const serviceIcons: Record<string, string> = {
 const faqPreview = [
   {
     q: 'What is executive function coaching, exactly?',
-    a: `It's hands-on, individualized support for the skills that make daily life run: planning, starting tasks, managing time, staying organized, and following through. We don't just talk about these skills — we build real systems together and refine them until they hold.`,
+    a: `Hands-on, individualized support for the skills that make daily life run: planning, starting tasks, managing time, staying organized, and following through. We don't just talk about these skills. We build real systems together and refine them until they hold.`,
   },
   {
     q: 'Is coaching therapy?',
-    a: `No. Coaching is educational mentoring and skill-building, focused on practical, forward-looking action: what to do and how to actually do it. Many clients work with a therapist and a coach at the same time — the two complement each other well.`,
+    a: `No. Coaching is educational mentoring and skill-building, focused on practical action: what to do and how to actually do it. Many clients work with a therapist and a coach at the same time. The two complement each other well.`,
   },
   {
     q: 'Do you work in person or remotely?',
-    a: 'Both. Greg works in person across Sonoma County — Sebastopol, Santa Rosa, Bodega, Occidental — and in Marin and the wider Bay Area. Remote coaching is available nationwide and works well for most clients.',
+    a: `Both. Greg is based in Marin County and works in person across the North Bay, Sonoma County, San Francisco, Silicon Valley, and the greater Bay Area. Remote coaching is available nationwide and works well for most clients.`,
   },
 ];
 ---
@@ -84,22 +84,22 @@ const faqPreview = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero__inner">
       <div class="hero__copy">
-        <p class="eyebrow">Neurodivergent coaching · Sonoma County & Bay Area · Remote nationwide</p>
+        <p class="eyebrow">Neurodivergent coaching · Marin & the Bay Area · Remote nationwide</p>
         <h1 id="hero-title">
-          Coaching for neurodivergent minds, <em>built for real life.</em>
+          Coaching for neurodivergent minds, <span class="hero__accent">built for real life.</span>
         </h1>
         <p class="hero__lede">
           Executive function, academic, social, and life skills coaching for
-          teens, young adults, and adults with ADHD, autism, and learning
-          differences. Not tutoring, not therapy — a skilled mentor who helps
-          you build systems, confidence, and real-world independence.
+          teens and adults with ADHD, autism, and learning differences. Not
+          tutoring and not therapy: a skilled mentor who helps you build
+          systems, confidence, and real independence.
         </p>
         <div class="btn-row">
           <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
           <a href="/services/" class="btn btn--outline">Explore Coaching</a>
         </div>
         <ul class="hero__trust" aria-label="Credentials">
-          <li>15+ years supporting neurodivergent learners</li>
+          <li>15+ years with neurodivergent learners</li>
           <li>Master's degree in Education</li>
           <li>In person & remote</li>
         </ul>
@@ -115,11 +115,11 @@ const faqPreview = [
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Who this is for</p>
-        <h2 id="who-title">Bright, capable people — and the systems that finally fit them</h2>
+        <h2 id="who-title">Bright, capable people. Systems that finally fit.</h2>
         <p class="lede">
-          Castellanos Coaching works with neurodivergent teens, students, young
-          adults, and adults — including those navigating ADHD, autism, anxiety,
-          learning differences, low motivation, and school avoidance.
+          Castellanos Coaching works with neurodivergent teens, students, and
+          adults, including those navigating ADHD, autism, anxiety, learning
+          differences, low motivation, and school avoidance.
         </p>
       </div>
       <div class="audience-grid">
@@ -143,8 +143,8 @@ const faqPreview = [
         <p class="eyebrow">Coaching services</p>
         <h2 id="services-title">One coach. Five ways to build a life that works.</h2>
         <p class="lede">
-          Every engagement is individualized — most clients blend several of
-          these depending on what season of life they're in.
+          Every engagement is individualized. Most clients blend several of
+          these, depending on what season of life they're in.
         </p>
       </div>
       <div class="services-grid">
@@ -189,7 +189,7 @@ const faqPreview = [
           <h3>Skills, not answers</h3>
           <p>
             The goal is never dependence on the coach. Every system we build is
-            designed to be run by you — planning, prioritizing, communicating,
+            designed to be run by you: planning, prioritizing, communicating,
             and recovering when things slip.
           </p>
         </div>
@@ -197,8 +197,8 @@ const faqPreview = [
           <h3>Strengths-based, not deficit-based</h3>
           <p>
             Neurodivergent brains aren't broken versions of typical ones. We
-            start from what already works — your interests, your energy
-            patterns, your way of thinking — and build from there.
+            start from what already works, like your interests, your energy
+            patterns, and your way of thinking, and build from there.
           </p>
         </div>
         <div>
@@ -224,7 +224,7 @@ const faqPreview = [
         <h2 id="compass-title">The Castellanos Compass</h2>
         <p class="lede">
           A clear, flexible framework that keeps coaching honest and heading
-          somewhere — four points that every engagement moves through.
+          somewhere. Four points that every engagement moves through.
         </p>
         <ol class="compass-steps">
           {
@@ -249,13 +249,13 @@ const faqPreview = [
     <div class="wrap why-grid">
       <div>
         <p class="eyebrow">Why families choose Greg</p>
-        <h2 id="why-title">A mentor who gets it — and gets things moving</h2>
+        <h2 id="why-title">A mentor who gets it, and gets things moving</h2>
         <div class="why-points">
           <p>
             <strong>Deep, real experience.</strong> Greg has spent 15+ years
-            teaching and coaching neurodivergent learners — in classrooms,
-            STEAM programs, and one-on-one — with a Master's degree in
-            Education behind it.
+            teaching and coaching neurodivergent learners in classrooms, STEAM
+            programs, and one-on-one, with a Master's degree in Education
+            behind it.
           </p>
           <p>
             <strong>Respect first.</strong> Clients are never treated as
@@ -270,19 +270,30 @@ const faqPreview = [
           </p>
           <p>
             <strong>Partnership with parents.</strong> Families get honest
-            communication and practical guidance — support that lowers the
+            communication and practical guidance. Support that lowers the
             temperature at home instead of adding another obligation.
           </p>
         </div>
         <a href="/about/" class="btn btn--ink">Meet Greg</a>
       </div>
-      <figure class="testimonial card">
-        <blockquote>
-          “Greg helped me feel comfortable in my own skin. For the first time,
-          I have real friends and the confidence to be myself.”
-        </blockquote>
-        <figcaption>— Liam R., autistic learner</figcaption>
-      </figure>
+      <div class="why-side">
+        <figure class="why-photo">
+          <img
+            src="/greg.jpg"
+            alt="Greg Castellanos, executive function and life skills coach"
+            width="596"
+            height="745"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="testimonial card">
+          <blockquote>
+            “Greg helped me feel comfortable in my own skin. For the first
+            time, I have real friends and the confidence to be myself.”
+          </blockquote>
+          <figcaption>Liam R., autistic learner</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -291,35 +302,35 @@ const faqPreview = [
     <div class="wrap">
       <div class="section-head section-head--center">
         <p class="eyebrow">Where we work</p>
-        <h2 id="local-title">Rooted in Sonoma County. Available everywhere.</h2>
+        <h2 id="local-title">Based in Marin. Available everywhere.</h2>
         <p class="lede">
-          Castellanos Coaching is based in Sebastopol and serves families
-          across the North Bay in person — with remote coaching that works
-          just as well from anywhere in the country.
+          Castellanos Coaching is based in Marin County and works with
+          families across the Bay Area in person. Remote coaching works just
+          as well from anywhere in the country.
         </p>
       </div>
       <div class="local-grid">
         <div class="card local-card">
-          <h3>Sonoma County</h3>
+          <h3>Marin & the North Bay</h3>
           <p>
-            In-person executive function and life skills coaching in
-            Sebastopol, Santa Rosa, Bodega, Occidental, and surrounding West
-            County communities.
+            In-person executive function and life skills coaching across Marin
+            County, Sonoma County, and North Bay communities like Santa Rosa
+            and Sebastopol.
           </p>
         </div>
         <div class="card local-card">
-          <h3>Marin & the Bay Area</h3>
+          <h3>San Francisco to Silicon Valley</h3>
           <p>
-            ADHD and autism coaching for teens and adults across Marin County
-            and the greater Bay Area, in person or online depending on
-            location.
+            ADHD and autism coaching for teens and adults in San Francisco,
+            the Peninsula, Silicon Valley, and the greater Bay Area, in person
+            or online.
           </p>
         </div>
         <div class="card local-card">
           <h3>Remote, nationwide</h3>
           <p>
             Video-based coaching with the same practical, individualized
-            approach — a good fit for college students and adults anywhere in
+            approach. A good fit for college students and adults anywhere in
             the U.S.
           </p>
         </div>
@@ -356,9 +367,9 @@ const faqPreview = [
   /* Hero */
   .hero {
     background:
-      radial-gradient(52rem 30rem at 110% -10%, rgba(63, 110, 126, 0.12), transparent 65%),
-      radial-gradient(44rem 26rem at -15% 110%, rgba(201, 163, 92, 0.18), transparent 65%),
-      var(--sand);
+      radial-gradient(52rem 30rem at 110% -10%, rgba(23, 102, 209, 0.09), transparent 65%),
+      radial-gradient(44rem 26rem at -15% 110%, rgba(224, 169, 62, 0.12), transparent 65%),
+      var(--mist);
     border-bottom: 1px solid var(--line);
   }
 
@@ -367,31 +378,30 @@ const faqPreview = [
     grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
     gap: clamp(2rem, 1rem + 4vw, 5rem);
-    padding-block: clamp(3.5rem, 2.5rem + 4vw, 6.5rem);
+    padding-block: clamp(3.25rem, 2.5rem + 3.5vw, 6rem);
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--clay-deep);
+  .hero__accent {
+    color: var(--blue);
   }
 
   .hero__lede {
     font-size: var(--text-lg);
     line-height: 1.55;
-    margin-block: 1.4rem 1.9rem;
-    max-width: 36em;
+    margin-block: 1.3rem 1.8rem;
+    max-width: 34em;
   }
 
   .hero__trust {
     list-style: none;
     padding: 0;
-    margin-top: 2.2rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem 1.8rem;
-    font-size: 0.92rem;
-    font-weight: 560;
-    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
   }
 
   .hero__trust li {
@@ -415,7 +425,7 @@ const faqPreview = [
 
   .hero__compass,
   .compass-section__visual :global(svg) {
-    width: min(100%, 26rem);
+    width: min(100%, 25rem);
   }
 
   /* Audiences */
@@ -433,11 +443,11 @@ const faqPreview = [
   }
 
   .audience-card h3 { font-size: var(--text-lg); }
-  .audience-card p { font-size: 1rem; flex-grow: 1; }
+  .audience-card p { font-size: var(--text-base); flex-grow: 1; }
 
   .audience-card__link {
-    font-size: 0.95rem;
-    font-weight: 640;
+    font-size: 0.98rem;
+    font-weight: 660;
     text-decoration: none;
   }
 
@@ -456,15 +466,15 @@ const faqPreview = [
     align-items: flex-start;
     gap: 0.9rem;
     justify-content: center;
-    padding: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+    padding: clamp(1.4rem, 1.2rem + 1vw, 2.1rem);
     border-radius: var(--radius-lg);
-    background: var(--sage-tint);
-    border: 1px dashed var(--sage);
+    background: var(--sky);
+    border: 1px dashed var(--blue);
   }
 
-  .services-grid__cta svg { color: var(--sage-deep); }
+  .services-grid__cta svg { color: var(--blue-deep); }
   .services-grid__cta h3 { font-size: var(--text-lg); }
-  .services-grid__cta p { font-size: 1rem; }
+  .services-grid__cta p { font-size: var(--text-base); }
 
   /* Not-tutoring band */
   .not-tutoring {
@@ -476,11 +486,11 @@ const faqPreview = [
 
   .not-tutoring__points {
     display: grid;
-    gap: 2rem;
+    gap: 1.9rem;
   }
 
   .not-tutoring__points h3 {
-    color: var(--gold-soft);
+    color: var(--gold);
     font-size: var(--text-lg);
     margin-bottom: 0.4rem;
   }
@@ -501,9 +511,9 @@ const faqPreview = [
   .compass-steps {
     list-style: none;
     padding: 0;
-    margin-block: 2rem;
+    margin-block: 1.9rem;
     display: grid;
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
 
   .compass-steps li {
@@ -514,9 +524,9 @@ const faqPreview = [
 
   .compass-steps__num {
     font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--gold);
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: var(--blue);
     flex: none;
   }
 
@@ -525,7 +535,7 @@ const faqPreview = [
     margin-bottom: 0.25rem;
   }
 
-  .compass-steps p { font-size: 1rem; }
+  .compass-steps p { font-size: var(--text-base); }
 
   /* Why Greg */
   .why-grid {
@@ -541,24 +551,42 @@ const faqPreview = [
     margin-block: 1.5rem 2rem;
   }
 
-  .testimonial {
-    background: var(--ink);
-    border-color: transparent;
-    color: rgba(250, 247, 241, 0.9);
+  .why-side {
+    display: grid;
+    gap: 1.4rem;
     position: sticky;
     top: 6rem;
   }
 
+  .why-photo {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+    border: 1px solid var(--line);
+    max-width: 22rem;
+  }
+
+  .why-photo img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .testimonial {
+    background: var(--navy);
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 22rem;
+  }
+
   .testimonial blockquote {
     font-family: var(--font-display);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     line-height: 1.4;
-    font-weight: 480;
-    font-style: italic;
+    font-weight: 520;
   }
 
   .testimonial figcaption {
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     font-size: 0.95rem;
     color: var(--gold-soft);
   }
@@ -575,7 +603,7 @@ const faqPreview = [
     margin-bottom: 0.5rem;
   }
 
-  .local-card p { font-size: 1rem; }
+  .local-card p { font-size: var(--text-base); }
 
   /* FAQ preview */
   .faq-preview {
@@ -587,7 +615,7 @@ const faqPreview = [
 
   .faq-preview__more {
     margin-top: 1.5rem;
-    font-weight: 600;
+    font-weight: 640;
   }
 
   /* Responsive */
@@ -611,13 +639,19 @@ const faqPreview = [
     /* Headline leads on small screens; the compass is decoration. */
     .hero__visual { display: none; }
     .compass-section__visual { display: none; }
-    .testimonial { position: static; }
+
+    .why-side {
+      position: static;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
   }
 
   @media (max-width: 620px) {
     .audience-grid,
     .services-grid,
-    .local-grid {
+    .local-grid,
+    .why-side {
       grid-template-columns: 1fr;
     }
   }

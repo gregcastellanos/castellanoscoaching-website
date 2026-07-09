@@ -23,11 +23,11 @@ export const businessSchema = {
   telephone: SITE.phone,
   email: SITE.email,
   description:
-    'Executive function coaching, academic coaching, social skills coaching, and independence and life skills coaching for neurodivergent teens, young adults, and adults in Sonoma County, Marin County, and the Bay Area, plus remote coaching nationwide.',
+    'Executive function coaching, academic coaching, social skills coaching, and independence and life skills coaching for neurodivergent teens, young adults, and adults. Based in Marin County, serving the North Bay, Sonoma County, San Francisco, Silicon Valley, and the greater Bay Area, with remote coaching nationwide.',
   founder: personSchema,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Sebastopol',
+    addressLocality: 'Marin County',
     addressRegion: 'CA',
     addressCountry: 'US',
   },

@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = 'Start with a conversation.',
-  body = `The first step is a free 20-minute consultation — no pressure, no intake forms, just an honest talk about what's going on and whether coaching is the right fit.`,
+  body = `The first step is a free 20-minute consultation. No pressure and no intake forms, just an honest talk about what's going on and whether coaching is the right fit.`,
 } = Astro.props;
 ---
 
@@ -31,10 +31,10 @@ const {
 <style>
   .cta-band {
     background:
-      radial-gradient(40rem 26rem at 15% 120%, rgba(201, 163, 92, 0.18), transparent 65%),
-      radial-gradient(36rem 22rem at 90% -30%, rgba(63, 110, 126, 0.28), transparent 70%),
-      var(--ink);
-    color: rgba(250, 247, 241, 0.85);
+      radial-gradient(40rem 26rem at 15% 120%, rgba(224, 169, 62, 0.18), transparent 65%),
+      radial-gradient(36rem 22rem at 90% -30%, rgba(23, 102, 209, 0.28), transparent 70%),
+      var(--navy);
+    color: rgba(255, 255, 255, 0.85);
     text-align: center;
     padding-block: clamp(4rem, 3rem + 4vw, 6.5rem);
   }
@@ -49,7 +49,7 @@ const {
   .cta-band__mark { color: var(--gold); }
 
   .cta-band h2 {
-    color: var(--cream);
+    color: #fff;
     font-size: var(--text-2xl);
   }
 
@@ -65,7 +65,7 @@ const {
 
   .cta-band__alt {
     font-size: 0.95rem;
-    color: rgba(250, 247, 241, 0.6);
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .cta-band__alt a {

@@ -9,12 +9,11 @@ export const SITE = {
   calendly: 'https://calendly.com/castellanoscoaching',
   founder: 'Greg Castellanos',
   areaServed: [
-    'Sebastopol',
-    'Santa Rosa',
-    'Bodega',
-    'Occidental',
-    'Sonoma County',
     'Marin County',
+    'San Francisco',
+    'North Bay',
+    'Sonoma County',
+    'Silicon Valley',
     'Bay Area',
   ],
 } as const;
@@ -32,7 +31,7 @@ export const SERVICES: ServiceEntry[] = [
     title: 'Executive Function Coaching',
     navLabel: 'Executive Function',
     short:
-      'Planning, time management, organization, and follow-through — real systems that fit how your brain actually works.',
+      'Planning, time management, organization, and follow-through. Real systems that fit how your brain actually works.',
   },
   {
     slug: 'academic-coaching',
@@ -46,21 +45,21 @@ export const SERVICES: ServiceEntry[] = [
     title: 'Social Skills & Relationship Coaching',
     navLabel: 'Social Skills',
     short:
-      'Conversation, friendship, dating, and workplace communication — practiced honestly, without masking scripts.',
+      'Conversation, friendship, dating, and workplace communication. Practiced honestly, without masking scripts.',
   },
   {
     slug: 'independence-life-skills-coaching',
     title: 'Independence & Life Skills Coaching',
     navLabel: 'Independence & Life Skills',
     short:
-      'Routines, money, work, and daily-life structure for young adults and adults building a life of their own.',
+      'Routines, money, work, and daily structure for young adults and adults building a life of their own.',
   },
   {
     slug: 'parent-family-coaching',
     title: 'Parent & Family Coaching',
     navLabel: 'Parent & Family',
     short:
-      'Practical guidance for parents — reduce conflict, build buy-in, and support your teen without carrying everything yourself.',
+      'Practical guidance for parents: reduce conflict, build buy-in, and support your teen without carrying everything yourself.',
   },
 ];
 

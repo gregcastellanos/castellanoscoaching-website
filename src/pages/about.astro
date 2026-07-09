@@ -6,8 +6,8 @@ import { SITE } from '../data/site';
 import { breadcrumbSchema, personSchema } from '../data/schema';
 
 const metaTitle =
-  'About Greg Castellanos — Executive Function & Life Skills Coach | Sebastopol, CA';
-const metaDescription = `Greg Castellanos is an educator and executive function coach with 15+ years supporting neurodivergent learners — teaching, STEAM education, and one-on-one mentoring. Based in Sebastopol, serving Sonoma County, Marin, the Bay Area, and remote clients.`;
+  'About Greg Castellanos | Executive Function & Life Skills Coach | Marin County, CA';
+const metaDescription = `Greg Castellanos is an educator and executive function coach with 15+ years supporting neurodivergent learners, teaching, STEAM education, and one-on-one mentoring. Based in Marin County, serving the North Bay, Sonoma County, Silicon Valley, the greater Bay Area, and remote clients nationwide.`;
 
 const jsonLd = [
   { '@context': 'https://schema.org', ...personSchema },
@@ -20,7 +20,7 @@ const jsonLd = [
 const values = [
   {
     title: 'Respect is the method',
-    body: `Nothing works with a client who feels like a problem being managed. Greg starts from genuine curiosity about who someone is and what they care about — and clients can tell the difference immediately.`,
+    body: `Nothing works with a client who feels like a problem being managed. Greg starts from genuine curiosity about who someone is and what they care about, and clients can tell the difference immediately.`,
   },
   {
     title: 'Concrete beats clever',
@@ -28,7 +28,7 @@ const values = [
   },
   {
     title: 'Honest, kindly delivered',
-    body: `Families get straight answers — about progress, about setbacks, and about whether coaching is helping. Teens especially respond to an adult who levels with them.`,
+    body: `Families get straight answers, about progress, about setbacks, and about whether coaching is helping. Teens especially respond to an adult who levels with them.`,
   },
   {
     title: 'Independence is the goal',
@@ -45,19 +45,20 @@ const values = [
         <h1>An educator who never stopped asking why school wasn't working for some kids</h1>
         <p class="lede">
           Greg Castellanos has spent more than fifteen years teaching,
-          mentoring, and coaching neurodivergent learners — in classrooms,
-          STEAM programs, and one-on-one — and holds a Master's degree in
+          mentoring, and coaching neurodivergent learners, in classrooms,
+          STEAM programs, and one-on-one, and holds a Master's degree in
           Education.
         </p>
       </div>
-      <div class="about-hero__portrait" aria-hidden="true">
-        <!-- Replace with a real photo: /public/greg.jpg, then swap this block
-             for <img src="/greg.jpg" alt="Greg Castellanos" width="480" height="560" loading="eager" /> -->
-        <div class="portrait-placeholder">
-          <CompassMark size={64} />
-          <span>Photo of Greg</span>
-        </div>
-      </div>
+      <figure class="about-hero__portrait">
+        <img
+          src="/greg.jpg"
+          alt="Greg Castellanos, executive function and life skills coach"
+          width="596"
+          height="745"
+          loading="eager"
+        />
+      </figure>
     </div>
   </section>
 
@@ -70,8 +71,8 @@ const values = [
           maker education, curriculum design, AV and creative technology, and
           academic coaching. The settings changed; the students who stayed
           with him didn't. In every one of those rooms there were bright,
-          interesting kids — usually with ADHD, autism, or a learning
-          difference — working harder than everyone else and getting less
+          interesting kids, usually with ADHD, autism, or a learning
+          difference, working harder than everyone else and getting less
           back.
         </p>
         <p>
@@ -88,20 +89,20 @@ const values = [
           middle of real life: a real calendar, a real job application, a
           real kitchen, a real conversation the client has been dreading.
           Project-based teaching taught him that people learn by building
-          things that matter to them — so that's how coaching runs, too.
+          things that matter to them, so that's how coaching runs, too.
         </p>
         <p>
           His technology background matters more than it might seem. Many of
           his clients live half their lives in games, code, music software,
-          or online communities — and Greg can meet them there authentically,
+          or online communities, and Greg can meet them there authentically,
           then use those interests as the engine of the work rather than
           treating them as the distraction.
         </p>
         <h2>Beyond the work</h2>
         <p>
-          Greg lives in Sebastopol, in Sonoma County's West County, and works
-          with families across the North Bay — Santa Rosa, Bodega,
-          Occidental, Marin — as well as remote clients nationwide. He's a
+          Greg is based in Marin County and works with families across the
+          North Bay, Sonoma County, San Francisco, the Peninsula, and Silicon
+          Valley, as well as remote clients nationwide. He's a
           maker and tinkerer by disposition, which is exactly the energy he
           brings to a stuck routine or a chaotic backpack: take it apart,
           figure out how it actually works, build something better.
@@ -112,13 +113,13 @@ const values = [
         <h2>At a glance</h2>
         <ul>
           <li><strong>15+ years</strong> with neurodivergent learners</li>
-          <li><strong>M.Ed.</strong> — Master's degree in Education</li>
+          <li><strong>M.Ed.</strong>, Master's degree in Education</li>
           <li>Classroom teaching, STEAM & maker education</li>
           <li>Curriculum design & project-based learning</li>
           <li>Executive function & academic coaching</li>
           <li>Life skills & independence mentoring</li>
-          <li>Based in <strong>Sebastopol, CA</strong></li>
-          <li>In person: Sonoma County, Marin, Bay Area</li>
+          <li>Based in <strong>Marin County, CA</strong></li>
+          <li>In person: Marin, North Bay, Silicon Valley</li>
           <li>Remote: nationwide</li>
         </ul>
         <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
@@ -147,15 +148,15 @@ const values = [
 
   <CtaBand
     title="Come meet Greg."
-    body="The free consultation is a real conversation, not a sales call. Bring your questions — and bring your skepticism, too."
+    body="The free consultation is a real conversation, not a sales call. Bring your questions, and bring your skepticism, too."
   />
 </BaseLayout>
 
 <style>
   .about-hero {
     background:
-      radial-gradient(48rem 24rem at 90% -20%, rgba(63, 110, 126, 0.14), transparent 70%),
-      var(--sand);
+      radial-gradient(48rem 24rem at 90% -20%, rgba(23, 102, 209, 0.14), transparent 70%),
+      var(--mist);
     border-bottom: 1px solid var(--line);
     padding-block: clamp(3.5rem, 3rem + 3vw, 6rem);
   }
@@ -171,30 +172,20 @@ const values = [
     font-size: var(--text-3xl);
   }
 
-  .portrait-placeholder {
-    aspect-ratio: 4 / 5;
+  .about-hero__portrait {
+    margin: 0;
     max-width: 22rem;
     margin-inline: auto;
     border-radius: var(--radius-lg);
-    background:
-      radial-gradient(20rem 20rem at 30% 20%, rgba(201, 163, 92, 0.25), transparent 70%),
-      var(--sand-deep);
+    overflow: hidden;
     border: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: var(--ink-soft);
-    font-size: 0.9rem;
-    font-weight: 560;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    box-shadow: var(--shadow-lift);
   }
 
-  .portrait-placeholder :global(svg) {
-    color: var(--clay);
-    opacity: 0.7;
+  .about-hero__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-story {
@@ -219,7 +210,7 @@ const values = [
     font-weight: 680;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--clay-deep);
+    color: var(--blue-deep);
     margin-bottom: 1rem;
   }
 

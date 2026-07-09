@@ -9,13 +9,13 @@ const year = new Date().getFullYear();
   <div class="wrap">
     <div class="site-footer__grid">
       <div class="site-footer__brand">
-        <a href="/" class="site-footer__logo" aria-label={`${SITE.name} — home`}>
+        <a href="/" class="site-footer__logo" aria-label={`${SITE.name}, home`}>
           <CompassMark size={40} />
           <span>Castellanos Coaching</span>
         </a>
         <p>
           Executive function, life skills, and academic coaching for
-          neurodivergent teens, young adults, and adults — practical systems
+          neurodivergent teens, young adults, and adults. Practical systems
           for real-world independence.
         </p>
         <p class="site-footer__contact">
@@ -24,7 +24,7 @@ const year = new Date().getFullYear();
         </p>
       </div>
 
-      <nav aria-label="Footer — services">
+      <nav aria-label="Footer, services">
         <h2 class="site-footer__heading">Coaching</h2>
         <ul>
           {
@@ -37,7 +37,7 @@ const year = new Date().getFullYear();
         </ul>
       </nav>
 
-      <nav aria-label="Footer — pages">
+      <nav aria-label="Footer, pages">
         <h2 class="site-footer__heading">Explore</h2>
         <ul>
           {
@@ -53,9 +53,9 @@ const year = new Date().getFullYear();
       <div>
         <h2 class="site-footer__heading">Service Area</h2>
         <p class="site-footer__areas">
-          In person in Sebastopol, Santa Rosa, Bodega, Occidental, and across
-          Sonoma County, Marin County, and the Bay Area. Remote coaching
-          nationwide.
+          Based in Marin County. In person across the North Bay, Sonoma
+          County, San Francisco, Silicon Valley, and the greater Bay Area.
+          Remote coaching nationwide.
         </p>
         <a href="/contact/" class="btn btn--light">Book a Free Consultation</a>
       </div>
@@ -73,14 +73,14 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: var(--ink);
-    color: rgba(250, 247, 241, 0.78);
+    background: var(--navy);
+    color: rgba(255, 255, 255, 0.78);
     padding-block: clamp(3rem, 2.5rem + 2vw, 4.5rem) 2rem;
     font-size: 0.98rem;
   }
 
   .site-footer a {
-    color: rgba(250, 247, 241, 0.88);
+    color: rgba(255, 255, 255, 0.88);
     text-decoration: none;
   }
 
@@ -103,7 +103,7 @@ const year = new Date().getFullYear();
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--cream);
+    color: #fff;
     margin-bottom: 1rem;
   }
 
@@ -137,11 +137,11 @@ const year = new Date().getFullYear();
   .site-footer .btn {
     font-size: 0.95rem;
     padding: 0.7rem 1.4rem;
-    color: var(--ink);
+    color: var(--navy);
   }
 
   .site-footer .btn:hover {
-    color: var(--ink-deep);
+    color: var(--navy-deep);
     text-decoration: none;
   }
 
@@ -154,7 +154,7 @@ const year = new Date().getFullYear();
     justify-content: space-between;
     gap: 0.75rem;
     font-size: 0.85rem;
-    color: rgba(250, 247, 241, 0.55);
+    color: rgba(255, 255, 255, 0.55);
   }
 
   @media (max-width: 900px) {
