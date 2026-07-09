@@ -6,199 +6,198 @@ import { SITE } from '../data/site';
 import { breadcrumbSchema } from '../data/schema';
 
 const metaTitle =
-  'Resources for Families of Neurodivergent Teens & Adults | Castellanos Coaching';
+ 'Resources for Families of Neurodivergent Teens & Adults | Castellanos Coaching';
 const metaDescription = `Practical starting points from Castellanos Coaching: a free family guide, quick strategies for executive function at home, and honest advice on choosing support for a neurodivergent teen or young adult.`;
 
 const jsonLd = breadcrumbSchema([
-  { name: 'Home', path: '/' },
-  { name: 'Resources', path: '/resources/' },
+ { name: 'Home', path: '/' },
+ { name: 'Resources', path: '/resources/' },
 ]);
 
 const quickIdeas = [
-  {
-    title: 'Make time visible',
-    body: `Abstract time is the enemy. Analog clocks, visual timers, and calendars posted where life happens beat every reminder that lives inside a phone nobody opens.`,
-  },
-  {
-    title: 'Shrink the first step',
-    body: `“Clean your room” is a project; “put the clothes in the hamper” is a task. When something isn't starting, the step is almost always too big, cut it in half, then in half again.`,
-  },
-  {
-    title: 'One trusted capture point',
-    body: `Assignments, chores, and ideas should land in one place, a single notebook, app, or whiteboard. Five half-used systems are worse than one imperfect one.`,
-  },
-  {
-    title: 'Lower the stakes of restarting',
-    body: `Systems will break, that's expected, not failure. The skill worth praising is getting back on after a bad week without drama or shame.`,
-  },
-  {
-    title: 'Work with interest, not against it',
-    body: `Attention follows interest, especially for ADHD and autistic brains. Attach hard things to genuine interests instead of quarantining the interests as rewards.`,
-  },
-  {
-    title: 'Replace nagging with structure',
-    body: `Every reminder you deliver personally costs relationship capital. Where you can, let a checklist, timer, or agreed routine be the bad guy instead.`,
-  },
+ {
+  title: 'Make time visible',
+  body: `Abstract time is the enemy. Analog clocks, visual timers, and calendars posted where life happens beat every reminder that lives inside a phone nobody opens.`,
+ },
+ {
+  title: 'Shrink the first step',
+    body: `Clean your room is a project. Put the clothes in the hamper is a task. When something is not starting, the step is almost always too big. Cut it in half, then in half again.`,
+ },
+ {
+  title: 'One trusted capture point',
+  body: `Assignments, chores, and ideas should land in one place, a single notebook, app, or whiteboard. Five half-used systems are worse than one imperfect one.`,
+ },
+ {
+  title: 'Lower the stakes of restarting',
+  body: `Systems will break, that's expected, not failure. The skill worth praising is getting back on after a bad week without drama or shame.`,
+ },
+ {
+  title: 'Work with interest, not against it',
+  body: `Attention follows interest, especially for ADHD and autistic brains. Attach hard things to genuine interests instead of quarantining the interests as rewards.`,
+ },
+ {
+  title: 'Replace nagging with structure',
+  body: `Every reminder you deliver personally costs relationship capital. Where you can, let a checklist, timer, or agreed routine be the bad guy instead.`,
+ },
 ];
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
-  <PageHero
-    eyebrow="Resources"
-    title="Useful starting points, free to take"
-    lede="Coaching is individualized by nature, but some ideas help almost every family. Start here, and take what works, even if we never meet."
-  />
+ <PageHero
+  eyebrow="Resources"
+  title="Useful starting points, free to take"
+  lede="Coaching is individualized by nature, but some ideas help almost every family. Start here and take what works, even if we never meet."
+ />
 
-  <section class="section">
-    <div class="wrap">
-      <div class="guide card">
-        <div>
-          <p class="eyebrow">Free guide</p>
-          <h2>The Family Launch Checklist</h2>
-          <p>
-            A practical, printable guide for parents of neurodivergent teens
-            and young adults: the core skills behind real independence, how to
-            tell which ones need support first, and how to hand over ownership
-            without dropping it. Written by Greg from fifteen years of doing
-            exactly this.
-          </p>
-          <p class="guide__note">
-            The guide is being finalized, email
-            <a href={`mailto:${SITE.email}?subject=${encodeURIComponent('Family Launch Checklist')}`}>
-              {SITE.email}</a
-            > with the subject “Family Launch Checklist” and Greg will send it
-            to you as soon as it's ready.
-          </p>
-          <a
-            href={`mailto:${SITE.email}?subject=${encodeURIComponent('Family Launch Checklist')}`}
-            class="btn btn--primary">Request the Guide</a
-          >
-        </div>
-        <div class="guide__visual" aria-hidden="true">
-          <div class="guide__mock">
-            <span class="guide__mock-title">The Family<br />Launch<br />Checklist</span>
-            <span class="guide__mock-byline">Castellanos Coaching</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-head" style="margin-top: var(--space-section-sm);">
-        <p class="eyebrow">Try this week</p>
-        <h2>Six small changes that punch above their weight</h2>
-        <p class="lede">
-          None of these replace individualized support, but each one makes
-          tomorrow slightly easier, and small wins are how momentum starts.
-        </p>
-      </div>
-      <div class="ideas-grid">
-        {
-          quickIdeas.map((idea) => (
-            <div class="card idea-card">
-              <h3>{idea.title}</h3>
-              <p>{idea.body}</p>
-            </div>
-          ))
-        }
-      </div>
+ <section class="section">
+  <div class="wrap">
+   <div class="guide card">
+    <div>
+     <p class="eyebrow">Free guide</p>
+     <h2>The Family Launch Checklist</h2>
+     <p>
+      A practical, printable guide for parents of neurodivergent teens
+      and young adults: the core skills behind real independence, how to
+      tell which ones need support first, and how to hand over ownership
+      without dropping it. Written by Gregory from fifteen years of doing
+      exactly this.
+     </p>
+     <p class="guide__note">
+      The guide is being finalized. Email
+      <a href={`mailto:${SITE.email}?subject=${encodeURIComponent('Family Launch Checklist')}`}>
+       {SITE.email}</a
+            > with the subject "Family Launch Checklist" and Gregory will send it
+      to you as soon as it's ready.
+     </p>
+     <a
+      href={`mailto:${SITE.email}?subject=${encodeURIComponent('Family Launch Checklist')}`}
+      class="btn btn--primary">Request the Guide</a
+     >
     </div>
-  </section>
+    <div class="guide__visual" aria-hidden="true">
+     <div class="guide__mock">
+      <span class="guide__mock-title">The Family<br />Launch<br />Checklist</span>
+      <span class="guide__mock-byline">Castellanos Coaching</span>
+     </div>
+    </div>
+   </div>
 
-  <CtaBand
-    title="Want ideas built for your actual kid?"
-    body="Generic advice only goes so far. A free consultation gets you a read on your specific situation, useful whether or not you pursue coaching."
-  />
+   <div class="section-head" style="margin-top: var(--space-section-sm);">
+    <p class="eyebrow">Try this week</p>
+    <h2>Six small changes that punch above their weight</h2>
+    <p class="lede">
+     None of these replace individualized support, but each one makes
+     tomorrow slightly easier, and small wins are how momentum starts.
+    </p>
+   </div>
+   <div class="ideas-grid">
+    {
+     quickIdeas.map((idea) => (
+      <div class="card idea-card">
+       <h3>{idea.title}</h3>
+       <p>{idea.body}</p>
+      </div>
+     ))
+    }
+   </div>
+  </div>
+ </section>
+
+ <CtaBand
+  title="Want ideas built for your actual kid?"
+  body="Generic advice only goes so far. A free consultation gets you a read on your specific situation, useful whether or not you pursue coaching."
+ />
 </BaseLayout>
 
 <style>
-  .guide {
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: clamp(1.5rem, 1rem + 2vw, 3rem);
-    align-items: center;
-    background: var(--mist);
-    border-color: transparent;
-  }
+ .guide {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  align-items: center;
+  background: var(--paper);
+  border-color: var(--line);
+ }
 
-  .guide h2 {
-    font-size: var(--text-2xl);
-    margin-bottom: 0.75rem;
-  }
+ .guide h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: 0.75rem;
+ }
 
-  .guide p + p {
-    margin-top: 0.75rem;
-  }
+ .guide p + p {
+  margin-top: 0.75rem;
+ }
 
-  .guide .btn {
-    margin-top: 1.25rem;
-  }
+ .guide .btn {
+  margin-top: 1.25rem;
+ }
 
-  .guide__note {
-    font-size: 0.95rem;
+ .guide__note {
+  font-size: 0.95rem;
+ }
+
+ .guide__visual {
+  display: grid;
+  place-items: center;
+ }
+
+ .guide__mock {
+  width: min(100%, 13rem);
+  aspect-ratio: 3 / 4;
+  background: var(--navy);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lift);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ }
+
+ .guide__mock-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 560;
+  line-height: 1.25;
+  color: var(--white);
+ }
+
+ .guide__mock-byline {
+  font-size: 0.7rem;
+  font-weight: 640;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+ }
+
+ .ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+ }
+
+ .idea-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.5rem;
+ }
+
+ .idea-card p {
+  font-size: 1rem;
+ }
+
+ @media (max-width: 900px) {
+  .ideas-grid {
+   grid-template-columns: 1fr 1fr;
+  }
+ }
+
+ @media (max-width: 700px) {
+  .guide,
+  .ideas-grid {
+   grid-template-columns: 1fr;
   }
 
   .guide__visual {
-    display: grid;
-    place-items: center;
+   display: none;
   }
-
-  .guide__mock {
-    width: min(100%, 13rem);
-    aspect-ratio: 3 / 4;
-    background: var(--navy);
-    border-radius: 8px;
-    box-shadow: var(--shadow-lift);
-    padding: 1.5rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transform: rotate(2.5deg);
-  }
-
-  .guide__mock-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 560;
-    line-height: 1.25;
-    color: #fff;
-  }
-
-  .guide__mock-byline {
-    font-size: 0.7rem;
-    font-weight: 640;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .ideas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
-  }
-
-  .idea-card h3 {
-    font-size: var(--text-lg);
-    margin-bottom: 0.5rem;
-  }
-
-  .idea-card p {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 900px) {
-    .ideas-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .guide,
-    .ideas-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .guide__visual {
-      display: none;
-    }
-  }
+ }
 </style>

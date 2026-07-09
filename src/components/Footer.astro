@@ -1,167 +1,181 @@
 ---
-import CompassMark from './CompassMark.astro';
 import { NAV, SERVICES, SITE } from '../data/site';
 
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__grid">
-      <div class="site-footer__brand">
-        <a href="/" class="site-footer__logo" aria-label={`${SITE.name}, home`}>
-          <CompassMark size={40} />
-          <span>Castellanos Coaching</span>
-        </a>
-        <p>
-          Executive function, life skills, and academic coaching for
-          neurodivergent teens, young adults, and adults. Practical systems
-          for real-world independence.
-        </p>
-        <p class="site-footer__contact">
-          <a href={SITE.phoneHref}>{SITE.phone}</a><br />
-          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-        </p>
-      </div>
+ <div class="wrap">
+  <div class="site-footer__grid">
+   <div class="site-footer__brand">
+    <a href="/" class="site-footer__logo" aria-label={`${SITE.name}, home`}>
+     <img
+      src="/castellanos-coaching-footer-logo.png"
+      alt=""
+      width="1401"
+      height="380"
+      aria-hidden="true"
+     />
+    </a>
+    <p>
+     Educational coaching with Gregory Castellanos. Executive function,
+     academic, social, and life skills support for neurodivergent people,
+     people with special needs, children, teens, adults, and families.
+     Practical systems for school, work, relationships, home,
+     communication, and independence.
+    </p>
+    <p class="site-footer__contact">
+     <a href={SITE.phoneHref}>{SITE.phone}</a><br />
+     <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+    </p>
+   </div>
 
-      <nav aria-label="Footer, services">
-        <h2 class="site-footer__heading">Coaching</h2>
-        <ul>
-          {
-            SERVICES.map((s) => (
-              <li>
-                <a href={`/services/${s.slug}/`}>{s.navLabel}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+   <nav aria-label="Footer, services">
+    <h2 class="site-footer__heading">Coaching</h2>
+    <ul>
+     {
+      SERVICES.map((s) => (
+       <li>
+        <a href={`/services/${s.slug}/`}>{s.navLabel}</a>
+       </li>
+      ))
+     }
+    </ul>
+   </nav>
 
-      <nav aria-label="Footer, pages">
-        <h2 class="site-footer__heading">Explore</h2>
-        <ul>
-          {
-            NAV.map((item) => (
-              <li>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+   <nav aria-label="Footer, pages">
+    <h2 class="site-footer__heading">Explore</h2>
+    <ul>
+     {
+      NAV.map((item) => (
+       <li>
+        <a href={item.href}>{item.label}</a>
+       </li>
+      ))
+     }
+    </ul>
+   </nav>
 
-      <div>
-        <h2 class="site-footer__heading">Service Area</h2>
-        <p class="site-footer__areas">
-          Based in Marin County. In person across the North Bay, Sonoma
-          County, San Francisco, Silicon Valley, and the greater Bay Area.
-          Remote coaching nationwide.
-        </p>
-        <a href="/contact/" class="btn btn--light">Book a Free Consultation</a>
-      </div>
-    </div>
-
-    <div class="site-footer__bottom">
-      <p>© {year} Castellanos Coaching · Sebastopol, California</p>
-      <p>
-        Coaching is educational mentoring and skill-building. It is not
-        therapy, and it is not a substitute for medical or mental-health care.
-      </p>
-    </div>
+   <div>
+    <h2 class="site-footer__heading">Service Area</h2>
+    <p class="site-footer__areas">
+     In-person coaching in Marin County, San Francisco, the Greater Bay
+     Area, Santa Rosa, Sebastopol, and Sonoma County. Remote coaching
+     throughout California and the United States.
+    </p>
+    <a href="/contact/" class="btn btn--light">Book a Free Consultation</a>
+   </div>
   </div>
+
+  <div class="site-footer__bottom">
+      <p>Copyright {year} Castellanos Coaching. Marin County, California.</p>
+   <p>
+    Coaching is educational mentoring and skill-building. It is not
+    therapy, and it is not a substitute for medical or mental-health care.
+   </p>
+  </div>
+ </div>
 </footer>
 
 <style>
-  .site-footer {
-    background: var(--navy);
-    color: rgba(255, 255, 255, 0.78);
-    padding-block: clamp(3rem, 2.5rem + 2vw, 4.5rem) 2rem;
-    font-size: 0.98rem;
-  }
+ .site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.76);
+  padding-block: clamp(3rem, 2.5rem + 2vw, 4.5rem) 2rem;
+  font-size: 0.94rem;
+  line-height: 1.62;
+ }
 
-  .site-footer a {
-    color: rgba(255, 255, 255, 0.88);
-    text-decoration: none;
-  }
+ .site-footer a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+ }
 
-  .site-footer a:hover {
-    color: var(--gold-soft);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+ .site-footer a:hover {
+  color: var(--gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+ }
 
-  .site-footer__grid {
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  }
+ .site-footer__grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+ }
+
+ .site-footer__logo {
+  display: flex;
+  align-items: center;
+  width: 18rem;
+  min-height: 4.9rem;
+  margin-bottom: 1rem;
+ }
+
+ .site-footer__logo img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+ }
+
+ .site-footer__contact {
+  margin-top: 1rem;
+  line-height: 1.72;
+ }
+
+ .site-footer__heading {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 680;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+ }
+
+ .site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.62rem;
+ }
+
+ .site-footer__areas { margin-bottom: 1.25rem; }
+
+ .site-footer .btn {
+  font-size: 0.95rem;
+  padding: 0.7rem 1.4rem;
+  color: var(--ink);
+ }
+
+ .site-footer .btn:hover {
+  color: var(--ink-deep);
+  text-decoration: none;
+ }
+
+ .site-footer__bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-on-ink);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.56);
+ }
+
+ @media (max-width: 900px) {
+  .site-footer__grid { grid-template-columns: 1fr 1fr; }
+ }
+
+ @media (max-width: 560px) {
+  .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
 
   .site-footer__logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 1rem;
+   width: 16rem;
+   min-height: 4.3rem;
   }
-
-  .site-footer__logo svg { color: var(--gold); }
-
-  .site-footer__contact {
-    margin-top: 1rem;
-    line-height: 1.9;
-  }
-
-  .site-footer__heading {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 680;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .site-footer ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.55rem;
-  }
-
-  .site-footer__areas { margin-bottom: 1.25rem; }
-
-  .site-footer .btn {
-    font-size: 0.95rem;
-    padding: 0.7rem 1.4rem;
-    color: var(--navy);
-  }
-
-  .site-footer .btn:hover {
-    color: var(--navy-deep);
-    text-decoration: none;
-  }
-
-  .site-footer__bottom {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line-on-ink);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.75rem;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.55);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer__grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
-  }
+ }
 </style>

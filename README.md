@@ -41,9 +41,9 @@ scripts/
 - **Copy:** each page's text lives in its file under `src/pages/`. Service-page
   copy is a structured object at the top of each file in `src/pages/services/`.
 - **Colors and fonts:** CSS custom properties at the top of `src/styles/global.css`.
-- **Greg's photo:** lives at `public/greg.jpg` (used on the home and About
-  pages). Drop in a replacement at the same path to update it; a ~4:5 portrait
-  works best.
+- **Greg's photo:** add `public/greg.jpg`, then in `src/pages/about.astro`
+  replace the marked `portrait-placeholder` block with the `<img>` tag shown in
+  the comment there.
 - **Domain change:** update `site` in `astro.config.mjs` and the sitemap URL in
   `public/robots.txt`.
 

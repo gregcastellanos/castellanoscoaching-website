@@ -1,74 +1,84 @@
----
+﻿---
 import CompassMark from './CompassMark.astro';
 import { SITE } from '../data/site';
 
 interface Props {
-  title?: string;
-  body?: string;
+ title?: string;
+ body?: string;
 }
 
 const {
-  title = 'Start with a conversation.',
-  body = `The first step is a free 20-minute consultation. No pressure and no intake forms, just an honest talk about what's going on and whether coaching is the right fit.`,
+ title = 'Start with a conversation.',
+ // TODO: Confirm consultation length before launch.
+ body = `The first step is a free 20–30 minute consultation. No pressure. No intake packet. Just a clear conversation about what is going on, what kind of support is needed, and whether coaching is the right fit.`,
 } = Astro.props;
 ---
 
 <section class="cta-band" aria-labelledby="cta-band-title">
-  <div class="wrap cta-band__inner">
-    <CompassMark size={56} class="cta-band__mark" />
-    <h2 id="cta-band-title">{title}</h2>
-    <p>{body}</p>
-    <div class="btn-row cta-band__buttons">
-      <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
-      <a href={SITE.phoneHref} class="btn btn--outline-light">Call {SITE.phone}</a>
-    </div>
-    <p class="cta-band__alt">
-      Prefer email? <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-    </p>
+ <div class="wrap cta-band__inner">
+  <span class="cta-band__logo-tile">
+   <CompassMark size={56} class="cta-band__mark" />
+  </span>
+  <h2 id="cta-band-title">{title}</h2>
+  <p>{body}</p>
+  <div class="btn-row cta-band__buttons">
+   <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+   <a href={SITE.phoneHref} class="btn btn--outline-light">Call {SITE.phone}</a>
   </div>
+  <p class="cta-band__alt">
+   Prefer email? <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+  </p>
+ </div>
 </section>
 
 <style>
-  .cta-band {
-    background:
-      radial-gradient(40rem 26rem at 15% 120%, rgba(224, 169, 62, 0.18), transparent 65%),
-      radial-gradient(36rem 22rem at 90% -30%, rgba(23, 102, 209, 0.28), transparent 70%),
-      var(--navy);
-    color: rgba(255, 255, 255, 0.85);
-    text-align: center;
-    padding-block: clamp(4rem, 3rem + 4vw, 6.5rem);
-  }
+ .cta-band {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.82);
+  text-align: center;
+  padding-block: clamp(4rem, 3rem + 4vw, 6.5rem);
+ }
 
-  .cta-band__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.1rem;
-  }
+ .cta-band__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+ }
 
-  .cta-band__mark { color: var(--gold); }
+ .cta-band__logo-tile {
+  display: grid;
+  place-items: center;
+  width: 4.75rem;
+  height: 4.75rem;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 16px 36px -24px rgba(0, 0, 0, 0.55);
+ }
 
-  .cta-band h2 {
-    color: #fff;
-    font-size: var(--text-2xl);
-  }
+ .cta-band h2 {
+  color: var(--white);
+  font-size: var(--text-2xl);
+ }
 
-  .cta-band p {
-    max-width: 38rem;
-    font-size: var(--text-md);
-  }
+ .cta-band p {
+  max-width: 38rem;
+  font-size: var(--text-md);
+ }
 
-  .cta-band__buttons {
-    justify-content: center;
-    margin-top: 0.75rem;
-  }
+ .cta-band__buttons {
+  justify-content: center;
+  margin-top: 0.75rem;
+ }
 
-  .cta-band__alt {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.6);
-  }
+ .cta-band__alt {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.62);
+ }
 
-  .cta-band__alt a {
-    color: var(--gold-soft);
-  }
+ .cta-band__alt a {
+  color: var(--gold-soft);
+ }
 </style>

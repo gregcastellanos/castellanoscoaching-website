@@ -1,257 +1,251 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CompassMark from '../components/CompassMark.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { SITE } from '../data/site';
 import { breadcrumbSchema, personSchema } from '../data/schema';
 
 const metaTitle =
-  'About Greg Castellanos | Executive Function & Life Skills Coach | Marin County, CA';
-const metaDescription = `Greg Castellanos is an educator and executive function coach with 15+ years supporting neurodivergent learners, teaching, STEAM education, and one-on-one mentoring. Based in Marin County, serving the North Bay, Sonoma County, Silicon Valley, the greater Bay Area, and remote clients nationwide.`;
+ 'About Gregory Castellanos | Executive Function Coach in Marin County, CA';
+const metaDescription = `Gregory Castellanos is an educator, creative technologist, mentor, and executive function coach with 15+ years supporting neurodivergent children, teens, adults, and families.`;
 
 const jsonLd = [
-  { '@context': 'https://schema.org', ...personSchema },
-  breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'About Greg', path: '/about/' },
-  ]),
+ { '@context': 'https://schema.org', ...personSchema },
+ breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'About Gregory', path: '/about/' },
+ ]),
 ];
 
 const values = [
-  {
-    title: 'Respect is the method',
-    body: `Nothing works with a client who feels like a problem being managed. Greg starts from genuine curiosity about who someone is and what they care about, and clients can tell the difference immediately.`,
-  },
-  {
-    title: 'Concrete beats clever',
-    body: `A decent system that actually gets used beats an elegant one that doesn't. Sessions end with something real in place, and the next step small enough to actually happen.`,
-  },
-  {
-    title: 'Honest, kindly delivered',
-    body: `Families get straight answers, about progress, about setbacks, and about whether coaching is helping. Teens especially respond to an adult who levels with them.`,
-  },
-  {
-    title: 'Independence is the goal',
-    body: `Success is measured by what clients run without Greg. Every engagement is designed, from day one, to make itself unnecessary.`,
-  },
+ {
+  title: 'Respect is the method',
+  body: `Nothing works with a client who feels like a problem being managed. Gregory starts with genuine curiosity about who someone is and what they care about.`,
+ },
+ {
+  title: 'Concrete beats clever',
+  body: `A decent system that actually gets used beats an elegant one that doesn't. Sessions end with something real in place, and the next step small enough to actually happen.`,
+ },
+ {
+  title: 'Honest, kindly delivered',
+  body: `Families get straight answers about progress, setbacks, and whether coaching is helping. Teens especially respond to an adult who levels with them.`,
+ },
+ {
+  title: 'Independence is the goal',
+  body: `Success is measured by what clients run without Gregory. Every engagement is designed, from day one, to make itself unnecessary.`,
+ },
 ];
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
-  <section class="about-hero">
-    <div class="wrap about-hero__inner">
-      <div>
-        <p class="eyebrow">About Greg</p>
-        <h1>An educator who never stopped asking why school wasn't working for some kids</h1>
-        <p class="lede">
-          Greg Castellanos has spent more than fifteen years teaching,
-          mentoring, and coaching neurodivergent learners, in classrooms,
-          STEAM programs, and one-on-one, and holds a Master's degree in
-          Education.
-        </p>
-      </div>
-      <figure class="about-hero__portrait">
-        <img
-          src="/greg.jpg"
-          alt="Greg Castellanos, executive function and life skills coach"
-          width="596"
-          height="745"
-          loading="eager"
-        />
-      </figure>
-    </div>
-  </section>
+ <section class="about-hero">
+  <div class="wrap about-hero__inner">
+   <div>
+    <p class="eyebrow">About Gregory</p>
+    <h1>Practical coaching from someone who gets how different brains work.</h1>
+    <p class="lede">
+     Gregory Castellanos is an educator, creative technologist, mentor, and
+     coach with more than 15 years of experience supporting
+     neurodivergent children, teens, and adults.
+    </p>
+   </div>
+   <div class="about-hero__portrait">
+    <img
+     src="/greg-about.png"
+     alt="Gregory Castellanos"
+     width="1122"
+     height="1402"
+     loading="eager"
+     fetchpriority="high"
+    />
+   </div>
+  </div>
+ </section>
 
-  <section class="section">
-    <div class="wrap about-story">
-      <div class="prose">
-        <h2>The through-line</h2>
-        <p>
-          Greg's career has run through classrooms, STEAM and
-          maker education, curriculum design, AV and creative technology, and
-          academic coaching. The settings changed; the students who stayed
-          with him didn't. In every one of those rooms there were bright,
-          interesting kids, usually with ADHD, autism, or a learning
-          difference, working harder than everyone else and getting less
-          back.
-        </p>
-        <p>
-          What they needed almost never turned out to be more content
-          instruction. It was the layer underneath: how to plan, how to
-          start, how to talk to the teacher, how to recover from a bad week,
-          how to trust themselves again. Schools rarely have time to teach
-          that layer. Castellanos Coaching exists because someone should.
-        </p>
-        <h2>Why coaching, and why this kind</h2>
-        <p>
-          The coaching Greg practices is closer to skilled mentoring than to
-          either tutoring or therapy. It's hands-on and it happens in the
-          middle of real life: a real calendar, a real job application, a
-          real kitchen, a real conversation the client has been dreading.
-          Project-based teaching taught him that people learn by building
-          things that matter to them, so that's how coaching runs, too.
-        </p>
-        <p>
-          His technology background matters more than it might seem. Many of
-          his clients live half their lives in games, code, music software,
-          or online communities, and Greg can meet them there authentically,
-          then use those interests as the engine of the work rather than
-          treating them as the distraction.
-        </p>
-        <h2>Beyond the work</h2>
-        <p>
-          Greg is based in Marin County and works with families across the
-          North Bay, Sonoma County, San Francisco, the Peninsula, and Silicon
-          Valley, as well as remote clients nationwide. He's a
-          maker and tinkerer by disposition, which is exactly the energy he
-          brings to a stuck routine or a chaotic backpack: take it apart,
-          figure out how it actually works, build something better.
-        </p>
-      </div>
+ <section class="section">
+  <div class="wrap about-story">
+   <div class="prose">
+    <h2>Real skills. Real systems. Real change.</h2>
+    <p>
+     For more than 15 years, Gregory has worked with neurodivergent
+     children, teens, and adults who want real confidence and
+     independence. He has seen
+     capable people run into barriers because the usual advice does not fit how
+     their brains work.
+    </p>
+    <p>
+     Gregory helps clients build the layer underneath daily life: how to
+     plan, start, communicate, recover from a hard week, and trust
+     themselves again.
+    </p>
+    <h2>A practical, judgment-free approach</h2>
+    <p>
+     There are no cookie-cutter plans here. Gregory starts with where you
+     are, identifies what matters, and builds strategies around your
+     actual life. Sessions are hands-on: a real calendar, a real job
+     application, a real routine, or a real conversation that needs
+     practice.
+    </p>
+    <p>
+     His background in teaching, creative technology, and project-based
+     learning helps him connect with clients through their real
+     interests and turn those interests into momentum.
+    </p>
+    <h2>Beyond the work</h2>
+    <p>
+     Gregory is based in Marin County and works in person in San Francisco,
+     throughout the Greater Bay Area, Santa Rosa, Sebastopol, and Sonoma
+     County. He also works remotely with clients throughout California
+     and the United States. He's a
+     maker and tinkerer by disposition, which is exactly the energy he
+     brings to a routine that is not working or a chaotic backpack: take it apart,
+     figure out how it actually works, build something better.
+    </p>
+   </div>
 
-      <aside class="about-facts card" aria-label="Quick facts">
-        <h2>At a glance</h2>
-        <ul>
-          <li><strong>15+ years</strong> with neurodivergent learners</li>
-          <li><strong>M.Ed.</strong>, Master's degree in Education</li>
-          <li>Classroom teaching, STEAM & maker education</li>
-          <li>Curriculum design & project-based learning</li>
-          <li>Executive function & academic coaching</li>
-          <li>Life skills & independence mentoring</li>
-          <li>Based in <strong>Marin County, CA</strong></li>
-          <li>In person: Marin, North Bay, Silicon Valley</li>
-          <li>Remote: nationwide</li>
-        </ul>
-        <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
-      </aside>
-    </div>
-  </section>
+   <aside class="about-facts card" aria-label="Quick facts">
+    <h2>At a glance</h2>
+    <ul>
+     <li><strong>15+ years</strong> with neurodivergent learners</li>
+     <li><strong>M.A.T.</strong> Master of Arts in Teaching</li>
+     <li>Classroom teaching, STEAM & maker education</li>
+     <li>Curriculum design & project-based learning</li>
+     <li>Executive function & academic coaching</li>
+     <li>Life skills & independence mentoring</li>
+     <li>Based in <strong>Marin County, CA</strong></li>
+     <li>In person: San Francisco, Greater Bay Area, and Sonoma County</li>
+     <li>Remote: California and the United States</li>
+    </ul>
+    <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+   </aside>
+  </div>
+ </section>
 
-  <section class="section section--sand" aria-labelledby="values-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">How Greg works</p>
-        <h2 id="values-title">Four commitments, every client</h2>
+ <section class="section section--sand" aria-labelledby="values-title">
+  <div class="wrap">
+   <div class="section-head">
+    <p class="eyebrow">How Gregory works</p>
+    <h2 id="values-title">Four commitments, every client</h2>
+   </div>
+   <div class="values-grid">
+    {
+     values.map((v) => (
+      <div class="card value-card">
+       <h3>{v.title}</h3>
+       <p>{v.body}</p>
       </div>
-      <div class="values-grid">
-        {
-          values.map((v) => (
-            <div class="card value-card">
-              <h3>{v.title}</h3>
-              <p>{v.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+     ))
+    }
+   </div>
+  </div>
+ </section>
 
-  <CtaBand
-    title="Come meet Greg."
-    body="The free consultation is a real conversation, not a sales call. Bring your questions, and bring your skepticism, too."
-  />
+ <CtaBand
+  title="Come meet Gregory."
+  body="The free consultation is a real conversation, not a sales call. Bring your questions and your skepticism, too."
+ />
 </BaseLayout>
 
 <style>
-  .about-hero {
-    background:
-      radial-gradient(48rem 24rem at 90% -20%, rgba(23, 102, 209, 0.14), transparent 70%),
-      var(--mist);
-    border-bottom: 1px solid var(--line);
-    padding-block: clamp(3.5rem, 3rem + 3vw, 6rem);
-  }
+ .about-hero {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding-block: clamp(3.5rem, 3rem + 3vw, 6rem);
+ }
 
-  .about-hero__inner {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
-    align-items: center;
-  }
+ .about-hero__inner {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+  align-items: center;
+ }
 
-  .about-hero h1 {
-    font-size: var(--text-3xl);
-  }
+ .about-hero h1 {
+  font-size: var(--text-3xl);
+ }
 
-  .about-hero__portrait {
-    margin: 0;
-    max-width: 22rem;
-    margin-inline: auto;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow-lift);
-  }
+ .about-hero__portrait img {
+  aspect-ratio: 4 / 5;
+  width: min(100%, 23rem);
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+ }
 
-  .about-hero__portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+ .about-story {
+  display: grid;
+  grid-template-columns: 1.4fr 0.85fr;
+  gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+  align-items: start;
+ }
 
-  .about-story {
-    display: grid;
-    grid-template-columns: 1.4fr 0.85fr;
-    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
-    align-items: start;
-  }
+ .about-story .prose h2 {
+  font-size: var(--text-xl);
+ }
 
-  .about-story .prose h2 {
-    font-size: var(--text-xl);
+ .about-facts {
+  position: sticky;
+  top: 6rem;
+ }
+
+ .about-facts h2 {
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 680;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 1rem;
+ }
+
+ .about-facts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.65rem;
+  font-size: 0.98rem;
+ }
+
+ .about-facts li {
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+ }
+
+ .values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+ }
+
+ .value-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.5rem;
+ }
+
+ .value-card p {
+  font-size: 1rem;
+ }
+
+ @media (max-width: 860px) {
+  .about-hero__inner,
+  .about-story,
+  .values-grid {
+   grid-template-columns: 1fr;
   }
 
   .about-facts {
-    position: sticky;
-    top: 6rem;
+   position: static;
   }
 
-  .about-facts h2 {
-    font-size: 0.85rem;
-    font-family: var(--font-body);
-    font-weight: 680;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--blue-deep);
-    margin-bottom: 1rem;
+  .about-hero__portrait {
+   order: -1;
   }
 
-  .about-facts ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem;
-    display: grid;
-    gap: 0.65rem;
-    font-size: 0.98rem;
+  .about-hero__portrait img {
+   width: min(100%, 19rem);
   }
-
-  .about-facts li {
-    padding-bottom: 0.65rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.4rem;
-  }
-
-  .value-card h3 {
-    font-size: var(--text-lg);
-    margin-bottom: 0.5rem;
-  }
-
-  .value-card p {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 860px) {
-    .about-hero__inner,
-    .about-story,
-    .values-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .about-facts {
-      position: static;
-    }
-  }
+ }
 </style>

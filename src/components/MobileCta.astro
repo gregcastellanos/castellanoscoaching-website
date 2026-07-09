@@ -1,0 +1,61 @@
+---
+import { SITE } from '../data/site';
+---
+
+<aside class="mobile-cta" aria-label="Consultation options">
+ <a href={SITE.calendly} class="mobile-cta__book">Book a Free Consultation</a>
+ <a href={SITE.phoneHref} class="mobile-cta__call">Call</a>
+</aside>
+
+<style>
+ .mobile-cta {
+  display: none;
+ }
+
+ @media (max-width: 700px) {
+  :global(body) {
+   padding-bottom: 4.5rem;
+  }
+
+  .mobile-cta {
+   position: fixed;
+   z-index: 60;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   display: grid;
+   grid-template-columns: 1fr auto;
+   gap: 0.6rem;
+   padding: 0.65rem max(0.75rem, env(safe-area-inset-left))
+    calc(0.65rem + env(safe-area-inset-bottom));
+   border-top: 1px solid var(--line);
+   background: rgba(255, 255, 255, 0.97);
+   box-shadow: 0 -8px 24px rgba(30, 53, 91, 0.1);
+  }
+
+  .mobile-cta a {
+   min-height: 3rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+   font-size: 0.9rem;
+   font-weight: 690;
+   text-decoration: none;
+  }
+
+  .mobile-cta__book {
+   padding-inline: 1rem;
+   background: var(--navy);
+   color: var(--white);
+  }
+
+  .mobile-cta__call {
+   min-width: 4.8rem;
+   padding-inline: 1rem;
+   border: 1px solid var(--navy);
+   color: var(--navy);
+   background: var(--white);
+  }
+ }
+</style>

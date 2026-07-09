@@ -6,188 +6,189 @@ import { SERVICES, SITE } from '../../data/site';
 import { breadcrumbSchema } from '../../data/schema';
 
 const metaTitle =
-  'Coaching Services for Neurodivergent Teens & Adults | Castellanos Coaching';
-const metaDescription = `Executive function, academic, social skills, independence, and parent coaching for neurodivergent teens, young adults, and adults, individualized, practical, and strengths-based. Sonoma County, Marin, Bay Area, and remote.`;
+ 'Coaching Services for Children, Teens, Adults, and Families | Castellanos Coaching';
+const metaDescription = `Educational, executive function, academic, social skills, independence, and family coaching for neurodivergent children, teens, and adults.`;
 
 const details: Record<string, { who: string; points: string[] }> = {
-  'executive-function-coaching': {
-    who: 'Teens, students, and adults with ADHD, autism, or learning differences',
-    points: [
-      'Planning, prioritizing, and time management',
-      'Task initiation and follow-through',
-      'Organization systems that survive real life',
-    ],
-  },
-  'academic-coaching': {
-    who: 'Middle school through college students',
-    points: [
-      'Study systems built around how the student learns',
-      'Workload management and motivation',
-      'Self-advocacy with teachers and professors',
-    ],
-  },
-  'social-skills-coaching': {
-    who: 'Autistic and ADHD teens, young adults, and adults',
-    points: [
-      'Conversation, friendship, and dating',
-      'Workplace communication and interviews',
-      'Boundaries, energy, and masking less',
-    ],
-  },
-  'independence-life-skills-coaching': {
-    who: 'Young adults launching, and adults building sturdier routines',
-    points: [
-      'Daily structure, money basics, and home management',
-      'Work, applications, and keeping the job',
-      'Self-direction and real momentum',
-    ],
-  },
-  'parent-family-coaching': {
-    who: 'Parents and caregivers of neurodivergent teens and young adults',
-    points: [
-      'Lowering daily conflict at the flashpoints',
-      'Building buy-in and handing over ownership',
-      'A staged, realistic plan toward independence',
-    ],
-  },
+ 'executive-function-coaching': {
+  who: 'Children, teens, students, and adults with ADHD, autism, or learning differences',
+  points: [
+   'Planning, prioritizing, and time management',
+   'Task initiation and follow-through',
+   'Organization systems that survive real life',
+  ],
+ },
+ 'academic-coaching': {
+  who: 'Middle school through college students',
+  points: [
+   'Study systems built around how the student learns',
+   'Workload management and motivation',
+   'Self-advocacy with teachers and professors',
+  ],
+ },
+ 'social-skills-coaching': {
+  who: 'Autistic and ADHD teens, young adults, and adults',
+  points: [
+   'Conversation, friendship, and dating',
+   'Workplace communication and interviews',
+   'Boundaries, energy, and building confidence to be one’s genuine self',
+  ],
+ },
+ 'independence-life-skills-coaching': {
+  who: 'Young adults launching, and adults building sturdier routines',
+  points: [
+   'Daily structure, money basics, and home management',
+   'Work, applications, and keeping the job',
+   'Self-direction and real momentum',
+  ],
+ },
+ 'parent-family-coaching': {
+  who: 'Parents and caregivers of neurodivergent teens and young adults',
+  points: [
+   'Lowering daily conflict during the hardest moments',
+   'Strengthening cooperation and handing over ownership',
+   'A staged, realistic plan toward independence',
+  ],
+ },
 };
 
 const jsonLd = breadcrumbSchema([
-  { name: 'Home', path: '/' },
-  { name: 'Services', path: '/services/' },
+ { name: 'Home', path: '/' },
+ { name: 'Services', path: '/services/' },
 ]);
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
-  <PageHero
-    eyebrow="Services"
-    title="Individualized coaching, wherever life is sticking"
-    lede="Five areas of focus, one practical approach. Most clients blend two or three, coaching follows the person, not the menu."
-  />
+ <PageHero
+  eyebrow="Services"
+  title="Individualized coaching, wherever life is sticking"
+  lede="Five areas of focus, one practical approach. Most clients blend two or three. Coaching follows the person, not the menu."
+ />
 
-  <section class="section">
-    <div class="wrap">
-      <div class="service-rows">
-        {
-          SERVICES.map((s, i) => (
-            <article class="service-row card" id={s.slug}>
-              <div class="service-row__main">
-                <p class="service-row__num" aria-hidden="true">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-                <h2>
-                  <a href={`/services/${s.slug}/`}>{s.title}</a>
-                </h2>
-                <p class="service-row__short">{s.short}</p>
-                <p class="service-row__who">
-                  <strong>Best fit:</strong> {details[s.slug].who}
-                </p>
-              </div>
-              <div class="service-row__side">
-                <ul class="check-list">
-                  {details[s.slug].points.map((p) => (
-                    <li>{p}</li>
-                  ))}
-                </ul>
-                <a class="btn btn--outline" href={`/services/${s.slug}/`}>
-                  About this coaching
-                </a>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-
-      <div class="services-note">
-        <h2>How engagements work</h2>
-        <p>
-          Coaching starts with a free consultation, then typically runs as
-          weekly one-on-one sessions, in person across Sonoma County, Marin,
-          and the Bay Area, or by video anywhere in the U.S. Between sessions,
-          clients get support putting systems into practice, because that's
-          where the actual change happens. Every engagement follows the
-          <a href="/castellanos-compass/">Castellanos Compass</a>: clarity,
-          alignment, foundation, expansion.
+ <section class="section">
+  <div class="wrap">
+   <div class="service-rows">
+    {
+     SERVICES.map((s, i) => (
+      <article class="service-row card" id={s.slug}>
+       <div class="service-row__main">
+        <p class="service-row__num" aria-hidden="true">
+         {String(i + 1).padStart(2, '0')}
         </p>
-      </div>
-    </div>
-  </section>
+        <h2>
+         <a href={`/services/${s.slug}/`}>{s.title}</a>
+        </h2>
+        <p class="service-row__short">{s.short}</p>
+        <p class="service-row__who">
+         <strong>Best fit:</strong> {details[s.slug].who}
+        </p>
+       </div>
+       <div class="service-row__side">
+        <ul class="check-list">
+         {details[s.slug].points.map((p) => (
+          <li>{p}</li>
+         ))}
+        </ul>
+        <a class="btn btn--outline" href={`/services/${s.slug}/`}>
+         About this coaching
+        </a>
+       </div>
+      </article>
+     ))
+    }
+   </div>
 
-  <CtaBand
-    title="Not sure which service fits?"
-    body={`That's normal, real lives don't sort themselves into categories. Book a free consultation and Greg will help you figure out where to start.`}
-  />
+   <div class="services-note">
+    <h2>How engagements work</h2>
+    <p>
+     Coaching starts with a free consultation, then typically runs as
+     weekly one-on-one sessions, in person across Marin County, San
+     Francisco, the Greater Bay Area, and Sonoma County, or remotely
+     throughout the U.S. Between sessions,
+     clients get support putting systems into practice, because that's
+     where the actual change happens. Every engagement follows
+     <a href="/castellanos-compass/">The Castellanos Compass™</a>:
+     North, Clarity; East, Alignment; South, Foundation; West, Expansion.
+    </p>
+   </div>
+  </div>
+ </section>
+
+ <CtaBand
+  title="Not sure which service fits?"
+  body={`That is normal. Real lives do not sort themselves into categories. Book a free consultation and Gregory will help you figure out where to start.`}
+ />
 </BaseLayout>
 
 <style>
-  .service-rows {
-    display: grid;
-    gap: 1.5rem;
-  }
+ .service-rows {
+  display: grid;
+  gap: 1.5rem;
+ }
 
+ .service-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  align-items: center;
+ }
+
+ .service-row__num {
+  font-size: 1rem;
+  font-weight: 760;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+ }
+
+ .service-row h2 {
+  font-size: var(--text-xl);
+  margin-bottom: 0.6rem;
+ }
+
+ .service-row h2 a {
+  color: var(--ink);
+  text-decoration: none;
+ }
+
+ .service-row h2 a:hover {
+  color: var(--gold-deep);
+ }
+
+ .service-row__short {
+  margin-bottom: 0.8rem;
+ }
+
+ .service-row__who {
+  font-size: 0.95rem;
+ }
+
+ .service-row__side {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+ }
+
+ .service-row__side .check-list {
+  font-size: 0.98rem;
+ }
+
+ .services-note {
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  padding: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+ }
+
+ .services-note h2 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.6rem;
+ }
+
+ @media (max-width: 760px) {
   .service-row {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: clamp(1.5rem, 1rem + 2vw, 3rem);
-    align-items: center;
+   grid-template-columns: 1fr;
   }
-
-  .service-row__num {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-  }
-
-  .service-row h2 {
-    font-size: var(--text-xl);
-    margin-bottom: 0.6rem;
-  }
-
-  .service-row h2 a {
-    color: var(--navy);
-    text-decoration: none;
-  }
-
-  .service-row h2 a:hover {
-    color: var(--blue-deep);
-  }
-
-  .service-row__short {
-    margin-bottom: 0.8rem;
-  }
-
-  .service-row__who {
-    font-size: 0.95rem;
-  }
-
-  .service-row__side {
-    display: grid;
-    gap: 1.25rem;
-    justify-items: start;
-  }
-
-  .service-row__side .check-list {
-    font-size: 0.98rem;
-  }
-
-  .services-note {
-    margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
-    padding: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
-    background: var(--sky);
-    border-radius: var(--radius-lg);
-  }
-
-  .services-note h2 {
-    font-size: var(--text-lg);
-    margin-bottom: 0.6rem;
-  }
-
-  @media (max-width: 760px) {
-    .service-row {
-      grid-template-columns: 1fr;
-    }
-  }
+ }
 </style>

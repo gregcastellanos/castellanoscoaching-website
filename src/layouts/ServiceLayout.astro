@@ -4,30 +4,39 @@
 import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
+import CompassMark from '../components/CompassMark.astro';
 import { SERVICES, SITE } from '../data/site';
 import { breadcrumbSchema, serviceSchema } from '../data/schema';
 
 export interface ServiceCopy {
-  slug: string;
-  metaTitle: string;
-  metaDescription: string;
-  eyebrow: string;
-  h1: string;
-  lede: string;
-  /** Empathy section: recognizable day-to-day struggles. */
-  signs: { title: string; intro: string; items: string[] };
-  /** What coaching actually covers. */
-  focus: { title: string; intro: string; items: { title: string; body: string }[] };
-  /** Grounded description of what tends to change. */
-  outcomes: { title: string; intro: string; items: string[] };
-  /** Who this service fits. */
-  who: { title: string; paragraphs: string[] };
-  ctaTitle: string;
-  ctaBody: string;
+ slug: string;
+ metaTitle: string;
+ metaDescription: string;
+ eyebrow: string;
+ h1: string;
+ lede: string;
+ /** Empathy section: recognizable day-to-day struggles. */
+ signs: { title: string; intro: string; items: string[] };
+ /** What coaching actually covers. */
+ focus: {
+  title: string;
+  intro: string;
+  items: {
+   title: string;
+   body: string;
+   link?: { href: string; label: string; suffix?: string };
+  }[];
+ };
+ /** Grounded description of what tends to change. */
+ outcomes: { title: string; intro: string; items: string[] };
+ /** Who this service fits. */
+ who: { title: string; paragraphs: string[] };
+ ctaTitle: string;
+ ctaBody: string;
 }
 
 interface Props {
-  copy: ServiceCopy;
+ copy: ServiceCopy;
 }
 
 const { copy } = Astro.props;
@@ -35,184 +44,236 @@ const path = `/services/${copy.slug}/`;
 const related = SERVICES.filter((s) => s.slug !== copy.slug);
 
 const jsonLd = [
-  serviceSchema({
-    name: SERVICES.find((s) => s.slug === copy.slug)?.title ?? copy.h1,
-    description: copy.metaDescription,
-    path,
-  }),
-  breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services/' },
-    { name: copy.h1, path },
-  ]),
+ serviceSchema({
+  name: SERVICES.find((s) => s.slug === copy.slug)?.title ?? copy.h1,
+  description: copy.metaDescription,
+  path,
+ }),
+ breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: copy.h1, path },
+ ]),
 ];
 ---
 
 <BaseLayout title={copy.metaTitle} description={copy.metaDescription} jsonLd={jsonLd}>
-  <PageHero eyebrow={copy.eyebrow} title={copy.h1} lede={copy.lede}>
-    <div class="btn-row hero-buttons">
-      <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
-      <a href="/castellanos-compass/" class="btn btn--outline">How Coaching Works</a>
-    </div>
-  </PageHero>
+ <PageHero eyebrow={copy.eyebrow} title={copy.h1} lede={copy.lede}>
+  <div class="btn-row hero-buttons">
+   <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+   <a href="/castellanos-compass/" class="btn btn--outline">How Coaching Works</a>
+  </div>
+ </PageHero>
 
-  <section class="section" aria-labelledby="signs-title">
-    <div class="wrap service-grid">
-      <div>
-        <p class="eyebrow">Sound familiar?</p>
-        <h2 id="signs-title">{copy.signs.title}</h2>
-        <p class="lede">{copy.signs.intro}</p>
+ <section class="section" aria-labelledby="signs-title">
+  <div class="wrap service-grid">
+   <div>
+    <p class="eyebrow">Sound familiar?</p>
+    <h2 id="signs-title">{copy.signs.title}</h2>
+    <p class="lede">{copy.signs.intro}</p>
+   </div>
+   <ul class="check-list">
+    {copy.signs.items.map((item) => <li>{item}</li>)}
+   </ul>
+  </div>
+ </section>
+
+ <section class="section section--sand" aria-labelledby="focus-title">
+  <div class="wrap">
+   <div class="section-head">
+    <p class="eyebrow">What we work on</p>
+    <h2 id="focus-title">{copy.focus.title}</h2>
+    <p class="lede">{copy.focus.intro}</p>
+   </div>
+   <div class="focus-grid">
+    {
+     copy.focus.items.map((item) => (
+      <div class="card focus-card">
+       <h3>{item.title}</h3>
+       <p>
+        {item.body}
+        {item.link && (
+         <>
+          {' '}<a href={item.link.href}>{item.link.label}</a>{item.link.suffix}
+         </>
+        )}
+       </p>
       </div>
-      <ul class="check-list">
-        {copy.signs.items.map((item) => <li>{item}</li>)}
-      </ul>
-    </div>
-  </section>
+     ))
+    }
+   </div>
+  </div>
+ </section>
 
-  <section class="section section--sand" aria-labelledby="focus-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">What we work on</p>
-        <h2 id="focus-title">{copy.focus.title}</h2>
-        <p class="lede">{copy.focus.intro}</p>
-      </div>
-      <div class="focus-grid">
-        {
-          copy.focus.items.map((item) => (
-            <div class="card focus-card">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+ <section class="section section--sm compass-band" aria-labelledby="service-compass-title">
+  <div class="wrap compass-band__inner">
+   <CompassMark size={54} />
+   <div>
+    <h2 id="service-compass-title">Guided by The Castellanos Compass™</h2>
+    <p>
+     Every engagement moves through Clarity, Alignment, Foundation, and
+     Expansion. The framework gives the work direction while keeping it
+     personal to the client.
+    </p>
+   </div>
+   <a href="/castellanos-compass/" class="btn btn--outline">Explore the Compass</a>
+  </div>
+ </section>
 
-  <section class="section" aria-labelledby="outcomes-title">
-    <div class="wrap service-grid">
-      <div>
-        <p class="eyebrow">What changes</p>
-        <h2 id="outcomes-title">{copy.outcomes.title}</h2>
-        <p class="lede">{copy.outcomes.intro}</p>
-      </div>
-      <ul class="check-list">
-        {copy.outcomes.items.map((item) => <li>{item}</li>)}
-      </ul>
-    </div>
-  </section>
+ <section class="section" aria-labelledby="outcomes-title">
+  <div class="wrap service-grid">
+   <div>
+    <p class="eyebrow">What changes</p>
+    <h2 id="outcomes-title">{copy.outcomes.title}</h2>
+    <p class="lede">{copy.outcomes.intro}</p>
+   </div>
+   <ul class="check-list">
+    {copy.outcomes.items.map((item) => <li>{item}</li>)}
+   </ul>
+  </div>
+ </section>
 
-  <section class="section section--sm who-band" aria-labelledby="who-title">
-    <div class="wrap">
-      <div class="who-inner card">
-        <h2 id="who-title">{copy.who.title}</h2>
-        {copy.who.paragraphs.map((p) => <p>{p}</p>)}
-        <p class="who-note">
-          Not sure this is the right fit? That's exactly what the free
-          consultation is for. <a href="/contact/">Reach out</a> and we'll
-          figure it out together.
-        </p>
-      </div>
-    </div>
-  </section>
+ <section class="section section--sm who-band" aria-labelledby="who-title">
+  <div class="wrap">
+   <div class="who-inner card">
+    <h2 id="who-title">{copy.who.title}</h2>
+    {copy.who.paragraphs.map((p) => <p>{p}</p>)}
+    <p class="who-note">
+     Not sure this is the right fit? That is what the free consultation is
+     for. <a href="/contact/">Reach out</a> and Gregory will help you sort it out.
+    </p>
+   </div>
+  </div>
+ </section>
 
-  <section class="section section--sm" aria-labelledby="related-title">
-    <div class="wrap">
-      <h2 id="related-title" class="related-title">Related coaching</h2>
-      <ul class="related-list">
-        {
-          related.map((s) => (
-            <li>
-              <a href={`/services/${s.slug}/`}>{s.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
+ <section class="section section--sm" aria-labelledby="related-title">
+  <div class="wrap">
+   <h2 id="related-title" class="related-title">Related coaching</h2>
+   <ul class="related-list">
+    {
+     related.map((s) => (
+      <li>
+       <a href={`/services/${s.slug}/`}>{s.title}</a>
+      </li>
+     ))
+    }
+   </ul>
+  </div>
+ </section>
 
-  <CtaBand title={copy.ctaTitle} body={copy.ctaBody} />
+ <CtaBand title={copy.ctaTitle} body={copy.ctaBody} />
 </BaseLayout>
 
 <style>
-  .hero-buttons {
-    margin-top: 2rem;
-  }
+ .hero-buttons {
+  margin-top: 2rem;
+ }
 
+ .service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 1.5rem + 3vw, 5rem);
+  align-items: start;
+ }
+
+ .service-grid .check-list {
+  margin-top: 0.5rem;
+ }
+
+ .focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.4rem;
+ }
+
+ .focus-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.6rem;
+ }
+
+ .focus-card p {
+  font-size: 1rem;
+ }
+
+ .compass-band {
+  background: var(--white);
+ }
+
+ .compass-band__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.4rem, 1rem + 1vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+ }
+
+ .compass-band__inner h2 {
+  font-size: var(--text-xl);
+  margin-bottom: 0.45rem;
+ }
+
+ .compass-band__inner .eyebrow {
+  margin-bottom: 0.6rem;
+ }
+
+ .who-band .who-inner {
+  background: var(--paper);
+  border-color: var(--line);
+  display: grid;
+  gap: 1rem;
+ }
+
+ .who-band h2 {
+  font-size: var(--text-xl);
+ }
+
+ .who-note {
+  font-size: 0.98rem;
+ }
+
+ .related-title {
+  font-size: var(--text-lg);
+  margin-bottom: 1rem;
+ }
+
+ .related-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+ }
+
+ .related-list a {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 0.95rem;
+  font-weight: 560;
+  color: var(--ink);
+  text-decoration: none;
+ }
+
+ .related-list a:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+ }
+
+ @media (max-width: 800px) {
   .service-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(2rem, 1.5rem + 3vw, 5rem);
-    align-items: start;
+   grid-template-columns: 1fr;
   }
 
-  .service-grid .check-list {
-    margin-top: 0.5rem;
+  .compass-band__inner {
+   grid-template-columns: 1fr;
   }
 
-  .focus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    gap: 1.4rem;
+  .compass-band__inner .btn {
+   width: 100%;
   }
-
-  .focus-card h3 {
-    font-size: var(--text-lg);
-    margin-bottom: 0.6rem;
-  }
-
-  .focus-card p {
-    font-size: 1rem;
-  }
-
-  .who-band .who-inner {
-    background: var(--mist);
-    border-color: transparent;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .who-band h2 {
-    font-size: var(--text-xl);
-  }
-
-  .who-note {
-    font-size: 0.98rem;
-  }
-
-  .related-title {
-    font-size: var(--text-lg);
-    margin-bottom: 1rem;
-  }
-
-  .related-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .related-list a {
-    display: inline-block;
-    padding: 0.55rem 1.1rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: #fffdf9;
-    font-size: 0.95rem;
-    font-weight: 560;
-    color: var(--navy);
-    text-decoration: none;
-  }
-
-  .related-list a:hover {
-    border-color: var(--blue);
-    color: var(--blue-deep);
-  }
-
-  @media (max-width: 800px) {
-    .service-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+ }
 </style>

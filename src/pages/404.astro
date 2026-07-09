@@ -1,43 +1,43 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CompassMark from '../components/CompassMark.astro';
 ---
 
 <BaseLayout
-  title="Page Not Found | Castellanos Coaching"
-  description="That page doesn't exist, but the compass still works. Head back to Castellanos Coaching."
+ title="Page Not Found | Castellanos Coaching"
+ description="That page doesn't exist. Return to Castellanos Coaching."
 >
-  <section class="section notfound">
-    <div class="wrap notfound__inner">
-      <CompassMark size={72} class="notfound__mark" />
-      <h1>Off the map</h1>
-      <p class="lede">
-        That page doesn't exist, a fitting reminder that everyone loses the
-        thread sometimes. Here's the way back.
-      </p>
-      <div class="btn-row notfound__buttons">
-        <a href="/" class="btn btn--primary">Back to Home</a>
-        <a href="/services/" class="btn btn--outline">Explore Coaching</a>
-      </div>
-    </div>
-  </section>
+ <section class="section notfound">
+  <div class="wrap notfound__inner">
+   <CompassMark size={72} class="notfound__mark" />
+   <h1>Page not found</h1>
+   <p class="lede">
+    That page doesn't exist, a fitting reminder that everyone loses the
+    thread sometimes. Here is the way back.
+   </p>
+   <div class="btn-row notfound__buttons">
+    <a href="/" class="btn btn--primary">Back to Home</a>
+    <a href="/services/" class="btn btn--outline">Explore Coaching</a>
+   </div>
+  </div>
+ </section>
 </BaseLayout>
 
 <style>
-  .notfound__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.25rem;
-    padding-block: clamp(3rem, 2rem + 5vw, 6rem);
-  }
+ .notfound__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  padding-block: clamp(3rem, 2rem + 5vw, 6rem);
+ }
 
-  .notfound__mark {
-    color: var(--blue);
-  }
+ .notfound__mark {
+  color: var(--ink);
+ }
 
-  .notfound__buttons {
-    justify-content: center;
-  }
+ .notfound__buttons {
+  justify-content: center;
+ }
 </style>

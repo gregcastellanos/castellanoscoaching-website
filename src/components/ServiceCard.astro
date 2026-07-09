@@ -1,66 +1,68 @@
----
+﻿---
 interface Props {
-  href: string;
-  title: string;
-  description: string;
-  /** Inline SVG icon passed via slot. */
+ href: string;
+ title: string;
+ description: string;
+ label?: string;
+ /** Inline SVG icon passed via slot. */
 }
-const { href, title, description } = Astro.props;
+const { href, title, description, label = 'Learn more' } = Astro.props;
 ---
 
 <article class="service-card card">
-  <div class="service-card__icon" aria-hidden="true">
-    <slot />
-  </div>
-  <h3><a href={href}>{title}</a></h3>
-  <p>{description}</p>
-  <span class="service-card__more" aria-hidden="true">Learn more →</span>
+ <div class="service-card__icon" aria-hidden="true">
+  <slot />
+ </div>
+ <h3><a href={href}>{title}</a></h3>
+ <p>{description}</p>
+  <span class="service-card__more" aria-hidden="true">{label}</span>
 </article>
 
 <style>
-  .service-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+ .service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
 
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lift);
-  }
+ .service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--gold-soft);
+ }
 
-  .service-card__icon {
-    width: 3.25rem;
-    height: 3.25rem;
-    display: grid;
-    place-items: center;
-    border-radius: 14px;
-    background: var(--sky);
-    color: var(--blue-deep);
-  }
+ .service-card__icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--gold-deep);
+ }
 
-  .service-card h3 {
-    font-size: var(--text-lg);
-  }
+ .service-card h3 {
+  font-size: var(--text-lg);
+ }
 
-  /* Stretch the card's link target over the whole card. */
-  .service-card h3 a::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-lg);
-  }
+ /* Stretch the card's link target over the whole card. */
+ .service-card h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+ }
 
-  .service-card p {
-    font-size: 1rem;
-    flex-grow: 1;
-  }
+ .service-card p {
+  font-size: 1rem;
+  flex-grow: 1;
+ }
 
-  .service-card__more {
-    font-size: 0.92rem;
-    font-weight: 640;
-    color: var(--blue-deep);
-  }
+ .service-card__more {
+  font-size: 0.92rem;
+  font-weight: 640;
+  color: var(--gold-deep);
+ }
 </style>

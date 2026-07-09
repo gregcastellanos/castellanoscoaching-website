@@ -7,208 +7,214 @@ import { SITE } from '../data/site';
 import { breadcrumbSchema, faqSchema } from '../data/schema';
 
 const metaTitle =
-  'FAQ, Neurodivergent Coaching Questions Answered | Castellanos Coaching';
-const metaDescription = `Answers to the questions families ask most: what coaching is, how it differs from therapy and tutoring, session logistics, cost, reluctant teens, remote coaching, and how to get started.`;
+ 'FAQ, Neurodivergent Coaching Questions Answered | Castellanos Coaching';
+const metaDescription = `Clear answers about coaching, tutoring, parent support, session length, remote options, pricing, and how to get started.`;
 
 interface Faq {
-  q: string;
-  a: string[];
+ q: string;
+ a: string[];
 }
 
 interface FaqGroup {
-  group: string;
-  items: Faq[];
+ group: string;
+ items: Faq[];
 }
 
 const groups: FaqGroup[] = [
-  {
-    group: 'About coaching',
-    items: [
-      {
-        q: 'What is executive function coaching, exactly?',
-        a: [
-          `It's one-on-one, individualized support for the skills that make daily life run: planning, prioritizing, starting tasks, managing time, staying organized, and following through. Those skills live in a part of the brain that develops differently in people with ADHD, autism, and learning differences, which is why intelligence and effort alone often aren't enough.`,
-          `Coaching doesn't just talk about these skills. Client and coach build real systems together, calendars, routines, capture tools, study methods, then test and refine them in real life until they hold.`,
-        ],
-      },
-      {
-        q: 'Is coaching therapy?',
-        a: [
-          `No. Coaching is educational mentoring and skill-building. It's practical and forward-looking: what do you want to happen, what's in the way, and what will we build about it this week. Therapy treats mental-health conditions; coaching builds real-world skills and systems.`,
-          `Many clients see a therapist and work with Greg at the same time, the combination is often stronger than either alone. Coaching is not a substitute for medical or mental-health care, and Greg is glad to coordinate with a client's other providers when families want that.`,
-        ],
-      },
-      {
-        q: 'How is this different from tutoring?',
-        a: [
-          `A tutor teaches content, algebra, essay structure, chemistry. A coach builds the operating system around the content: knowing what's due, planning the week, starting the essay, communicating with the teacher, and recovering when things slip.`,
-          `Most students who come to Castellanos Coaching don't primarily have a content problem. They have a planning, initiation, or confidence problem that looks like a content problem from the outside.`,
-        ],
-      },
-      {
-        q: 'Do you only work with people who have a diagnosis?',
-        a: [
-          `No diagnosis is required. Plenty of clients have ADHD, autism, or a learning difference on paper; others just recognize themselves in the struggles coaching addresses. Coaching works from how life is actually going, not from labels.`,
-        ],
-      },
+ {
+  group: 'About coaching',
+  items: [
+   {
+    q: 'What is executive function coaching?',
+    a: [
+     `It's one-on-one, individualized support for the skills that make daily life run: planning, prioritizing, starting tasks, managing time, staying organized, and following through. Those skills live in a part of the brain that develops differently in people with ADHD, autism, and learning differences, which is why intelligence and effort alone often aren't enough.`,
+     `Coaching doesn't just talk about these skills. Client and coach build real systems together, calendars, routines, capture tools, study methods, then test and refine them in real life until they hold.`,
     ],
-  },
-  {
-    group: 'Fit and clients',
-    items: [
-      {
-        q: 'What ages do you work with?',
-        a: [
-          `Primarily teens (middle and high school), college students, and young adults, plus adults of any age seeking practical support with executive function, work, and daily life. Parent and family coaching is available whether or not the teen or young adult is also a client.`,
-        ],
-      },
-      {
-        q: 'My teen refuses help. Now what?',
-        a: [
-          `This is one of the most common starting points, and it's workable. Two honest options: start with parent coaching, changing how the household runs often changes what the teen is willing to try, or start with a single low-pressure conversation between Greg and your teen, framed as “one meeting, then you decide.”`,
-          `Greg doesn't lecture, doesn't perform enthusiasm, and doesn't pretend the teen asked to be there. Skeptical teens tend to notice, and many of them stay.`,
-        ],
-      },
-      {
-        q: 'Do you work with autistic adults?',
-        a: [
-          `Yes, autistic and ADHD adults are a significant part of the practice, particularly around work, independence, routines, and social connection. The approach is respectful and collaborative: you're the expert on your own experience; coaching adds structure, strategy, and honest feedback.`,
-        ],
-      },
+   },
+   {
+    q: 'Is coaching therapy?',
+    a: [
+     `No. Coaching is educational mentoring and skill-building. It can complement clinical care, but it does not replace therapy, medical care, or mental-health support.`,
     ],
-  },
-  {
-    group: 'Logistics',
-    items: [
-      {
-        q: 'Where do sessions happen?',
-        a: [
-          `Greg is based in Marin County and works in person across Marin, the North Bay, Sonoma County, San Francisco, the Peninsula, and Silicon Valley. Remote sessions by video are available nationwide.`,
-          `In-person work can happen where the challenge lives: at the kitchen table where homework happens, or out in the world where the life skills are needed.`,
-        ],
-      },
-      {
-        q: 'Does remote coaching actually work?',
-        a: [
-          `For most clients, yes, and for some it works better. Screen-sharing makes it natural to build digital systems together, and many teens open up more readily from their own space. Greg will give you an honest read during the consultation on whether your situation calls for in-person work.`,
-        ],
-      },
-      {
-        q: 'How often are sessions, and how long does coaching last?',
-        a: [
-          `Most clients meet weekly, with light support between sessions while new systems take hold. Length varies with goals: some engagements run a school semester, others accompany a multi-year launch into adulthood. Coaching tapers as independence grows, that's the design, not a sales model.`,
-        ],
-      },
-      {
-        q: 'What does coaching cost?',
-        a: [
-          `Rates depend on format and frequency, and are discussed openly in the free consultation, no scripts, no pressure. If cost is a concern, say so; Greg would rather find a workable arrangement than have a family disappear over an awkward conversation.`,
-        ],
-      },
-      {
-        q: 'How do parents stay in the loop?',
-        a: [
-          `Families get regular, honest communication about direction and progress. At the same time, clients, especially teens, need to trust that sessions are their space, so what's shared and what stays private is agreed on clearly at the start. Both halves of that arrangement are non-negotiable, because both are what make coaching work.`,
-        ],
-      },
+   },
+   {
+    q: 'How is coaching different from tutoring?',
+    a: [
+     `A tutor teaches content, algebra, essay structure, chemistry. A coach builds the operating system around the content: knowing what's due, planning the week, starting the essay, communicating with the teacher, and recovering when things slip.`,
+     `Most students who come to Castellanos Coaching don't primarily have a content problem. They have a planning, initiation, or confidence problem that looks like a content problem from the outside.`,
     ],
-  },
-  {
-    group: 'Getting started',
-    items: [
-      {
-        q: 'What happens in the free consultation?',
-        a: [
-          `A relaxed 20-minute conversation, by phone or video, about what's going on, what you've already tried, and what you're hoping changes. Greg will tell you honestly whether coaching fits, and what he'd suggest starting with. If it's not a fit, he'll say so and point you somewhere useful.`,
-        ],
-      },
-      {
-        q: 'How do I book?',
-        a: [
-          `Use the online scheduler at calendly.com/castellanoscoaching, call (707) 395-7554, or email gregcastellanoswork@gmail.com. Whichever is easiest, there's no wrong door.`,
-        ],
-      },
+   },
+   {
+    q: 'Do you only work with people who have a diagnosis?',
+    a: [
+     `No diagnosis is required. Plenty of clients have ADHD, autism, or a learning difference on paper; others just recognize themselves in the struggles coaching addresses. Coaching works from how life is actually going, not from labels.`,
     ],
-  },
+   },
+  ],
+ },
+ {
+  group: 'Fit and clients',
+  items: [
+   {
+    q: 'What ages do you work with?',
+    a: [
+     `Primarily teens (middle and high school), college students, and young adults, plus adults of any age seeking practical support with executive function, work, and daily life. Parent and family coaching is available whether or not the teen or young adult is also a client.`,
+    ],
+   },
+   {
+    q: 'My teen refuses help. Now what?',
+    a: [
+          `This is one of the most common starting points, and it is workable. Two honest options: start with parent coaching, because changing how the household runs often changes what the teen is willing to try, or start with a single low-pressure conversation between Gregory and your teen, framed as one meeting, then you decide.`,
+     `Gregory doesn't lecture, doesn't perform enthusiasm, and doesn't pretend the teen asked to be there. Skeptical teens tend to notice, and many of them stay.`,
+    ],
+   },
+   {
+    q: 'Do you work with autistic adults?',
+    a: [
+     `Yes, autistic and ADHD adults are a significant part of the practice, particularly around work, independence, routines, and social connection. The approach is respectful and collaborative: you're the expert on your own experience; coaching adds structure, strategy, and honest feedback.`,
+    ],
+   },
+  ],
+ },
+ {
+  group: 'Logistics',
+  items: [
+   {
+    q: 'Where do sessions happen?',
+    a: [
+          `In-person coaching is available in Marin County, San Francisco, the Greater Bay Area, Santa Rosa, Sebastopol, and Sonoma County. Remote sessions are available throughout California and the United States.`,
+     `In-person work can happen where the challenge lives: at the kitchen table where homework happens, or out in the world where the life skills are needed.`,
+    ],
+   },
+   {
+    q: 'Do you offer remote sessions?',
+    a: [
+     `For most clients, yes, and for some it works better. Screen-sharing makes it natural to build digital systems together, and many teens open up more readily from their own space. Gregory will give you an honest read during the consultation on whether your situation calls for in-person work.`,
+    ],
+   },
+   {
+    q: 'How long does coaching take?',
+    a: [
+     `Most clients meet weekly, with light support between sessions while new systems take hold. Length varies with goals: some engagements run a school semester, others accompany a multi-year launch into adulthood. Coaching tapers as independence grows, that's the design, not a sales model.`,
+    ],
+   },
+   {
+    q: 'Do you work with parents too?',
+    a: [
+     `Yes. Parent and family coaching can happen alongside individual coaching or on its own. Gregory helps families reduce conflict, build shared systems, and support independence without carrying every task.`,
+    ],
+   },
+   {
+    q: 'What does coaching cost?',
+    a: [
+     `Pricing is discussed during the free consultation and depends on the format and frequency of coaching. Rates are not listed online.`,
+    ],
+   },
+   {
+    q: 'How do parents stay in the loop?',
+    a: [
+     `Families get regular, honest communication about direction and progress. At the same time, clients, especially teens, need to trust that sessions are their space, so what's shared and what stays private is agreed on clearly at the start. Both halves of that arrangement are non-negotiable, because both are what make coaching work.`,
+    ],
+   },
+  ],
+ },
+ {
+  group: 'Getting started',
+  items: [
+   {
+    q: 'What happens in the free consultation?',
+    // TODO: Confirm consultation length before launch.
+    a: [
+     `A relaxed 20–30 minute conversation, by phone or video, about what's going on, what you've already tried, and what you're hoping changes. Gregory will tell you honestly whether coaching fits, and what he'd suggest starting with. If it's not a fit, he'll say so and point you somewhere useful.`,
+    ],
+   },
+   {
+    q: 'How do I book?',
+    a: [
+     `Use the online scheduler at calendly.com/castellanoscoaching, call ${SITE.phone}, or email ${SITE.email}. Whichever is easiest, there is no wrong door.`,
+    ],
+   },
+  ],
+ },
 ];
 
 const allFaqs = groups.flatMap((g) => g.items);
 const jsonLd = [
-  faqSchema(allFaqs.map((f) => ({ q: f.q, a: f.a.join(' ') }))),
-  breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'FAQ', path: '/faq/' },
-  ]),
+ faqSchema(allFaqs.map((f) => ({ q: f.q, a: f.a.join(' ') }))),
+ breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'FAQ', path: '/faq/' },
+ ]),
 ];
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
-  <PageHero
-    eyebrow="FAQ"
-    title="Honest answers to fair questions"
-    lede="Everything families and clients usually want to know before reaching out. If your question isn't here, ask it directly, you'll get a straight answer."
-  />
+ <PageHero
+  eyebrow="FAQ"
+  title="Honest answers to fair questions"
+  lede="Everything families and clients usually want to know before reaching out. If your question isn't here, ask it directly, you'll get a straight answer."
+ />
 
-  <section class="section">
-    <div class="wrap faq-wrap">
-      {
-        groups.map((g) => (
-          <div class="faq-group">
-            <h2>{g.group}</h2>
-            <div>
-              {g.items.map((item) => (
-                <FaqItem question={item.q}>
-                  {item.a.map((para) => (
-                    <p>{para}</p>
-                  ))}
-                </FaqItem>
-              ))}
-            </div>
-          </div>
-        ))
-      }
-
-      <div class="faq-more card">
-        <h2>Still wondering about something?</h2>
-        <p>
-          Call <a href={SITE.phoneHref}>{SITE.phone}</a>, email
-          <a href={`mailto:${SITE.email}`}> {SITE.email}</a>, or just book the
-          free consultation and ask everything at once.
-        </p>
-        <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+ <section class="section">
+  <div class="wrap faq-wrap">
+   {
+    groups.map((g) => (
+     <div class="faq-group">
+      <h2>{g.group}</h2>
+      <div>
+       {g.items.map((item) => (
+        <FaqItem question={item.q}>
+         {item.a.map((para) => (
+          <p>{para}</p>
+         ))}
+        </FaqItem>
+       ))}
       </div>
-    </div>
-  </section>
+     </div>
+    ))
+   }
 
-  <CtaBand />
+   <div class="faq-more card">
+    <h2>Still wondering about something?</h2>
+    <p>
+     Call <a href={SITE.phoneHref}>{SITE.phone}</a>, email
+     <a href={`mailto:${SITE.email}`}> {SITE.email}</a>, or just book the
+     free consultation and ask everything at once.
+    </p>
+    <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+   </div>
+  </div>
+ </section>
+
+ <CtaBand />
 </BaseLayout>
 
 <style>
-  .faq-wrap {
-    max-width: 52rem;
-  }
+ .faq-wrap {
+  max-width: 52rem;
+ }
 
-  .faq-group {
-    margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
-  }
+ .faq-group {
+  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+ }
 
-  .faq-group h2 {
-    font-size: var(--text-xl);
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--gold);
-    display: inline-block;
-  }
+ .faq-group h2 {
+  font-size: var(--text-xl);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+ }
 
-  .faq-more {
-    display: grid;
-    gap: 1rem;
-    justify-items: start;
-    background: var(--mist);
-    border-color: transparent;
-  }
+ .faq-more {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  background: var(--teal-tint);
+  border-color: transparent;
+ }
 
-  .faq-more h2 {
-    font-size: var(--text-lg);
-  }
+ .faq-more h2 {
+  font-size: var(--text-lg);
+ }
 </style>
