@@ -71,12 +71,15 @@ const jsonLd = breadcrumbSchema([
 
 <BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
  <PageHero
-  title="The Castellanos Compass™"
+  title='The Castellanos Compass<sup class="tm">™</sup>'
   lede="A practical four-stage framework for building clarity, trust, useful systems, and meaningful independence."
  />
 
  <section class="section">
   <div class="wrap compass-intro">
+   <div class="compass-intro__visual" aria-hidden="true">
+    <img src="/castellanos-compass-logo.png" alt="" width="200" height="220" loading="lazy" />
+   </div>
       <div class="prose">
     <p class="lede">
      The Castellanos Compass™ gives every coaching relationship a clear
@@ -135,14 +138,47 @@ const jsonLd = breadcrumbSchema([
  </section>
 
  <CtaBand
-  title="Start with The Castellanos Compass™."
+  title='Start with The Castellanos Compass<sup class="tm">™</sup>.'
   body="In a free consultation, Gregory will give you an honest read on where things stand, and what Clarity would look like for your situation."
  />
 </BaseLayout>
 
 <style>
   .compass-intro {
-    max-width: 48rem;
+    display: grid;
+    grid-template-columns: 0.55fr 1.45fr;
+    gap: clamp(2rem, 1.5rem + 3vw, 4.5rem);
+    align-items: center;
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+
+  .compass-intro__visual {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background:
+      radial-gradient(closest-side, rgba(200, 154, 43, 0.08), transparent 80%),
+      var(--white);
+    box-shadow: var(--shadow-card);
+  }
+
+  .compass-intro__visual img {
+    width: min(70%, 9rem);
+  }
+
+  @media (max-width: 760px) {
+    .compass-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .compass-intro__visual {
+      width: min(55%, 12rem);
+      margin-inline: auto;
+    }
   }
 
  .points {

@@ -145,6 +145,14 @@ strong {
   color: var(--ink-deep);
 }
 
+sup.tm {
+  font-size: 0.42em;
+  font-weight: 700;
+  vertical-align: super;
+  letter-spacing: 0;
+  margin-left: 0.08em;
+}
+
 :focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 3px;

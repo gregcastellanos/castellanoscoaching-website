@@ -18,7 +18,7 @@ const {
   <span class="cta-band__logo-tile">
    <CompassMark size={56} class="cta-band__mark" />
   </span>
-  <h2 id="cta-band-title">{title}</h2>
+  <h2 id="cta-band-title"><Fragment set:html={title} /></h2>
   <p>{body}</p>
   <div class="btn-row cta-band__buttons">
    <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
