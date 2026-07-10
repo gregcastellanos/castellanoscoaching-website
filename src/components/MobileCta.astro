@@ -1,9 +1,15 @@
 ---
-import { SITE } from '../data/site';
+import { BOOKING, SITE } from '../data/site';
 ---
 
 <aside class="mobile-cta" aria-label="Consultation options">
- <a href={SITE.calendly} class="mobile-cta__book">Book a Free Consultation</a>
+ <a
+  href={BOOKING.url}
+  class="mobile-cta__book"
+  target={BOOKING.target}
+  rel={BOOKING.rel}
+  aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+ >
  <a href={SITE.phoneHref} class="mobile-cta__call">Call</a>
 </aside>
 

@@ -22,12 +22,12 @@ export const businessSchema = {
  url: SITE.url,
  telephone: SITE.phone,
  email: SITE.email,
-  description:
-    'Educational, executive function, academic, social skills, and independence coaching for neurodivergent children, teens, adults, and families. In-person coaching in Marin County, San Francisco, the Greater Bay Area, Santa Rosa, Sebastopol, and Sonoma County, plus remote coaching throughout California and the United States.',
+ description:
+  'Remote executive function, academic, social skills, independence, and family coaching for neurodivergent children, teens, adults, and families. Flexible daytime appointments are available, with limited evening and in-person availability in Marin County, Sonoma County, and nearby areas.',
  founder: personSchema,
  address: {
   '@type': 'PostalAddress',
-    addressLocality: 'Marin County',
+  addressLocality: 'Marin County',
   addressRegion: 'CA',
   addressCountry: 'US',
  },

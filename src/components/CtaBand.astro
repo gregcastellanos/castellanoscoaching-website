@@ -1,6 +1,6 @@
 ﻿---
 import CompassMark from './CompassMark.astro';
-import { SITE } from '../data/site';
+import { BOOKING, SITE } from '../data/site';
 
 interface Props {
  title?: string;
@@ -9,7 +9,7 @@ interface Props {
 
 const {
  title = 'Start with a conversation.',
- body = `The first step is a free 20–30 minute consultation. No pressure. No intake packet. Just a clear conversation about what is going on, what kind of support is needed, and whether coaching is the right fit.`,
+ body = `A free 20–30 minute call. No pressure. Just a clear conversation about what is going on and where to start.`,
 } = Astro.props;
 ---
 
@@ -20,9 +20,16 @@ const {
   </span>
   <h2 id="cta-band-title"><Fragment set:html={title} /></h2>
   <p>{body}</p>
+  <p class="cta-band__reassurance">{BOOKING.reassurance}</p>
   <div class="btn-row cta-band__buttons">
-   <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
-   <a href={SITE.phoneHref} class="btn btn--outline-light">Call {SITE.phone}</a>
+   <a
+    href={BOOKING.url}
+    class="btn btn--primary"
+    target={BOOKING.target}
+    rel={BOOKING.rel}
+    aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+   >
+   <a href={SITE.phoneHref} class="btn btn--outline">Call {SITE.phone}</a>
   </div>
   <p class="cta-band__alt">
    Prefer email? <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
@@ -32,17 +39,18 @@ const {
 
 <style>
  .cta-band {
-  background: var(--navy);
-  color: rgba(255, 255, 255, 0.82);
+  background: var(--surface-white);
+  color: var(--ink-soft);
   text-align: center;
-  padding-block: clamp(4rem, 3rem + 4vw, 6.5rem);
+  padding-block: clamp(2rem, 1.6rem + 1.55vw, 3.15rem);
+  border-top: 1px solid var(--line);
  }
 
  .cta-band__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.65rem;
  }
 
  .cta-band__logo-tile {
@@ -54,11 +62,11 @@ const {
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 16px;
   background: var(--white);
-  box-shadow: 0 16px 36px -24px rgba(0, 0, 0, 0.55);
+  box-shadow: var(--shadow-card);
  }
 
  .cta-band h2 {
-  color: var(--white);
+  color: var(--navy);
   font-size: var(--text-2xl);
  }
 
@@ -69,15 +77,33 @@ const {
 
  .cta-band__buttons {
   justify-content: center;
-  margin-top: 0.75rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 0.25rem;
  }
 
  .cta-band__alt {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--ink-soft);
+ }
+
+ .cta-band__reassurance {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
  }
 
  .cta-band__alt a {
-  color: var(--gold-soft);
+  color: var(--gold-deep);
+ }
+
+ @media (max-width: 640px) {
+  .cta-band__buttons {
+   width: min(100%, 22rem);
+  }
+
+  .cta-band__buttons .btn {
+   width: 100%;
+  }
  }
 </style>

@@ -6,13 +6,13 @@ import HillsDivider from '../components/HillsDivider.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import FaqItem from '../components/FaqItem.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { SERVICES, SITE } from '../data/site';
+import { BOOKING, SERVICE_MODEL, SERVICES } from '../data/site';
 import { businessSchema } from '../data/schema';
 
 const metaTitle =
- 'Executive Function Coaching in Marin & the Bay Area | Castellanos';
+ 'Remote Executive Function Coaching | Castellanos Coaching';
 const metaDescription =
- 'Practical coaching for neurodivergent children, teens, adults, and families. Based in Marin County, serving the Bay Area and Sonoma County, plus remote coaching across California and the U.S. Free 20–30 minute consultation.';
+ 'Remote executive function, academic, social skills, and independence coaching for neurodivergent children, teens, adults, and families. Flexible daytime appointments with limited evening and in-person availability.';
 
 const compassSteps = [
  {
@@ -39,23 +39,23 @@ const compassSteps = [
 
 const audiences = [
  {
-  title: 'For Children',
-  body: `Some children benefit from beginning support at a younger age, before school, routines, friendships, and emotional regulation become bigger struggles. Gregory helps children build confidence, communication, self-awareness, and practical skills through patient, strengths-based coaching.`,
+ title: 'For Children',
+  body: `Early support for confidence, communication, routines, friendships, and emotional regulation before struggles get bigger.`,
   link: { href: '/services/academic-coaching/', label: 'Children’s coaching' },
  },
  {
-  title: 'For parents',
-  body: `You have a bright child who is struggling, and you are tired of being the alarm clock, project manager, emotional translator, and backup brain. Coaching gives your child another trusted mentor and gives your relationship room to breathe.`,
+ title: 'For parents',
+  body: `You are tired of being the alarm clock, project manager, and backup brain. Coaching gives your child another trusted mentor.`,
   link: { href: '/services/parent-family-coaching/', label: 'Parent & family coaching' },
  },
  {
-  title: 'For teens & students',
-  body: `You are not lazy, and you are not broken. We figure out what works for your brain, then build systems for school, routines, friendships, communication, and follow-through.`,
+ title: 'For teens & students',
+  body: `You are not lazy or broken. We build systems for school, routines, communication, and follow-through.`,
   link: { href: '/services/academic-coaching/', label: 'Academic coaching' },
  },
  {
-  title: 'For adults',
-  body: `Work, money, relationships, home, and attention can be a lot to manage at once. Coaching gives you structure, strategy, and a direct thinking partner who turns overwhelm into next steps.`,
+ title: 'For adults',
+  body: `Work, money, relationships, home, and attention can be a lot. Coaching turns overwhelm into next steps.`,
   link: { href: '/services/independence-life-skills-coaching/', label: 'Independence coaching' },
  },
 ];
@@ -106,8 +106,8 @@ const faqPreview = [
   a: `No. Coaching is educational mentoring and skill-building. It can complement clinical care, but it does not replace therapy, medical care, or mental-health support.`,
  },
  {
-  q: 'Do you work in person or remotely?',
-  a: 'Both. Castellanos Coaching offers in-person coaching in Marin County, San Francisco, the Greater Bay Area, Santa Rosa, Sebastopol, and Sonoma County. Remote coaching is available throughout California and the United States.',
+  q: 'Do you work remotely or in person?',
+  a: 'Most coaching is remote through Google Meet. Limited in-person coaching may be available in Marin, Sonoma County, and nearby areas when it fits the client and schedule.',
  },
 ];
 ---
@@ -128,17 +128,24 @@ const faqPreview = [
      relationships, communication, routines, and daily life.
     </p>
     <p class="hero__location">
-     In person in Marin, Sonoma, Silicon Valley, San Francisco, and the Bay Area.
-     Remote across California and the U.S.
+     Most coaching is remote through Google Meet, with flexible daytime
+     scheduling and limited evening and in-person availability.
     </p>
     <div class="btn-row">
-     <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+     <a
+      href={BOOKING.url}
+      class="btn btn--primary"
+      target={BOOKING.target}
+      rel={BOOKING.rel}
+      aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+     >
      <a href="/about/" class="btn btn--outline">Meet Gregory</a>
     </div>
+    <p class="hero__booking-note">{BOOKING.reassurance}</p>
     <ul class="hero__trust" aria-label="Credentials">
      <li>15+ years supporting neurodivergent learners</li>
      <li>Master of Arts in Teaching (M.A.T.)</li>
-     <li>In person and remote</li>
+     <li>Remote first, with limited in-person options</li>
      <li>Creator of The Castellanos Compass™</li>
     </ul>
    </div>
@@ -163,7 +170,32 @@ const faqPreview = [
   <div class="wrap how-strip__grid">
    <div><strong>Free 20–30 minute call</strong><span>Start here and take what works, even if we never meet.</span></div>
    <div><strong>A plan that fits your brain</strong><span>Choose practical priorities together.</span></div>
-   <div><strong>Weekly coaching</strong><span>Meet in person or remotely.</span></div>
+   <div><strong>Weekly coaching</strong><span>Meet remotely through Google Meet, with limited in-person options.</span></div>
+  </div>
+ </section>
+
+ <section class="section section--sm" aria-labelledby="remote-title">
+  <div class="wrap remote-card card">
+   <div>
+    <p class="eyebrow">Remote coaching</p>
+    <h2 id="remote-title">Remote coaching that fits real life</h2>
+    <p>
+     Most coaching sessions are available remotely through Google Meet,
+     making it easier for clients and families to receive consistent support
+     without added travel. Flexible daytime appointments are available
+     throughout the week, with limited evening and in-person options when needed.
+    </p>
+   </div>
+   <div class="remote-card__action">
+    <a
+     href={BOOKING.url}
+     class="btn btn--primary"
+     target={BOOKING.target}
+     rel={BOOKING.rel}
+     aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+    >
+    <p>Daytime and limited evening consultation times are available.</p>
+   </div>
   </div>
  </section>
 
@@ -173,12 +205,9 @@ const faqPreview = [
     <p class="eyebrow">Who this is for</p>
     <h2 id="who-title">Who Gregory Works With</h2>
     <p class="lede">
-     Coaching is built for bright, capable people who need systems that fit how they think.
-     Gregory works with children, teens, adults, and families navigating
-     special needs, ADHD, autism, anxiety, learning differences,
-     developmental differences, executive functioning challenges,
-     school avoidance, social struggles, low motivation, and life
-     transitions.
+     Coaching is for bright, capable people who need systems that fit how they think:
+     children, teens, adults, and families navigating ADHD, autism, learning
+     differences, anxiety, school avoidance, motivation, social struggles, and life transitions.
     </p>
    </div>
    <div class="audience-grid">
@@ -219,10 +248,13 @@ const faqPreview = [
      ))
     }
     <ServiceCard
-     href={SITE.calendly}
+     href={BOOKING.url}
      title="Not sure where to start?"
      description="Start with a free conversation. Gregory will help you figure out what kind of support actually fits."
-     label="Book a free consultation"
+     label={BOOKING.shortLabel}
+     target={BOOKING.target}
+     rel={BOOKING.rel}
+     ariaLabel={BOOKING.ariaLabel}
     >
      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="9" />
@@ -249,25 +281,22 @@ const faqPreview = [
     <div>
      <h3>Skills, not answers</h3>
      <p>
-      The goal is never dependence on the coach. Every system we build is
-      designed to be run by you: planning, prioritizing, communicating,
-      and recovering when things slip.
+      Every system is built to be run by the client: planning,
+      prioritizing, communicating, and recovering when things slip.
      </p>
     </div>
     <div>
      <h3>Strengths-based, not deficit-based</h3>
      <p>
-      Neurodivergent brains aren't broken versions of typical ones. We
-      start from what already works: your interests, your energy
-      patterns, and your way of thinking.
+      We start from what already works: interests, energy patterns,
+      and the client’s actual way of thinking.
      </p>
     </div>
     <div>
      <h3>Real life, not worksheets</h3>
      <p>
-      Coaching happens where life happens: the actual backpack, the
-      actual calendar, the actual job application, and the actual
-      conversation that needs practice.
+      Coaching uses real materials: the backpack, calendar, job
+      application, or conversation that needs practice.
      </p>
     </div>
    </div>
@@ -280,14 +309,13 @@ const faqPreview = [
     <span class="compass-logo-tile"><CompassMark size={62} /></span>
     <h2 id="compass-title">The Castellanos Compass<sup class="tm">™</sup></h2>
     <p class="lede">
-     Gregory uses a practical four-part framework to keep coaching grounded,
-     personal, and focused on real growth.
+     A practical framework for clarity, trust, systems, and independence.
     </p>
     <p class="compass-summary">
      Understand the person. Build trust. Create systems. Expand independence.
     </p>
     <p class="compass-cycle">
-     The Compass is cyclical. Clients revisit each direction at deeper levels as they grow.
+     Clients revisit each direction as they grow.
     </p>
    </div>
    <ol class="compass-steps">
@@ -314,26 +342,21 @@ const faqPreview = [
     <h2 id="why-title">A mentor who gets it and gets things moving</h2>
     <div class="why-points">
      <p>
-      <strong>Deep, real experience.</strong> Gregory has spent 15+ years
-      teaching and coaching neurodivergent learners in classrooms,
-      STEAM programs, and one-on-one work, with a Master of Arts in
-      Teaching behind it.
+      <strong>Deep, real experience.</strong> 15+ years teaching and
+      coaching neurodivergent learners in classrooms, STEAM programs,
+      and one-on-one work.
      </p>
      <p>
-      <strong>Respect first.</strong> Clients are never treated as
-      problems to fix. Teens who have shut down with tutors and
-      counselors often connect with Gregory because he listens first and
-      builds on what they care about.
+      <strong>Respect first.</strong> Clients are not problems to fix.
+      Gregory listens first and builds from what they care about.
      </p>
      <p>
       <strong>Practical to the core.</strong> Sessions end with something
-      real: a system set up, a plan made, a conversation practiced, a
-      hard task started. Progress you can point to.
+      real: a plan, system, practice conversation, or task started.
      </p>
      <p>
-      <strong>Partnership with parents.</strong> Families get honest
-      communication and practical guidance, support that lowers the
-      temperature at home instead of adding another obligation.
+      <strong>Partnership with parents.</strong> Families get clear
+      communication and practical guidance that lowers the temperature at home.
      </p>
     </div>
     <a href="/about/" class="btn btn--ink">Meet Gregory</a>
@@ -346,40 +369,38 @@ const faqPreview = [
   <div class="wrap">
    <div class="section-head section-head--center">
     <p class="eyebrow">Where we work</p>
-    <h2 id="local-title">Local support. Remote flexibility.</h2>
+    <h2 id="local-title">Remote first, with local options when appropriate</h2>
     <p class="lede">
-     In-person coaching is available in Marin County, San Francisco, the
-     Greater Bay Area, Santa Rosa, Sebastopol, and Sonoma County. Remote
-     coaching is available throughout California and the United States.
+     {SERVICE_MODEL.remote} {SERVICE_MODEL.inPerson}
     </p>
    </div>
    <div class="local-grid">
     <div class="card local-card">
-     <h3>Marin County</h3>
-     <p>
-      In-person executive function and life skills coaching based in
-      Marin County.
-     </p>
-    </div>
-    <div class="card local-card">
-     <h3>Greater Bay Area</h3>
-     <p>
-      Serving Marin County and the Greater Bay Area, with in-person or
-      remote support depending on location.
-     </p>
-    </div>
-    <div class="card local-card">
-     <h3>Sonoma County</h3>
-     <p>
-      In-person coaching is available in Santa Rosa, Sebastopol, and
-      communities throughout Sonoma County.
-     </p>
-    </div>
-    <div class="card local-card">
      <h3>Remote Coaching</h3>
      <p>
-      Video coaching for students, adults, and families throughout
-      California and the United States.
+      Consistent Google Meet sessions for executive function, academics,
+      independence, social skills, and real-life problem solving.
+     </p>
+    </div>
+    <div class="card local-card">
+     <h3>Daytime Appointments</h3>
+     <p>
+      A strong fit for young adults, college students, homeschool students,
+      flexible work schedules, and parent consultations.
+     </p>
+    </div>
+    <div class="card local-card">
+     <h3>Limited Evenings</h3>
+     <p>
+      A limited number of evening appointments remain available for working
+      parents and clients who cannot meet during the day.
+     </p>
+    </div>
+    <div class="card local-card">
+     <h3>Limited In Person</h3>
+     <p>
+      In-person coaching may be available in Marin, Sonoma County, and nearby
+      areas when location, needs, and scheduling line up.
      </p>
     </div>
    </div>
@@ -412,37 +433,44 @@ const faqPreview = [
 
 <style>
  .hero {
-  background: var(--white);
+  background: var(--surface-white);
   border-bottom: 1px solid var(--line);
  }
 
  .hero__inner {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
+ display: grid;
+ grid-template-columns: 0.9fr 1.1fr;
+ align-items: center;
   gap: clamp(2rem, 1rem + 4vw, 5rem);
   padding-block: clamp(2.25rem, 1.75rem + 2.25vw, 3.75rem) clamp(0.75rem, 1.5vw, 1.5rem);
  }
 
  .hero__lede {
   font-size: var(--text-lg);
-  line-height: 1.55;
-  margin-block: 1.4rem 0.65rem;
+  line-height: 1.42;
+  margin-block: 0.82rem 0.45rem;
   max-width: 36em;
  }
 
  .hero__location {
   max-width: 38em;
-  margin-bottom: 1.9rem;
+  margin-bottom: 1.05rem;
   color: var(--navy);
   font-size: 0.95rem;
   font-weight: 620;
  }
 
+ .hero__booking-note {
+  max-width: 38rem;
+  margin-top: 0.72rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+ }
+
  .hero__trust {
   list-style: none;
   padding: 0;
-  margin-top: 2.2rem;
+  margin-top: 1.2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.8rem;
@@ -502,12 +530,12 @@ const faqPreview = [
  .audience-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.4rem;
+  gap: 1rem;
  }
 
  .how-strip {
   border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--surface-paper);
  }
 
  .how-strip__grid {
@@ -518,7 +546,7 @@ const faqPreview = [
  .how-strip__grid > div {
   display: grid;
   gap: 0.2rem;
-  padding: 1.4rem clamp(1rem, 0.6rem + 1vw, 1.75rem);
+  padding: 0.85rem clamp(0.85rem, 0.5rem + 0.8vw, 1.35rem);
   border-right: 1px solid var(--line);
  }
 
@@ -531,22 +559,47 @@ const faqPreview = [
   font-size: 0.98rem;
  }
 
- .how-strip__grid span {
+.how-strip__grid span {
   font-size: 0.88rem;
   color: var(--ink-soft);
+ }
+
+ .remote-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(1rem, 0.8rem + 1.2vw, 2rem);
+  align-items: center;
+  background: var(--surface-paper);
+ }
+
+ .remote-card h2 {
+  font-size: var(--text-xl);
+  margin-bottom: 0.45rem;
+ }
+
+ .remote-card__action {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: start;
+  min-width: min(100%, 18rem);
+ }
+
+ .remote-card__action p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
  }
 
  .audience-card {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.58rem;
   border-top: 3px solid var(--gold);
  }
 
  .audience-card h3 { font-size: var(--text-lg); }
  .audience-card p {
   font-size: 0.98rem;
-  line-height: 1.62;
+  line-height: 1.48;
   flex-grow: 1;
  }
 
@@ -561,7 +614,7 @@ const faqPreview = [
  .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
+  gap: 1rem;
  }
 
  .not-tutoring {
@@ -573,7 +626,7 @@ const faqPreview = [
 
  .not-tutoring__points {
   display: grid;
-  gap: 2rem;
+  gap: 1.05rem;
  }
 
  .not-tutoring__points h3 {
@@ -584,7 +637,7 @@ const faqPreview = [
 
  .compass-section {
   display: grid;
-  gap: clamp(2rem, 1.5rem + 2vw, 3rem);
+  gap: clamp(1.5rem, 1.2rem + 1.45vw, 2.35rem);
  }
 
  .compass-intro {
@@ -598,7 +651,7 @@ const faqPreview = [
   place-items: center;
   width: 5rem;
   height: 5rem;
-  margin: 0 auto 1.35rem;
+  margin: 0 auto 1rem;
   padding: 0.55rem;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -615,13 +668,13 @@ const faqPreview = [
  }
 
  .compass-summary {
-  margin: 1rem auto 0;
+  margin: 0.72rem auto 0;
   color: var(--navy);
   font-weight: 680;
  }
 
  .compass-cycle {
-  margin: 0.7rem auto 0;
+  margin: 0.5rem auto 0;
   max-width: 44rem;
   font-size: 0.95rem;
  }
@@ -632,18 +685,18 @@ const faqPreview = [
   margin: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 0.75rem;
  }
 
  .compass-steps li {
   display: grid;
   align-content: start;
   gap: 0.72rem;
-  padding: clamp(1.2rem, 1rem + 0.8vw, 1.75rem);
+  padding: clamp(1.05rem, 0.9rem + 0.65vw, 1.5rem);
   border: 1px solid var(--line);
   border-top: 3px solid var(--gold);
   border-radius: var(--radius-lg);
-  background: var(--white);
+  background: var(--surface-white-strong);
   box-shadow: var(--shadow-card);
  }
 
@@ -660,7 +713,7 @@ const faqPreview = [
 
  .compass-steps p {
   font-size: 0.98rem;
-  line-height: 1.62;
+  line-height: 1.48;
  }
 
  .compass-action {
@@ -677,14 +730,14 @@ const faqPreview = [
 
  .why-points {
   display: grid;
-  gap: 1.2rem;
-  margin-block: 1.5rem 2rem;
+  gap: 0.8rem;
+  margin-block: 0.9rem 1.2rem;
  }
 
  .local-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.4rem;
+  gap: 1rem;
  }
 
  .local-card h3 {
@@ -702,7 +755,7 @@ const faqPreview = [
  }
 
  .faq-preview__more {
-  margin-top: 1.5rem;
+  margin-top: 1.05rem;
   font-weight: 600;
  }
 
@@ -720,7 +773,8 @@ const faqPreview = [
  }
 
  @media (max-width: 860px) {
-  .hero__inner,
+ .hero__inner,
+  .remote-card,
   .not-tutoring,
   .compass-section,
   .why-grid,

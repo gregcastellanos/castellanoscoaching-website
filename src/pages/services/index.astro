@@ -2,12 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
-import { SERVICES, SITE } from '../../data/site';
+import { SERVICE_MODEL, SERVICES } from '../../data/site';
 import { breadcrumbSchema } from '../../data/schema';
 
 const metaTitle =
- 'Coaching Services for Children, Teens, Adults, and Families | Castellanos Coaching';
-const metaDescription = `Educational, executive function, academic, social skills, independence, and family coaching for neurodivergent children, teens, and adults.`;
+ 'Remote Coaching Services for Children, Teens, Adults, and Families | Castellanos Coaching';
+const metaDescription = `Remote executive function, academic, social skills, independence, and family coaching for neurodivergent children, teens, and adults, with daytime scheduling and limited evening and in-person availability.`;
 
 const details: Record<string, { who: string; points: string[] }> = {
  'executive-function-coaching': {
@@ -31,7 +31,7 @@ const details: Record<string, { who: string; points: string[] }> = {
   points: [
    'Conversation, friendship, and dating',
    'Workplace communication and interviews',
-   'Boundaries, energy, and building confidence to be one’s genuine self',
+   'Boundaries, energy, and building confidence to be yourself',
   ],
  },
  'independence-life-skills-coaching': {
@@ -61,8 +61,8 @@ const jsonLd = breadcrumbSchema([
 <BaseLayout title={metaTitle} description={metaDescription} jsonLd={jsonLd}>
  <PageHero
   eyebrow="Services"
-  title="Individualized coaching, wherever life is sticking"
-  lede="Five areas of focus, one practical approach. Most clients blend two or three. Coaching follows the person, not the menu."
+ title="Practical coaching for real-life challenges"
+  lede="Five focus areas. One practical approach. Most coaching happens remotely through Google Meet, with flexible daytime scheduling and limited evening and in-person availability."
  />
 
  <section class="section">
@@ -101,35 +101,69 @@ const jsonLd = breadcrumbSchema([
    <div class="services-note">
     <h2>How engagements work</h2>
     <p>
-     Coaching starts with a free consultation, then typically runs as
-     weekly one-on-one sessions, in person across Marin County, San
-     Francisco, the Greater Bay Area, and Sonoma County, or remotely
-     throughout the U.S. Between sessions,
-     clients get support putting systems into practice, because that's
-     where the actual change happens. Every engagement follows
+     Coaching starts with a free consultation, then usually runs as weekly
+     one-on-one sessions. Every engagement follows
      <a href="/castellanos-compass/">The Castellanos Compass™</a>:
-     North, Clarity; East, Alignment; South, Foundation; West, Expansion.
+     Clarity, Alignment, Foundation, and Expansion.
     </p>
+   </div>
+  </div>
+ </section>
+
+ <section class="section section--sand" aria-labelledby="sessions-title">
+  <div class="wrap">
+   <div class="section-head">
+    <p class="eyebrow">How sessions work</p>
+    <h2 id="sessions-title">Remote, practical, and built around real life</h2>
+    <p class="lede">
+     {SERVICE_MODEL.summary}
+    </p>
+   </div>
+   <div class="session-grid">
+    <div class="card session-card">
+     <h3>Remote by default</h3>
+     <p>
+      Most sessions are conducted remotely through Google Meet. Remote
+      coaching lets Gregory work consistently on executive functioning,
+      independence, social skills, academics, employment, and real-life
+      problem solving from wherever the client is most comfortable.
+     </p>
+    </div>
+    <div class="card session-card">
+     <h3>Daytime works well</h3>
+     <p>
+      Daytime sessions are often a strong fit for young adults, college
+      students, homeschool students, clients with flexible schedules, and
+      parents who are available during the workday.
+     </p>
+    </div>
+    <div class="card session-card">
+     <h3>Limited evenings and in person</h3>
+     <p>
+      Limited evening and in-person coaching may be available depending on
+      client needs, location, and scheduling availability.
+     </p>
+    </div>
    </div>
   </div>
  </section>
 
  <CtaBand
   title="Not sure which service fits?"
-  body={`That is normal. Real lives do not sort themselves into categories. Book a free consultation and Gregory will help you figure out where to start.`}
+  body={`That is normal. Schedule a free consultation and Gregory will help you figure out where to start.`}
  />
 </BaseLayout>
 
 <style>
  .service-rows {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.05rem;
  }
 
  .service-row {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  gap: clamp(1.2rem, 0.9rem + 1.55vw, 2.35rem);
   align-items: center;
  }
 
@@ -138,12 +172,12 @@ const jsonLd = breadcrumbSchema([
   font-weight: 760;
   color: var(--gold);
   letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.28rem;
  }
 
  .service-row h2 {
   font-size: var(--text-xl);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.42rem;
  }
 
  .service-row h2 a {
@@ -156,7 +190,7 @@ const jsonLd = breadcrumbSchema([
  }
 
  .service-row__short {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.55rem;
  }
 
  .service-row__who {
@@ -165,7 +199,7 @@ const jsonLd = breadcrumbSchema([
 
  .service-row__side {
   display: grid;
-  gap: 1.25rem;
+  gap: 0.9rem;
   justify-items: start;
  }
 
@@ -174,20 +208,36 @@ const jsonLd = breadcrumbSchema([
  }
 
  .services-note {
-  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
-  padding: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
-  background: var(--paper);
+  margin-top: clamp(1.25rem, 1.05rem + 1vw, 2.25rem);
+  padding: clamp(1.05rem, 0.9rem + 0.65vw, 1.55rem);
+  background: var(--surface-paper);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
  }
 
  .services-note h2 {
   font-size: var(--text-lg);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
+ }
+
+ .session-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+ }
+
+ .session-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.4rem;
+ }
+
+ .session-card p {
+  font-size: 1rem;
  }
 
  @media (max-width: 760px) {
-  .service-row {
+  .service-row,
+  .session-grid {
    grid-template-columns: 1fr;
   }
  }

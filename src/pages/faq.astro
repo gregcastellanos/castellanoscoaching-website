@@ -3,12 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqItem from '../components/FaqItem.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { SITE } from '../data/site';
+import { BOOKING, SITE } from '../data/site';
 import { breadcrumbSchema, faqSchema } from '../data/schema';
 
 const metaTitle =
- 'FAQ, Neurodivergent Coaching Questions Answered | Castellanos Coaching';
-const metaDescription = `Clear answers about coaching, tutoring, parent support, session length, remote options, pricing, and how to get started.`;
+ 'FAQ, Remote Neurodivergent Coaching Questions Answered | Castellanos Coaching';
+const metaDescription = `Clear answers about remote coaching, daytime appointments, limited evening and in-person availability, parent support, pricing, and how to get started.`;
 
 interface Faq {
  q: string;
@@ -27,8 +27,7 @@ const groups: FaqGroup[] = [
    {
     q: 'What is executive function coaching?',
     a: [
-     `It's one-on-one, individualized support for the skills that make daily life run: planning, prioritizing, starting tasks, managing time, staying organized, and following through. Those skills live in a part of the brain that develops differently in people with ADHD, autism, and learning differences, which is why intelligence and effort alone often aren't enough.`,
-     `Coaching doesn't just talk about these skills. Client and coach build real systems together, calendars, routines, capture tools, study methods, then test and refine them in real life until they hold.`,
+     `One-on-one support for planning, starting tasks, managing time, staying organized, and following through. We build real systems, test them, and adjust until they hold.`,
     ],
    },
    {
@@ -40,14 +39,13 @@ const groups: FaqGroup[] = [
    {
     q: 'How is coaching different from tutoring?',
     a: [
-     `A tutor teaches content, algebra, essay structure, chemistry. A coach builds the operating system around the content: knowing what's due, planning the week, starting the essay, communicating with the teacher, and recovering when things slip.`,
-     `Most students who come to Castellanos Coaching don't primarily have a content problem. They have a planning, initiation, or confidence problem that looks like a content problem from the outside.`,
+     `Tutoring teaches content. Coaching builds the operating system around it: planning the week, starting the work, communicating early, and recovering when things slip.`,
     ],
    },
    {
     q: 'Do you only work with people who have a diagnosis?',
     a: [
-     `No diagnosis is required. Plenty of clients have ADHD, autism, or a learning difference on paper; others just recognize themselves in the struggles coaching addresses. Coaching works from how life is actually going, not from labels.`,
+     `No diagnosis is required. Coaching starts with how life is actually going, not with labels.`,
     ],
    },
   ],
@@ -58,20 +56,19 @@ const groups: FaqGroup[] = [
    {
     q: 'What ages do you work with?',
     a: [
-     `Primarily teens (middle and high school), college students, and young adults, plus adults of any age seeking practical support with executive function, work, and daily life. Parent and family coaching is available whether or not the teen or young adult is also a client.`,
+     `Children, teens, college students, young adults, adults, parents, and families.`,
     ],
    },
    {
     q: 'My teen refuses help. Now what?',
     a: [
-          `This is one of the most common starting points, and it is workable. Two honest options: start with parent coaching, because changing how the household runs often changes what the teen is willing to try, or start with a single low-pressure conversation between Gregory and your teen, framed as one meeting, then you decide.`,
-     `Gregory doesn't lecture, doesn't perform enthusiasm, and doesn't pretend the teen asked to be there. Skeptical teens tend to notice, and many of them stay.`,
+          `Start with parent coaching, or try one low-pressure conversation between Gregory and your teen. No lecture. No forced enthusiasm. Just one honest meeting.`,
     ],
    },
    {
     q: 'Do you work with autistic adults?',
     a: [
-     `Yes, autistic and ADHD adults are a significant part of the practice, particularly around work, independence, routines, and social connection. The approach is respectful and collaborative: you're the expert on your own experience; coaching adds structure, strategy, and honest feedback.`,
+     `Yes. Many adult clients want support with work, routines, independence, communication, and social connection.`,
     ],
    },
   ],
@@ -80,22 +77,27 @@ const groups: FaqGroup[] = [
   group: 'Logistics',
   items: [
    {
-    q: 'Where do sessions happen?',
+    q: 'Are sessions remote or in person?',
     a: [
-          `In-person coaching is available in Marin County, San Francisco, the Greater Bay Area, Santa Rosa, Sebastopol, and Sonoma County. Remote sessions are available throughout California and the United States.`,
-     `In-person work can happen where the challenge lives: at the kitchen table where homework happens, or out in the world where the life skills are needed.`,
+     `Most coaching sessions are held remotely through Google Meet. Remote sessions make it easier to maintain consistency, work with clients across a wider geographic area, and practice real-life skills from the client's own environment. Limited in-person coaching may be available in Marin, Sonoma County, and nearby areas.`,
     ],
    },
    {
-    q: 'Do you offer remote sessions?',
+    q: 'Do you offer evening appointments?',
     a: [
-     `For most clients, yes, and for some it works better. Screen-sharing makes it natural to build digital systems together, and many teens open up more readily from their own space. Gregory will give you an honest read during the consultation on whether your situation calls for in-person work.`,
+     `Flexible daytime scheduling is encouraged whenever possible. A limited number of evening appointments are available for working parents and clients who cannot meet during the day.`,
+    ],
+   },
+   {
+    q: 'Who is remote daytime coaching a good fit for?',
+    a: [
+     `Remote daytime coaching can be especially helpful for young adults, college students, homeschool students, clients with flexible work or school schedules, and parents who want to meet privately during the day.`,
     ],
    },
    {
     q: 'How long does coaching take?',
     a: [
-     `Most clients meet weekly, with light support between sessions while new systems take hold. Length varies with goals: some engagements run a school semester, others accompany a multi-year launch into adulthood. Coaching tapers as independence grows, that's the design, not a sales model.`,
+     `Most clients meet weekly. Some work for a semester; others need longer support. Coaching tapers as independence grows.`,
     ],
    },
    {
@@ -113,7 +115,7 @@ const groups: FaqGroup[] = [
    {
     q: 'How do parents stay in the loop?',
     a: [
-     `Families get regular, honest communication about direction and progress. At the same time, clients, especially teens, need to trust that sessions are their space, so what's shared and what stays private is agreed on clearly at the start. Both halves of that arrangement are non-negotiable, because both are what make coaching work.`,
+     `Families get clear communication about direction and progress. Privacy boundaries are agreed on up front, especially with teens.`,
     ],
    },
   ],
@@ -124,13 +126,13 @@ const groups: FaqGroup[] = [
    {
     q: 'What happens in the free consultation?',
     a: [
-     `A relaxed 20–30 minute conversation, by phone or video, about what's going on, what you've already tried, and what you're hoping changes. Gregory will tell you honestly whether coaching fits, and what he'd suggest starting with. If it's not a fit, he'll say so and point you somewhere useful.`,
+     `A relaxed 20–30 minute phone or Google Meet call about what is going on, what you have tried, and where to start. Daytime and limited evening consultation times are available.`,
     ],
    },
    {
-    q: 'How do I book?',
-    a: [
-     `Use the online scheduler at calendly.com/castellanoscoaching, call ${SITE.phone}, or email ${SITE.email}. Whichever is easiest, there is no wrong door.`,
+   q: 'How do I book?',
+   a: [
+     `Use the online scheduler, call ${SITE.phone}, or email ${SITE.email}.`,
     ],
    },
   ],
@@ -151,7 +153,7 @@ const jsonLd = [
  <PageHero
   eyebrow="FAQ"
   title="Honest answers to fair questions"
-  lede="Everything families and clients usually want to know before reaching out. If your question isn't here, ask it directly, you'll get a straight answer."
+  lede="Clear answers before you reach out. If your question is not here, ask directly."
  />
 
  <section class="section">
@@ -177,10 +179,16 @@ const jsonLd = [
     <h2>Still wondering about something?</h2>
     <p>
      Call <a href={SITE.phoneHref}>{SITE.phone}</a>, email
-     <a href={`mailto:${SITE.email}`}> {SITE.email}</a>, or just book the
+     <a href={`mailto:${SITE.email}`}> {SITE.email}</a>, or schedule the
      free consultation and ask everything at once.
     </p>
-    <a href={SITE.calendly} class="btn btn--primary">Book a Free Consultation</a>
+    <a
+     href={BOOKING.url}
+     class="btn btn--primary"
+     target={BOOKING.target}
+     rel={BOOKING.rel}
+     aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+    >
    </div>
   </div>
  </section>
@@ -194,20 +202,20 @@ const jsonLd = [
  }
 
  .faq-group {
-  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+  margin-bottom: clamp(1.85rem, 1.45rem + 1.45vw, 3rem);
  }
 
  .faq-group h2 {
   font-size: var(--text-xl);
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.55rem;
   border-bottom: 2px solid var(--gold);
   display: inline-block;
  }
 
  .faq-more {
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-items: start;
   background: var(--teal-tint);
   border-color: transparent;

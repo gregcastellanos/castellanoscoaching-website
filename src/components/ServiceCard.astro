@@ -4,16 +4,27 @@ interface Props {
  title: string;
  description: string;
  label?: string;
+ target?: string;
+ rel?: string;
+ ariaLabel?: string;
  /** Inline SVG icon passed via slot. */
 }
-const { href, title, description, label = 'Learn more' } = Astro.props;
+const {
+ href,
+ title,
+ description,
+ label = 'Learn more',
+ target,
+ rel,
+ ariaLabel,
+} = Astro.props;
 ---
 
 <article class="service-card card">
  <div class="service-card__icon" aria-hidden="true">
   <slot />
  </div>
- <h3><a href={href}>{title}</a></h3>
+ <h3><a href={href} target={target} rel={rel} aria-label={ariaLabel}>{title}</a></h3>
  <p>{description}</p>
   <span class="service-card__more" aria-hidden="true">{label}</span>
 </article>
@@ -39,7 +50,7 @@ const { href, title, description, label = 'Learn more' } = Astro.props;
   display: grid;
   place-items: center;
   border-radius: 14px;
-  background: var(--paper);
+  background: var(--surface-paper);
   color: var(--gold-deep);
  }
 

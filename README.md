@@ -1,11 +1,12 @@
-# Castellanos Coaching — Website
+# Castellanos Coaching Website
 
 Marketing site for [Castellanos Coaching](https://www.castellanoscoaching.com):
 executive function, academic, social skills, independence, and parent/family
-coaching for neurodivergent teens, young adults, and adults in Sonoma County,
-Marin, the Bay Area, and remote nationwide.
+coaching for neurodivergent teens, young adults, and adults. Remote coaching
+through Google Meet is the primary model, with limited local availability in
+Marin, Sonoma County, and nearby areas.
 
-Built with [Astro](https://astro.build) as a fully static site — no client-side
+Built with [Astro](https://astro.build) as a fully static site, with no client-side
 framework, no CMS, no database. The only JavaScript shipped to visitors is the
 mobile navigation toggle.
 
@@ -22,7 +23,7 @@ npm run preview    # serve the production build locally
 
 ```
 src/
-  data/site.ts          # Phone, email, Calendly link, service list, nav — edit business details here
+  data/site.ts          # Phone, email, Google booking config, service list, nav. Edit business details here
   data/schema.ts        # JSON-LD structured data builders (LocalBusiness, Service, FAQ, breadcrumbs)
   styles/global.css     # Design system: colors, type scale, buttons, cards, FAQ styles
   layouts/
@@ -37,7 +38,8 @@ scripts/
 
 ## Common edits
 
-- **Phone, email, Calendly, service areas:** `src/data/site.ts` — used everywhere automatically.
+- **Phone, email, Google booking URL, service areas:** `src/data/site.ts`. Used everywhere automatically.
+- **Google Appointment Schedule:** set `PUBLIC_GOOGLE_BOOKING_URL` in your environment. See `GOOGLE_BOOKING_SETUP.md`.
 - **Copy:** each page's text lives in its file under `src/pages/`. Service-page
   copy is a structured object at the top of each file in `src/pages/services/`.
 - **Colors and fonts:** CSS custom properties at the top of `src/styles/global.css`.
