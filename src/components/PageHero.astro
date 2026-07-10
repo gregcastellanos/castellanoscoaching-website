@@ -1,4 +1,6 @@
 ﻿---
+import HillsDivider from './HillsDivider.astro';
+
 interface Props {
  eyebrow?: string;
  title: string;
@@ -14,13 +16,18 @@ const { eyebrow, title, lede } = Astro.props;
   {lede && <p class="lede">{lede}</p>}
   <slot />
  </div>
+ <HillsDivider />
 </div>
 
 <style>
  .page-hero {
   background: var(--white);
   border-bottom: 1px solid var(--line);
-  padding-block: clamp(3.25rem, 2.5rem + 3vw, 5.75rem);
+  padding-top: clamp(2.25rem, 1.75rem + 2vw, 3.5rem);
+ }
+
+ .page-hero .wrap {
+  margin-bottom: clamp(1rem, 2.5vw, 2rem);
  }
 
  .page-hero h1 {

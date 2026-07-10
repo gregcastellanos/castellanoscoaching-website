@@ -32,11 +32,6 @@
 
   targets.forEach((element) => observer.observe(element));
 
-  // Safety net: if anything is still hidden shortly after load (observer never
-  // fired, e.g. during a headless snapshot), reveal everything.
-  window.setTimeout(() => {
-   targets.forEach((el) => el.classList.add('reveal-visible'));
-  }, 1200);
  }
 </script>
 

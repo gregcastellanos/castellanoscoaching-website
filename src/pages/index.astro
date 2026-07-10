@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CompassMark from '../components/CompassMark.astro';
 import TestimonialSlider from '../components/TestimonialSlider.astro';
+import HillsDivider from '../components/HillsDivider.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import FaqItem from '../components/FaqItem.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -155,6 +156,7 @@ const faqPreview = [
     </picture>
    </figure>
   </div>
+  <HillsDivider />
  </section>
 
  <section class="how-strip" aria-label="How coaching works">
@@ -419,7 +421,7 @@ const faqPreview = [
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: clamp(2rem, 1rem + 4vw, 5rem);
-  padding-block: clamp(3.5rem, 2.5rem + 4vw, 6.5rem);
+  padding-block: clamp(2.25rem, 1.75rem + 2.25vw, 3.75rem) clamp(0.75rem, 1.5vw, 1.5rem);
  }
 
  .hero__lede {
