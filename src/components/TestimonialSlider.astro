@@ -1,0 +1,225 @@
+---
+// Rotating client testimonials. Works without JavaScript (first quote shows
+// statically; controls appear only once JS wires them up).
+interface Testimonial {
+ quote: string;
+ name: string;
+}
+
+interface Props {
+ items: Testimonial[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="ts" role="region" aria-roledescription="carousel" aria-label="What clients say">
+ <div class="ts__viewport" aria-live="polite">
+  {
+   items.map((t, i) => (
+    <figure
+     class:list={['ts__slide', { 'is-active': i === 0 }]}
+     role="group"
+     aria-roledescription="slide"
+     aria-label={`${i + 1} of ${items.length}`}
+     aria-hidden={i === 0 ? undefined : 'true'}
+    >
+     <blockquote>“{t.quote}”</blockquote>
+     <figcaption>{t.name}</figcaption>
+    </figure>
+   ))
+  }
+ </div>
+
+ <div class="ts__controls">
+  <button type="button" class="ts__arrow" data-dir="-1" aria-label="Previous testimonial">
+   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <div class="ts__dots" role="tablist" aria-label="Choose testimonial">
+   {
+    items.map((t, i) => (
+     <button
+      type="button"
+      class="ts__dot"
+      data-index={i}
+      aria-label={`Testimonial from ${t.name}`}
+      aria-current={i === 0 ? 'true' : undefined}
+     />
+    ))
+   }
+  </div>
+  <button type="button" class="ts__arrow" data-dir="1" aria-label="Next testimonial">
+   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+ </div>
+</div>
+
+<script>
+ document.querySelectorAll<HTMLElement>('.ts').forEach((root) => {
+  const slides = [...root.querySelectorAll<HTMLElement>('.ts__slide')];
+  const dots = [...root.querySelectorAll<HTMLButtonElement>('.ts__dot')];
+  if (slides.length < 2) return;
+
+  root.classList.add('ts--js');
+  let index = 0;
+  let timer: number | undefined;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const show = (next: number) => {
+   index = (next + slides.length) % slides.length;
+   slides.forEach((s, i) => {
+    s.classList.toggle('is-active', i === index);
+    if (i === index) s.removeAttribute('aria-hidden');
+    else s.setAttribute('aria-hidden', 'true');
+   });
+   dots.forEach((d, i) => {
+    if (i === index) d.setAttribute('aria-current', 'true');
+    else d.removeAttribute('aria-current');
+   });
+  };
+
+  const stop = () => window.clearInterval(timer);
+  const start = () => {
+   if (reduceMotion) return;
+   stop();
+   timer = window.setInterval(() => show(index + 1), 6500);
+  };
+
+  root.querySelectorAll<HTMLButtonElement>('.ts__arrow').forEach((btn) =>
+   btn.addEventListener('click', () => {
+    show(index + Number(btn.dataset.dir));
+    start();
+   })
+  );
+  dots.forEach((d) =>
+   d.addEventListener('click', () => {
+    show(Number(d.dataset.index));
+    start();
+   })
+  );
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  start();
+ });
+</script>
+
+<style>
+ .ts {
+  position: relative;
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.94);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.8rem, 1.5rem + 1.5vw, 2.6rem);
+  box-shadow: var(--shadow-lift);
+ }
+
+ .ts::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.2rem;
+  left: 1.4rem;
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.85;
+ }
+
+ /* Slides stack in one grid cell so the card sizes to the tallest quote. */
+ .ts__viewport {
+  display: grid;
+ }
+
+ .ts__slide {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 420ms ease, visibility 420ms;
+ }
+
+ .ts__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+ }
+
+ .ts__slide blockquote {
+  margin: 1.6rem 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 610;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+ }
+
+ .ts__slide figcaption {
+  margin-top: 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold-soft);
+ }
+
+ /* Controls are meaningless without JS; reveal them once wired. */
+ .ts__controls {
+  display: none;
+ }
+
+ .ts--js .ts__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+ }
+
+ .ts__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+ }
+
+ .ts__arrow:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+ }
+
+ .ts__dots {
+  display: flex;
+  gap: 0.55rem;
+ }
+
+ .ts__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+ }
+
+ .ts__dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+ }
+
+ .ts__dot[aria-current='true'] {
+  background: var(--gold);
+  transform: scale(1.25);
+ }
+</style>
