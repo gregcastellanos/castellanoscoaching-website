@@ -2,7 +2,7 @@
 import { BOOKING, SITE } from '../data/site';
 ---
 
-<aside class="mobile-cta" aria-label="Consultation options">
+<aside class="mobile-cta" aria-label="Consultation options" data-mobile-cta>
  <a
   href={BOOKING.url}
   class="mobile-cta__book"
@@ -37,6 +37,17 @@ import { BOOKING, SITE } from '../data/site';
    border-top: 1px solid var(--line);
    background: rgba(255, 255, 255, 0.97);
    box-shadow: 0 -8px 24px rgba(30, 53, 91, 0.1);
+   pointer-events: none;
+   transform: translateY(calc(100% + env(safe-area-inset-bottom)));
+   visibility: hidden;
+   transition: transform 0.22s ease, visibility 0s linear 0.22s;
+  }
+
+  .mobile-cta.is-visible {
+   pointer-events: auto;
+   transform: translateY(0);
+   visibility: visible;
+   transition: transform 0.22s ease;
   }
 
   .mobile-cta a {
@@ -63,5 +74,69 @@ import { BOOKING, SITE } from '../data/site';
    color: var(--navy);
    background: var(--white);
   }
+
+  @media (prefers-reduced-motion: reduce) {
+   .mobile-cta,
+   .mobile-cta.is-visible {
+    transition: none;
+   }
+  }
  }
 </style>
+
+<script>
+ const stickyCta = document.querySelector<HTMLElement>('[data-mobile-cta]');
+ const mobileMedia = window.matchMedia('(max-width: 700px)');
+ const anchorSelector = '[data-sticky-cta-anchor]';
+ let observer: IntersectionObserver | undefined;
+ let visibleAnchors = 0;
+
+ const setStickyCta = () => {
+  if (!stickyCta) return;
+  stickyCta.classList.toggle(
+   'is-visible',
+   mobileMedia.matches && visibleAnchors === 0
+  );
+ };
+
+ const observeAnchors = () => {
+  if (!stickyCta) return;
+  observer?.disconnect();
+  visibleAnchors = 0;
+
+  const anchors = Array.from(document.querySelectorAll<HTMLElement>(anchorSelector));
+
+  if (!mobileMedia.matches) {
+   setStickyCta();
+   return;
+  }
+
+  if (!('IntersectionObserver' in window) || anchors.length === 0) {
+   stickyCta.classList.add('is-visible');
+   return;
+  }
+
+  observer = new IntersectionObserver(
+   (entries) => {
+    for (const entry of entries) {
+     const target = entry.target as HTMLElement;
+     target.dataset.stickyCtaVisible = entry.isIntersecting ? 'true' : 'false';
+    }
+
+    visibleAnchors = anchors.filter(
+     (anchor) => anchor.dataset.stickyCtaVisible === 'true'
+    ).length;
+    setStickyCta();
+   },
+   { threshold: 0.2 }
+  );
+
+  for (const anchor of anchors) {
+   anchor.dataset.stickyCtaVisible = 'false';
+   observer.observe(anchor);
+  }
+ };
+
+ observeAnchors();
+ mobileMedia.addEventListener?.('change', observeAnchors);
+</script>

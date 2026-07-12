@@ -56,6 +56,7 @@ Thanks!`
       class="btn btn--primary"
       target={BOOKING.target}
       rel={BOOKING.rel}
+      data-sticky-cta-anchor
       aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
      >
     </div>
@@ -160,6 +161,17 @@ Thanks!`
  .contact-card__reassurance {
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.95rem;
+ }
+
+ .contact-card--primary .btn--primary {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 16px 34px -24px rgba(0, 0, 0, 0.42);
+ }
+
+ .contact-card--primary .btn--primary:hover {
+  background: var(--navy-soft);
+  color: var(--navy);
  }
 
  .contact-expect ol {
