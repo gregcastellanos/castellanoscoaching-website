@@ -35,8 +35,11 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="generator" content={Astro.generator} />
   <meta name="theme-color" content="#012255" />
+  <meta name="geo.region" content="US-CA" />
+  <meta name="geo.placename" content="Marin County, California" />
 
   <meta property="og:type" content={ogType} />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content={SITE.name} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />

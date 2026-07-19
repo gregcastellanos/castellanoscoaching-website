@@ -1,5 +1,5 @@
 // JSON-LD builders shared across pages.
-import { SITE } from './site';
+import { SERVICES, SITE } from './site';
 
 export const personSchema = {
  '@type': 'Person',
@@ -12,6 +12,20 @@ export const personSchema = {
  telephone: SITE.phone,
  worksFor: { '@id': `${SITE.url}/#business` },
  url: `${SITE.url}/about/`,
+ knowsAbout: [
+  'Executive function coaching',
+  'ADHD coaching',
+  'Autism support',
+  'Learning differences',
+  'Academic coaching',
+  'Social skills coaching',
+  'Independence and life skills',
+  'Parent and family coaching',
+ ],
+ homeLocation: {
+  '@type': 'Place',
+  name: 'Marin County, California',
+ },
 };
 
 export const businessSchema = {
@@ -35,7 +49,40 @@ export const businessSchema = {
   ...SITE.areaServed.map((name) => ({ '@type': 'Place', name })),
   { '@type': 'Country', name: 'United States' },
  ],
+ serviceArea: {
+  '@type': 'GeoCircle',
+  geoMidpoint: {
+   '@type': 'GeoCoordinates',
+   latitude: 38.0834,
+   longitude: -122.7633,
+  },
+  geoRadius: 120000,
+ },
+ logo: `${SITE.url}/castellanos-coaching-logo.png`,
+ image: `${SITE.url}/og-cover.png`,
+ hasOfferCatalog: {
+  '@type': 'OfferCatalog',
+  name: 'Coaching services',
+  itemListElement: SERVICES.map((s) => ({
+   '@type': 'Offer',
+   itemOffered: {
+    '@type': 'Service',
+    name: s.title,
+    url: `${SITE.url}/services/${s.slug}/`,
+   },
+  })),
+ },
  priceRange: '$$',
+};
+
+export const websiteSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebSite',
+ '@id': `${SITE.url}/#website`,
+ url: SITE.url,
+ name: SITE.name,
+ publisher: { '@id': `${SITE.url}/#business` },
+ inLanguage: 'en-US',
 };
 
 export function serviceSchema(opts: {
