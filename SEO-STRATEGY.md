@@ -31,24 +31,23 @@ remote intent (Northern California / California terms, won through content and r
 No visible page content or design was changed. Everything below is metadata and
 structured data.
 
-- **Geo-targeted title tags** on all core pages. Titles now lead with the service and
-  carry Marin / Bay Area / Northern California, kept near 60 characters so nothing is
-  truncated in results.
-- **Geo-targeted meta descriptions**, all under 160 characters, each naming the region
-  and the audience so the snippet reads like an answer to the search.
-- **Expanded `areaServed` structured data**: Northern California, Marin County,
-  San Rafael, Mill Valley, Novato, Sonoma County, Santa Rosa, Sebastopol, Petaluma,
-  Napa County, San Francisco, North Bay, East Bay, Oakland, Berkeley, Silicon Valley,
-  San Jose, the Bay Area, Sacramento, and California.
-- **`serviceArea` GeoCircle** centered on Marin County with a 120 km radius, which tells
-  Google the physical catchment (SF, North Bay, East Bay, Peninsula, South Bay, Napa,
-  Sonoma).
+- **Balanced local + remote title tags** on all core pages (for example
+  "Executive Function Coaching | Bay Area & Remote"), kept near 60 characters to
+  reduce the chance of truncation in results.
+- **Concise, search-friendly meta descriptions**, all under 160 characters, each naming
+  the region and the audience. Note: Google may still rewrite or truncate snippets at
+  its discretion; short length improves the odds, it does not guarantee display.
+- **Truthful `areaServed` structured data**: Remote coaching, Sonoma County,
+  Marin County, San Francisco Bay Area, Santa Rosa, Sebastopol, Petaluma, San Rafael,
+  San Francisco, and California. Structured data must never imply routine in-person
+  coverage of areas not actually served in person.
 - **OfferCatalog** on the business schema listing all five services with their URLs, and
   **logo/image** properties so brand results can render correctly.
 - **Person schema upgrades**: `knowsAbout` topics (executive function, ADHD, autism,
-  learning differences, etc.) and a Marin County `homeLocation`.
+  learning differences, etc.) and a Sonoma County `homeLocation`. The business address
+  locality is Sebastopol, where the practice is based.
 - **WebSite schema** on the homepage tying the site to the business entity.
-- **`geo.region` / `geo.placename` meta tags** (US-CA, Marin County) and **`og:locale`**.
+- **`geo.region` / `geo.placename` meta tags** (US-CA, Sonoma County) and **`og:locale`**.
 - Already in place from earlier passes: canonical URLs, XML sitemap + robots.txt,
   FAQPage schema, BreadcrumbList schema, per-page Service schema, fast static pages
   (Core Web Vitals are a ranking input).
@@ -59,21 +58,24 @@ In priority order. Items 1–3 matter more than everything else combined.
 
 1. **Google Business Profile** (free, ~1 evening). Create a service-area business
    profile: category "Life coach" (secondary: "Educational consultant", "Tutor"),
-   service area set to the Bay Area counties, hours, booking link
+   service area set to the counties actually served in person (Sonoma, Marin, and
+   nearby), hours, booking link
    (https://calendar.app.google/23eDUZW7ViT9Ru7m9), the five services listed, photos.
    This is what puts you in the map pack for "executive function coach near me".
-2. **Reviews on Google.** Ask Logan, Alex, Rune, and Seth (and future clients, one ask
-   at the end of a successful engagement) to leave the same feedback as a Google review.
+2. **Reviews on Google.** Ask established adult clients, or parents of clients, for an
+   honest review in their own words; one ask, at a natural high point such as the end of
+   a successful engagement. Do not suggest wording, do not ask for a particular rating,
+   and never incentivize reviews (both Google policy and FTC rules prohibit it).
    Review count + recency is the strongest map-pack ranking factor.
 3. **Google Search Console.** Verify the domain, submit
    https://www.castellanoscoaching.com/sitemap-index.xml, and check monthly which
    queries get impressions but no clicks; retitle those pages.
 4. **Directory citations** (consistent name / phone / URL everywhere):
    Psychology Today, ADDitude directory, CHADD professional directory, ACO
-   (ADHD Coaches Organization), Yelp, Nextdoor (Marin), care.com. These are both
+   (ADHD Coaches Organization), Yelp, Nextdoor (Sonoma and Marin), care.com. These are both
    backlinks and direct referral sources for exactly this audience.
 5. **One local anchor page later** (when you are ready to add content): a single
-   "Coaching in Marin & the Bay Area" page targeting local modifiers, linked from the
+   "Coaching in Sonoma, Marin & the Bay Area" page targeting local modifiers, linked from the
    footer. One good page beats ten thin city pages, which Google now penalizes.
 6. **Content flywheel** (one piece per month, tied to real search demand):
    "How to help an ADHD teen start homework", "Executive function checklist for college
@@ -96,4 +98,5 @@ In priority order. Items 1–3 matter more than everything else combined.
   geography honestly.
 - Keep every claim verifiable (credentials, testimonials with permission).
 - Keep titles/descriptions in sync with this strategy when pages are added; keep all
-  descriptions ≤160 characters and titles ≤60 where possible.
+  descriptions ≤160 characters and titles ≤60 where possible, remembering that Google
+  treats these as suggestions and may rewrite or truncate what it shows.

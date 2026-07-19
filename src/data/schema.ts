@@ -24,7 +24,7 @@ export const personSchema = {
  ],
  homeLocation: {
   '@type': 'Place',
-  name: 'Marin County, California',
+  name: 'Sonoma County, California',
  },
 };
 
@@ -41,7 +41,7 @@ export const businessSchema = {
  founder: personSchema,
  address: {
   '@type': 'PostalAddress',
-  addressLocality: 'Marin County',
+  addressLocality: 'Sebastopol',
   addressRegion: 'CA',
   addressCountry: 'US',
  },
@@ -49,15 +49,6 @@ export const businessSchema = {
   ...SITE.areaServed.map((name) => ({ '@type': 'Place', name })),
   { '@type': 'Country', name: 'United States' },
  ],
- serviceArea: {
-  '@type': 'GeoCircle',
-  geoMidpoint: {
-   '@type': 'GeoCoordinates',
-   latitude: 38.0834,
-   longitude: -122.7633,
-  },
-  geoRadius: 120000,
- },
  logo: `${SITE.url}/castellanos-coaching-logo.png`,
  image: `${SITE.url}/og-cover.png`,
  hasOfferCatalog: {
