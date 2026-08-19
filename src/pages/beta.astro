@@ -1,0 +1,841 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CompassMark from '../components/CompassMark.astro';
+import TestimonialSlider from '../components/TestimonialSlider.astro';
+import FaqItem from '../components/FaqItem.astro';
+import { BOOKING, SERVICES, SITE } from '../data/site';
+import { businessSchema, websiteSchema } from '../data/schema';
+
+const metaTitle = 'Conversion Beta | Castellanos Coaching';
+const metaDescription =
+ 'A conversion beta homepage for Castellanos Coaching, focused on real-world coaching for neurodivergent teens and young adults building greater independence.';
+const ctaLabel = 'Book a Fit Call';
+const ctaAria = 'Book a fit call with Gregory Castellanos in a new tab';
+
+const everydayExamples = [
+ 'Managing a weekly calendar',
+ 'Communicating with a teacher or supervisor',
+ 'Preparing for an interview',
+ 'Planning transportation',
+ 'Making appointments',
+ 'Organizing responsibilities at home',
+ 'Managing money for real purchases',
+ 'Planning a social activity',
+];
+
+const ownershipOutcomes = [
+ {
+  title: 'More ownership',
+  body: 'The young person takes more responsibility for choices, commitments, routines, and follow-through.',
+ },
+ {
+  title: 'More capability',
+  body: 'Skills are practiced with real materials, real conversations, real deadlines, and real environments.',
+ },
+ {
+  title: 'More self-advocacy',
+  body: 'Clients learn to communicate needs, ask for support, and participate in decisions that affect their life.',
+ },
+];
+
+const comparisonRows = [
+ {
+  common: 'Discuss the skill',
+  coaching: 'Practice the skill in a meaningful situation',
+ },
+ {
+  common: 'Adult manages the logistics',
+  coaching: 'Build increasing ownership with the client',
+ },
+ {
+  common: 'Focus on one setting',
+  coaching: 'Connect school, home, work, relationships, and community',
+ },
+ {
+  common: 'Complete the immediate task',
+  coaching: 'Develop reusable capability for the next task',
+ },
+];
+
+const compassSteps = [
+ {
+  name: 'Clarity',
+  body: 'Understand the person, strengths, priorities, context, and direction.',
+ },
+ {
+  name: 'Alignment',
+  body: 'Build trust, shared expectations, and systems that fit the person using them.',
+ },
+ {
+  name: 'Foundation',
+  body: 'Develop practical skills for planning, communication, routines, and follow-through.',
+ },
+ {
+  name: 'Expansion',
+  body: 'Apply those skills to wider parts of life: school, work, home, relationships, and community.',
+ },
+];
+
+const testimonials = [
+ {
+  quote:
+   'Greg helped me stop overthinking and actually take steps. We worked on school, jobs, track, and planning my future in a way that felt real.',
+  name: 'Logan D.',
+ },
+ {
+  quote:
+   'Greg helps me work on being more independent. I have a real job now, I go to concerts, and I’m learning how to handle more things on my own.',
+  name: 'Alex G.',
+ },
+ {
+  quote:
+   'Greg actually listened to what I wanted. He helped me think about school, work, and real-life stuff without making me feel talked down to.',
+  name: 'Rune C.',
+ },
+ {
+  quote:
+   'Greg helped me get organized and start doing things instead of avoiding them. He made everything feel less overwhelming.',
+  name: 'Seth A.',
+ },
+];
+
+const fitQuestions = [
+ {
+  question: 'Is this therapy?',
+  answer:
+   'No. Coaching is educational mentoring and skill-building. It can work alongside therapy or school support, but it does not replace clinical care.',
+ },
+ {
+  question: 'Is this only academic?',
+  answer:
+   'No. School can be part of the work, but coaching may also include routines, work readiness, social planning, communication, transportation, appointments, and independent living skills.',
+ },
+ {
+  question: 'What happens after I book?',
+  answer:
+   'The fit call is a practical conversation about goals, current supports, what life looks like right now, and whether Greg’s approach is the right match.',
+ },
+];
+---
+
+<BaseLayout
+ title={metaTitle}
+ description={metaDescription}
+ jsonLd={[businessSchema, websiteSchema]}
+ robots="noindex, nofollow"
+ bookingLabel={ctaLabel}
+ bookingAriaLabel={ctaAria}
+>
+ <section class="beta-hero" aria-labelledby="beta-hero-title">
+  <div class="wrap beta-hero__inner">
+   <div class="beta-hero__copy">
+    <p class="eyebrow">Real-world coaching for growing independence</p>
+    <h1 id="beta-hero-title">Clarity. Systems. Independence.</h1>
+    <p class="beta-hero__lede">
+     Coaching for neurodivergent teens and young adults building more ownership
+     at school, at work, in relationships, and in everyday life.
+    </p>
+    <p class="beta-hero__plain">
+     The goal is not to make a young person better at being managed. The goal is
+     to help them learn to manage a life of their own.
+    </p>
+    <div class="btn-row">
+     <a
+      href={BOOKING.url}
+      class="btn btn--primary"
+      target={BOOKING.target}
+      rel={BOOKING.rel}
+      data-sticky-cta-anchor
+      aria-label={ctaAria}>{ctaLabel}</a
+     >
+     <a href="#how-coaching-works" class="btn btn--outline">See How Coaching Works</a>
+    </div>
+    <ul class="beta-hero__trust" aria-label="Credentials">
+     <li>15+ years supporting neurodivergent learners</li>
+     <li>Master of Arts in Teaching (M.A.T.)</li>
+     <li>Creator of The Castellanos Compass™</li>
+    </ul>
+   </div>
+   <figure class="beta-hero__portrait">
+    <picture>
+     <source srcset="/greg-hero.webp" type="image/webp" />
+     <img
+      src="/greg-hero.jpg"
+      alt="Gregory Castellanos, educator and executive function coach"
+      width="1200"
+      height="675"
+      loading="eager"
+      fetchpriority="high"
+     />
+    </picture>
+   </figure>
+  </div>
+ </section>
+
+ <section class="beta-band" aria-label="Who this is for">
+  <div class="wrap beta-band__grid">
+   <p><strong>For teens:</strong> school, routines, communication, friendships, and increasing responsibility.</p>
+   <p><strong>For young adults:</strong> college, work, home life, transportation, relationships, and next steps.</p>
+   <p><strong>For parents:</strong> support that helps responsibility move gradually toward the young person.</p>
+  </div>
+ </section>
+
+ <section class="section" aria-labelledby="future-title">
+  <div class="wrap beta-split">
+   <div class="section-head">
+    <p class="eyebrow">What coaching builds toward</p>
+    <h2 id="future-title">Greater ownership of everyday life</h2>
+    <p class="lede">
+     Castellanos Coaching is designed around practical capability: planning,
+     communicating, following through, advocating for oneself, and participating
+     more fully in adult life.
+    </p>
+   </div>
+   <div class="outcome-grid">
+    {
+     ownershipOutcomes.map((item) => (
+      <article class="beta-card beta-card--line">
+       <h3>{item.title}</h3>
+       <p>{item.body}</p>
+      </article>
+     ))
+    }
+   </div>
+  </div>
+ </section>
+
+ <section class="section section--sand" aria-labelledby="examples-title">
+  <div class="wrap beta-examples">
+   <div class="section-head">
+    <p class="eyebrow">Recognition through real life</p>
+    <h2 id="examples-title">Independence is built through everyday experiences</h2>
+    <p class="lede">
+     Skills become more useful when they are practiced in the places where they
+     actually matter. Depending on the client and goals, coaching may involve:
+    </p>
+   </div>
+   <ul class="example-list">
+    {everydayExamples.map((example) => <li>{example}</li>)}
+   </ul>
+  </div>
+ </section>
+
+ <section class="section section--ink" aria-labelledby="difference-title">
+  <div class="wrap difference-grid">
+   <div>
+    <p class="eyebrow">The difference</p>
+    <h2 id="difference-title">Coaching that moves from conversation into real life</h2>
+    <p class="lede">
+     Talking about planning is useful. Planning something real teaches more.
+     Castellanos Coaching can include planning, practicing, experiencing,
+     reflecting, and trying again in meaningful contexts.
+    </p>
+   </div>
+   <div class="comparison" aria-label="How Castellanos Coaching applies skills">
+    <div class="comparison__row comparison__row--head">
+     <span>Some support models</span>
+     <span>Castellanos Coaching</span>
+    </div>
+    {
+     comparisonRows.map((row) => (
+      <div class="comparison__row">
+       <span>{row.common}</span>
+       <span>{row.coaching}</span>
+      </div>
+     ))
+    }
+   </div>
+  </div>
+ </section>
+
+ <section class="section" aria-labelledby="classroom-title">
+  <div class="wrap real-life">
+   <div class="real-life__statement">
+    <p class="eyebrow">Memorable and practical</p>
+    <h2 id="classroom-title">Real life is the classroom.</h2>
+   </div>
+   <div class="real-life__copy">
+    <p>
+     Coaching is individualized. One client may work on a calendar and teacher
+     email. Another may practice job applications, transportation, budgeting, or
+     social plans. The common thread is that the skill is connected to a real
+     life the client is trying to build.
+    </p>
+    <p>
+     This is real life, not worksheets: the backpack, calendar, application,
+     schedule, room, message, or conversation that needs practice.
+    </p>
+   </div>
+  </div>
+ </section>
+
+ <section class="section section--sand" aria-labelledby="compass-beta-title">
+  <div class="wrap beta-compass">
+   <div class="beta-compass__intro">
+    <span class="compass-logo-tile"><CompassMark size={58} /></span>
+    <p class="eyebrow">The Castellanos Compass™</p>
+    <h2 id="compass-beta-title">A flexible framework with agency at the center</h2>
+    <p class="lede">
+     The Compass helps organize the work without turning it into a rigid
+     curriculum. Clients may revisit each direction as goals, confidence, and
+     responsibilities change.
+    </p>
+   </div>
+   <ol class="beta-compass__steps">
+    {
+     compassSteps.map((step) => (
+      <li>
+       <h3>{step.name}</h3>
+       <p>{step.body}</p>
+      </li>
+     ))
+    }
+   </ol>
+   <p class="beta-compass__note">
+    Agency means increasing ownership of choices, responsibilities, direction,
+    and life. The Compass is not therapy, a diagnosis, a clinical protocol, or a
+    guaranteed progression.
+   </p>
+  </div>
+ </section>
+
+ <section class="section" aria-labelledby="proof-title">
+  <div class="wrap proof-grid">
+   <div>
+    <p class="eyebrow">Real progress in real life</p>
+    <h2 id="proof-title">Proof should sound like observable change</h2>
+    <p class="lede">
+     The strongest evidence is not generic praise. It is a client describing
+     more follow-through, more independence, better communication, or a next
+     step that became possible.
+    </p>
+   </div>
+   <TestimonialSlider items={testimonials} />
+  </div>
+ </section>
+
+ <section class="section section--sand" aria-labelledby="greg-title">
+  <div class="wrap greg-grid">
+   <div>
+    <p class="eyebrow">About Greg</p>
+    <h2 id="greg-title">Credible, practical, and easy to talk to</h2>
+    <p class="lede">
+     Gregory Castellanos brings 15+ years of experience supporting
+     neurodivergent learners through teaching, STEAM programs, mentoring, and
+     one-on-one coaching.
+    </p>
+    <p>
+     His work is relationship-based and practical. Clients are treated as people
+     with strengths, preferences, interests, and real goals, not as problems to
+     manage.
+    </p>
+    <div class="btn-row">
+     <a href="/about/" class="btn btn--outline">Meet Gregory</a>
+     <a href="/castellanos-compass/" class="btn btn--outline">Explore the Compass</a>
+    </div>
+   </div>
+   <div class="credential-panel" aria-label="Gregory Castellanos credentials">
+    <span>15+ years of experience</span>
+    <span>Master of Arts in Teaching (M.A.T.)</span>
+    <span>Executive function, academic, social, and life-skills coaching</span>
+    <span>Remote first, with limited local in-person options</span>
+   </div>
+  </div>
+ </section>
+
+ <section id="how-coaching-works" class="section" aria-labelledby="process-title">
+  <div class="wrap process-grid">
+   <div class="section-head">
+    <p class="eyebrow">How coaching works</p>
+    <h2 id="process-title">A clear start, then an individualized path</h2>
+    <p class="lede">
+     Coaching is flexible and nonlinear, but the first steps should feel easy to
+     understand.
+    </p>
+   </div>
+   <ol class="process-list">
+    <li><strong>Fit call.</strong> Talk through goals, current supports, and whether the approach makes sense.</li>
+    <li><strong>Understand the person.</strong> Clarify strengths, priorities, context, interests, and practical needs.</li>
+    <li><strong>Build the approach.</strong> Choose goals and experiences that fit the client’s real life.</li>
+    <li><strong>Practice and apply.</strong> Work on skills through meaningful situations.</li>
+    <li><strong>Build ownership.</strong> Increase independence and self-management over time.</li>
+   </ol>
+  </div>
+ </section>
+
+ <section class="section section--sand" aria-labelledby="questions-title">
+  <div class="wrap question-grid">
+   <div class="section-head">
+    <p class="eyebrow">Lowering uncertainty</p>
+    <h2 id="questions-title">What families often need to know first</h2>
+   </div>
+   <div>
+    {
+     fitQuestions.map((item) => (
+      <FaqItem question={item.question}>
+       <p>{item.answer}</p>
+      </FaqItem>
+     ))
+    }
+   </div>
+  </div>
+ </section>
+
+ <section class="beta-final" aria-labelledby="final-title">
+  <div class="wrap beta-final__inner">
+   <span class="compass-logo-tile"><CompassMark size={56} /></span>
+   <p class="eyebrow">One easy next step</p>
+   <h2 id="final-title">Build the next level of independence</h2>
+   <p>
+    A fit call is a free 20–30 minute conversation about goals, current supports,
+    and whether Castellanos Coaching is the right match.
+   </p>
+   <div class="btn-row beta-final__buttons">
+    <a
+     href={BOOKING.url}
+     class="btn btn--primary"
+     target={BOOKING.target}
+     rel={BOOKING.rel}
+     aria-label={ctaAria}>{ctaLabel}</a
+    >
+    <a href={`mailto:${SITE.email}`} class="btn btn--outline">Email Greg</a>
+   </div>
+  </div>
+ </section>
+</BaseLayout>
+
+<style>
+ .beta-hero,
+ .beta-band,
+ .beta-final {
+  position: relative;
+  background: var(--surface-white);
+ }
+
+ .beta-hero h1,
+ .beta-hero h2,
+ .beta-hero h3,
+ .section h2,
+ .section h3,
+ .beta-final h2 {
+  letter-spacing: 0;
+ }
+
+ .beta-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.84fr);
+  gap: clamp(2rem, 1.4rem + 3vw, 4.5rem);
+  align-items: center;
+  padding-block: clamp(2.7rem, 2rem + 3vw, 5rem);
+ }
+
+ .beta-hero__copy h1 {
+  max-width: 10.5ch;
+ }
+
+ .beta-hero__lede {
+  max-width: 40rem;
+  margin-top: 0.9rem;
+  font-size: clamp(1.18rem, 1.08rem + 0.45vw, 1.42rem);
+  line-height: 1.38;
+  color: var(--ink);
+ }
+
+ .beta-hero__plain {
+  max-width: 39rem;
+  margin-block: 0.9rem 1.2rem;
+  color: var(--navy);
+  font-weight: 650;
+ }
+
+ .beta-hero__trust {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.42rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  font-weight: 580;
+ }
+
+ .beta-hero__trust li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+ }
+
+ .beta-hero__trust li::before {
+  content: '';
+  flex: none;
+  width: 0.52rem;
+  height: 0.52rem;
+  margin-top: 0.42em;
+  border-radius: 50%;
+  background: var(--gold);
+ }
+
+ .beta-hero__portrait {
+  position: relative;
+  margin: 0;
+ }
+
+ .beta-hero__portrait::before {
+  content: '';
+  position: absolute;
+  inset: 1rem -1rem -1rem 1rem;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-lg);
+  opacity: 0.55;
+ }
+
+ .beta-hero__portrait img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 74% 42%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 42px -30px rgba(30, 53, 91, 0.42);
+ }
+
+ .beta-band {
+  border-block: 1px solid var(--line);
+  background: var(--surface-paper);
+ }
+
+ .beta-band__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+ }
+
+ .beta-band__grid p {
+  max-width: none;
+  padding: 1rem clamp(0.85rem, 0.55rem + 1vw, 1.35rem);
+  border-right: 1px solid var(--line);
+  font-size: 0.97rem;
+ }
+
+ .beta-band__grid p:last-child {
+  border-right: 0;
+ }
+
+ .beta-split,
+ .difference-grid,
+ .proof-grid,
+ .greg-grid,
+ .process-grid,
+ .question-grid {
+  display: grid;
+  grid-template-columns: 0.84fr 1.16fr;
+  gap: clamp(2rem, 1.4rem + 3vw, 4rem);
+  align-items: start;
+ }
+
+ .outcome-grid {
+  display: grid;
+  gap: 0.9rem;
+ }
+
+ .beta-card {
+  padding: clamp(1.1rem, 0.95rem + 0.65vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-white-strong);
+  box-shadow: var(--shadow-card);
+ }
+
+ .beta-card--line {
+  border-left: 4px solid var(--gold);
+ }
+
+ .beta-card h3 {
+  margin-bottom: 0.45rem;
+  font-size: var(--text-lg);
+ }
+
+ .beta-examples {
+  display: grid;
+  gap: 1.2rem;
+ }
+
+ .example-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+ }
+
+ .example-list li {
+  display: flex;
+  min-height: 5.6rem;
+  align-items: flex-end;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-white-strong);
+  color: var(--navy);
+  font-weight: 670;
+  box-shadow: var(--shadow-card);
+ }
+
+ .comparison {
+  border: 1px solid var(--line-on-ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+ }
+
+ .comparison__row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  border-top: 1px solid var(--line-on-ink);
+ }
+
+ .comparison__row:first-child {
+  border-top: 0;
+ }
+
+ .comparison__row span {
+  padding: 0.9rem 1rem;
+  color: rgba(255, 255, 255, 0.82);
+ }
+
+ .comparison__row span + span {
+  border-left: 1px solid var(--line-on-ink);
+  color: var(--white);
+  font-weight: 670;
+ }
+
+ .comparison__row--head span {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gold-soft);
+  font-size: 0.82rem;
+  font-weight: 740;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+ }
+
+ .real-life {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: clamp(2rem, 1.4rem + 3vw, 4rem);
+  align-items: center;
+ }
+
+ .real-life__statement {
+  padding: clamp(1.4rem, 1.1rem + 1.4vw, 2rem);
+  border-left: 5px solid var(--gold);
+  background: var(--surface-paper);
+  border-radius: var(--radius);
+ }
+
+ .real-life__statement h2 {
+  font-size: var(--text-3xl);
+ }
+
+ .real-life__copy {
+  display: grid;
+  gap: 0.9rem;
+ }
+
+ .beta-compass {
+  display: grid;
+  gap: 1.2rem;
+ }
+
+ .beta-compass__intro {
+  max-width: 48rem;
+ }
+
+ .compass-logo-tile {
+  display: grid;
+  place-items: center;
+  width: 4.75rem;
+  height: 4.75rem;
+  margin-bottom: 1rem;
+  padding: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+ }
+
+ .beta-compass__steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+ }
+
+ .beta-compass__steps li {
+  padding: 1.05rem;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--surface-white-strong);
+ }
+
+ .beta-compass__steps h3 {
+  margin-bottom: 0.45rem;
+  font-size: var(--text-lg);
+ }
+
+ .beta-compass__steps p {
+  font-size: 0.97rem;
+ }
+
+ .beta-compass__note {
+  max-width: 50rem;
+  color: var(--ink);
+  font-weight: 620;
+ }
+
+ .credential-panel {
+  display: grid;
+  gap: 0.72rem;
+  padding: clamp(1.1rem, 0.9rem + 1vw, 1.55rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-white-strong);
+  box-shadow: var(--shadow-card);
+ }
+
+ .credential-panel span {
+  padding-bottom: 0.72rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  font-weight: 680;
+ }
+
+ .credential-panel span:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+ }
+
+ .process-list {
+  list-style: none;
+  counter-reset: process;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+ }
+
+ .process-list li {
+  counter-increment: process;
+  position: relative;
+  max-width: none;
+  padding: 1rem 1rem 1rem 3.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-white-strong);
+ }
+
+ .process-list li::before {
+  content: counter(process);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  display: grid;
+  place-items: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.84rem;
+  font-weight: 760;
+ }
+
+ .beta-final {
+  padding-block: clamp(2.4rem, 1.8rem + 2.5vw, 4.2rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+ }
+
+ .beta-final__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+ }
+
+ .beta-final__inner .eyebrow {
+  justify-content: center;
+ }
+
+ .beta-final__inner p {
+  max-width: 39rem;
+  font-size: var(--text-md);
+ }
+
+ .beta-final__buttons {
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 0.25rem;
+ }
+
+ @media (max-width: 980px) {
+  .example-list,
+  .beta-compass__steps {
+   grid-template-columns: repeat(2, 1fr);
+  }
+
+  .beta-band__grid {
+   grid-template-columns: 1fr;
+  }
+
+  .beta-band__grid p {
+   border-right: 0;
+   border-bottom: 1px solid var(--line);
+  }
+
+  .beta-band__grid p:last-child {
+   border-bottom: 0;
+  }
+ }
+
+ @media (max-width: 860px) {
+  .beta-hero__inner,
+  .beta-split,
+  .difference-grid,
+  .real-life,
+  .proof-grid,
+  .greg-grid,
+  .process-grid,
+  .question-grid {
+   grid-template-columns: 1fr;
+  }
+
+  .beta-hero__portrait {
+   width: min(100%, 42rem);
+   margin-inline: auto;
+  }
+
+  .beta-hero__portrait::before {
+   inset: 0.6rem -0.5rem -0.6rem 0.5rem;
+  }
+ }
+
+ @media (max-width: 640px) {
+  .example-list,
+  .beta-compass__steps,
+  .comparison__row {
+   grid-template-columns: 1fr;
+  }
+
+  .comparison__row span + span {
+   border-left: 0;
+   border-top: 1px solid var(--line-on-ink);
+  }
+
+  .beta-final__buttons {
+   width: min(100%, 22rem);
+  }
+ }
+</style>

@@ -1,6 +1,12 @@
 ﻿---
 import { BOOKING, NAV, SITE } from '../data/site';
 
+interface Props {
+ bookingLabel?: string;
+ bookingAriaLabel?: string;
+}
+
+const { bookingLabel = BOOKING.label, bookingAriaLabel = BOOKING.ariaLabel } = Astro.props;
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
  href === '/' ? path === '/' : path.startsWith(href);
@@ -48,7 +54,7 @@ const isActive = (href: string) =>
       class="btn btn--primary"
       target={BOOKING.target}
       rel={BOOKING.rel}
-      aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+      aria-label={bookingAriaLabel}>{bookingLabel}</a
      >
     </li>
     <li class="site-nav__phone">

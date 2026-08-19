@@ -1,5 +1,12 @@
 ---
 import { BOOKING, SITE } from '../data/site';
+
+interface Props {
+ bookingLabel?: string;
+ bookingAriaLabel?: string;
+}
+
+const { bookingLabel = BOOKING.label, bookingAriaLabel = BOOKING.ariaLabel } = Astro.props;
 ---
 
 <aside class="mobile-cta" aria-label="Consultation options" data-mobile-cta>
@@ -8,7 +15,7 @@ import { BOOKING, SITE } from '../data/site';
   class="mobile-cta__book"
   target={BOOKING.target}
   rel={BOOKING.rel}
-  aria-label={BOOKING.ariaLabel}>{BOOKING.label}</a
+  aria-label={bookingAriaLabel}>{bookingLabel}</a
  >
  <a href={SITE.phoneHref} class="mobile-cta__call">Call</a>
 </aside>
