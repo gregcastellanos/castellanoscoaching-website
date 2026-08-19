@@ -1,0 +1,27 @@
+name: Link Health
+
+on:
+  push:
+    branches:
+      - main
+      - claude/castellanos-coaching-redesign-j9x5ov
+      - cloudflare/workers-autoconfig
+  schedule:
+    - cron: '17 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check:links

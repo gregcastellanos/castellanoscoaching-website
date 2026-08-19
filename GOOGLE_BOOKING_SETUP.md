@@ -9,6 +9,8 @@ Use this to manage the Google Calendar Appointment Schedule link for Castellanos
 3. Make sure unavailable events are marked `Busy`, not `Free`.
 4. Select `Create`, then `Appointment schedule`.
 5. Create one free booking page.
+   - The current Google plan may only allow one active appointment schedule at a time.
+   - Keep `Free 30 Min Coaching Consultation` as the active schedule unless the website link is updated and tested immediately.
 6. Use a professional title such as `Free Consultation with Gregory Castellanos`.
 7. Suggested consultation duration: 20 or 30 minutes.
 8. Add reasonable scheduling safeguards:
@@ -29,6 +31,13 @@ Replace the URL with a new public Google Appointment Schedule link if it changes
 12. Rebuild or redeploy the website.
 13. Test the booking flow in a private browser window.
 14. Confirm that an existing `Busy` appointment removes that time from availability.
+15. Run the website link check before pushing changes:
+
+```sh
+npm run check:links
+```
+
+The `Link Health` GitHub Action also runs on pushes and once per day. It fails if the old Google Calendar short link reappears or if the live booking page looks inactive or unavailable.
 
 ## Where to paste the link
 
