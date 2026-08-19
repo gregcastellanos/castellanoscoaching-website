@@ -21,7 +21,7 @@ Use this to manage the Google Calendar Appointment Schedule link for Castellanos
 11. Paste it into the centralized website configuration value:
 
 ```env
-PUBLIC_GOOGLE_BOOKING_URL=https://calendar.app.google/23eDUZW7ViT9Ru7m9
+PUBLIC_GOOGLE_BOOKING_URL=https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ylZREqz5fTpWyNA3PNrZVMS0e-XxJWyPbR-eJGtrzbN1hkW23ls1o6_uraVSoi3FYc9_uc7zS
 ```
 
 Replace the URL with a new public Google Appointment Schedule link if it changes later.
@@ -35,7 +35,7 @@ Replace the URL with a new public Google Appointment Schedule link if it changes
 For local development, create a `.env` file in the project root and add:
 
 ```env
-PUBLIC_GOOGLE_BOOKING_URL=https://calendar.app.google/23eDUZW7ViT9Ru7m9
+PUBLIC_GOOGLE_BOOKING_URL=https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ylZREqz5fTpWyNA3PNrZVMS0e-XxJWyPbR-eJGtrzbN1hkW23ls1o6_uraVSoi3FYc9_uc7zS
 ```
 
 For Cloudflare Pages, add the same variable in:

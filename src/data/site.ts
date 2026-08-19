@@ -1,7 +1,8 @@
 // Single source of truth for business details used across the site.
 
 const email = 'gregcastellanoswork@gmail.com';
-const defaultGoogleBookingUrl = 'https://calendar.app.google/23eDUZW7ViT9Ru7m9';
+const defaultGoogleBookingUrl =
+ 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ylZREqz5fTpWyNA3PNrZVMS0e-XxJWyPbR-eJGtrzbN1hkW23ls1o6_uraVSoi3FYc9_uc7zS';
 const fallbackBookingUrl = `mailto:${email}?subject=${encodeURIComponent(
  'Free consultation request'
 )}&body=${encodeURIComponent(`Hi Gregory,

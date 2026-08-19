@@ -60,7 +60,7 @@ In priority order. Items 1–3 matter more than everything else combined.
    profile: category "Life coach" (secondary: "Educational consultant", "Tutor"),
    service area set to the counties actually served in person (Sonoma, Marin, and
    nearby), hours, booking link
-   (https://calendar.app.google/23eDUZW7ViT9Ru7m9), the five services listed, photos.
+   (https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ylZREqz5fTpWyNA3PNrZVMS0e-XxJWyPbR-eJGtrzbN1hkW23ls1o6_uraVSoi3FYc9_uc7zS), the five services listed, photos.
    This is what puts you in the map pack for "executive function coach near me".
 2. **Reviews on Google.** Ask established adult clients, or parents of clients, for an
    honest review in their own words; one ask, at a natural high point such as the end of
