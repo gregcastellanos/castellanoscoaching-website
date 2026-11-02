@@ -50,7 +50,7 @@ export const businessSchema = {
   { '@type': 'Country', name: 'United States' },
  ],
  logo: `${SITE.url}/castellanos-coaching-logo.png`,
- image: `${SITE.url}/og-cover.png`,
+ image: `${SITE.url}/og-cover-v2.png`,
  hasOfferCatalog: {
   '@type': 'OfferCatalog',
   name: 'Coaching services',
